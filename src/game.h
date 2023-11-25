@@ -7,6 +7,9 @@
 #include "renderer.h"
 #include "snake.h"
 
+enum class GameModes { slow, medium, fast, fixedObstacles, movingObstacles, 
+mixedObstacles, computerSnake, original };
+
 class Game {
  public:
   Game(std::size_t grid_width, std::size_t grid_height);

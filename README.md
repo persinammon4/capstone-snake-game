@@ -1,12 +1,29 @@
-# CPPND: Capstone Snake Game Example
+# Capstone Snake Game
 
-This is a starter repo for the Capstone project in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213). The code for this repo was inspired by [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow post and set of responses.
+The original project had a fully functional Snake game implemented. A Snake game has a keyboard controlled snake that's constantly moving.
+When it eats a food (by running over it), it grows in length by one block while still moving. The original implementation infinitely runs until the snake 
+runs into itself.
+
+Original implementation:
+- A `main` function handling creating objects of the three main steps of the game loop (`Controller`, `Game`, `Renderer`). The `Game::Game` constructor creates a `Snake` object, while `Game::Run` starts the game loop.
+- A `Game::Update` method that takes care of snake movement, handling the snake eating food, basic movement in response to user input.
+- Score updated regularly.
+- The `Snake` stores float coordinates of the head, and a vector of points (int cell coordinates) as the body. The head has float
+coordinates to suggest speed as a gradient, versus blockily moving from point to point. Location updates based on the snake's speed
+are all handled. The `Snake::Update` method both handles updating the head and the body.
+- Most of the SDL usage is already written.
+
+The project spec asked to create features to the original game which used concepts discussed through the course. 
+
+Added features:
+- Create a GUI with speed (frames per second) toggling, leaderboard option, original mode, obstacle mode, computer snake mode.
+- Leaderboard is read and written from a `*.txt` file.
+- New `Obstacle` class with inheritance (fixed, moving).
+- New snake controlled by A* algorithm, which will lead to a loss if run into it or
+automatic win/rankings multiplier boost if eat the snake by hitting the last box of it.
+- End print message with score, size, and leaderboard ranking (two leaderboards - respective mode and the general leaderboard).
 
 <img src="snake_game.gif"/>
-
-The Capstone Project gives you a chance to integrate what you've learned throughout this program. This project will become an important part of your portfolio to share with current and future colleagues and employers.
-
-In this project, you can build your own C++ application or extend this Snake game, following the principles you have learned throughout this Nanodegree Program. This project will demonstrate that you can independently create applications using a wide range of C++ features.
 
 ## Dependencies for Running Locally
 * cmake >= 3.7
@@ -30,6 +47,13 @@ In this project, you can build your own C++ application or extend this Snake gam
 3. Compile: `cmake .. && make`
 4. Run it: `./SnakeGame`.
 
+Or: 
+
+1. Download the executable `build/SnakeGame` and run it through `./SnakeGame` in the same directory.
+
+## Credits
+
+Udacity team credited [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow thread.
 
 ## CC Attribution-ShareAlike 4.0 International
 
