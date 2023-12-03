@@ -241,6 +241,7 @@ CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
  /home/monica/capstone-snake-game/src/snake.h \
+ /home/monica/capstone-snake-game/src/obstacle.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
  /usr/include/c++/11/bits/stringfwd.h /usr/include/c++/11/bits/postypes.h \

@@ -689,6 +689,7 @@ CMakeFiles/SnakeGame.dir/src/game.cpp.o: ../src/game.cpp \
   ../src/controller.h \
   ../src/snake.h \
   ../src/renderer.h \
+  ../src/obstacle.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1082,7 +1083,16 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/bit \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
-  ../src/renderer.h
+  ../src/renderer.h \
+  ../src/obstacle.h \
+  ../src/nuklear.h \
+  /usr/include/assert.h \
+  ../src/leaderboard.h \
+  /usr/include/c++/11/fstream \
+  /usr/include/c++/11/bits/codecvt.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
+  /usr/include/c++/11/bits/fstream.tcc
 
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/renderer.cpp \
   /usr/include/stdc-predef.h \
@@ -1792,6 +1802,12 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 
 ../src/snake.cpp:
 
+/usr/include/c++/11/bits/fstream.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h:
+
 ../src/main.cpp:
 
 ../src/renderer.h:
@@ -1809,6 +1825,8 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 /usr/include/c++/11/istream:
 
 /usr/include/c++/11/bits/ostream.tcc:
+
+/usr/include/c++/11/bits/codecvt.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h:
 
@@ -1911,6 +1929,8 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
 
 /usr/include/c++/11/ios:
+
+../src/leaderboard.h:
 
 /usr/include/c++/11/ostream:
 
@@ -2056,6 +2076,8 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
+../src/obstacle.h:
+
 /usr/include/c++/11/bits/functexcept.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/ia32intrin.h:
@@ -2099,6 +2121,8 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 /usr/include/c++/11/bits/stl_construct.h:
 
 /usr/include/c++/11/tr1/exp_integral.tcc:
+
+/usr/include/c++/11/fstream:
 
 /usr/local/include/SDL2/SDL_platform.h:
 
@@ -2223,6 +2247,8 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 /usr/include/c++/11/tr1/modified_bessel_func.tcc:
 
 /usr/include/c++/11/bits/stl_vector.h:
+
+../src/nuklear.h:
 
 /usr/include/c++/11/bits/vector.tcc:
 
@@ -2351,6 +2377,8 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 /usr/include/c++/11/cwchar:
 
 /usr/local/include/SDL2/SDL_mutex.h:
+
+/usr/include/assert.h:
 
 /usr/local/include/SDL2/SDL_clipboard.h:
 

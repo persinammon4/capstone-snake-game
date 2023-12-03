@@ -1,8 +1,7 @@
 # Capstone Snake Game
 
 The original project had a fully functional Snake game implemented. A Snake game has a keyboard controlled snake that's constantly moving.
-When it eats a food (by running over it), it grows in length by one block while still moving. The original implementation infinitely runs until the snake 
-runs into itself.
+When it eats a food (by running over it), it grows in length by one block while still moving. The original implementation infinitely runs until the snake runs into itself.
 
 Original implementation:
 - A `main` function handling creating objects of the three main steps of the game loop (`Controller`, `Game`, `Renderer`). The `Game::Game` constructor creates a `Snake` object, while `Game::Run` starts the game loop.
@@ -16,8 +15,10 @@ are all handled. The `Snake::Update` method both handles updating the head and t
 The project spec asked to create features to the original game which used concepts discussed through the course. 
 
 Added features:
-- Create a GUI with speed (frames per second) toggling, leaderboard option, original mode, obstacle mode, computer snake mode.
-- Leaderboard is read and written from a `*.txt` file.
+- Create a GUI with speed (frames per second) toggling, leaderboard option, original mode, obstacle mode, computer snake mode. Used [Nuklear](https://github.com/Immediate-Mode-UI/Nuklear/) to do so.
+- Leaderboard is read and written from a `*.txt` file. The text file is encrypted using a symmetric key. I kept the key up on GitHub,
+so it's not like it's actually a security improvement. I just felt very uncomfortable leaving a plaintext file with data public. I could've
+left an optional parameter to toggle encryption, but decided to make it a mandatory design feature.
 - New `Obstacle` class with inheritance (fixed, moving).
 - New snake controlled by A* algorithm, which will lead to a loss if run into it or
 automatic win/rankings multiplier boost if eat the snake by hitting the last box of it.
@@ -40,6 +41,7 @@ automatic win/rankings multiplier boost if eat the snake by hitting the last box
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 
+
 ## Basic Build Instructions
 
 1. Clone this repo.
@@ -54,6 +56,12 @@ Or:
 ## Credits
 
 Udacity team credited [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow thread.
+
+## Links
+
+https://dexp.in/articles/nuklear-intro/
+https://cpp.hotexamples.com/examples/-/-/nk_option_label/cpp-nk_option_label-function-examples.html
+https://www.geeksforgeeks.org/encrypt-and-decrypt-text-file-using-cpp/
 
 ## CC Attribution-ShareAlike 4.0 International
 

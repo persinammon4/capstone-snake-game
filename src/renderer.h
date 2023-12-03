@@ -4,6 +4,7 @@
 #include <vector>
 #include "SDL.h"
 #include "snake.h"
+#include "obstacle.h"
 
 class Renderer {
  public:
@@ -11,6 +12,8 @@ class Renderer {
            const std::size_t grid_width, const std::size_t grid_height);
   ~Renderer();
 
+  // change function signature
+  //  std::vector<Obstacle> const obstacles
   void Render(Snake const snake, SDL_Point const &food);
   void UpdateWindowTitle(int score, int fps);
 
