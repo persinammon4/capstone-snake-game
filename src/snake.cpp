@@ -38,7 +38,8 @@ void Snake::UpdateHead() {
       break;
   }
 
-  // Create a different case for AI snake
+  // Due to valid cell check in Controller, AI snake will never use wraparound
+
   // Wrap the Snake around to the beginning if going off of the screen.
   head_x = fmod(head_x + grid_width, grid_width);
   head_y = fmod(head_y + grid_height, grid_height);
@@ -57,7 +58,9 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
   }
 
   // Check if the snake has died.
-  // Include new edge cases for this
+
+  // Include new edge cases for this, so it's possible to die if hit second snake
+  // or any obstacle. Make sure second snake can't die.
   for (auto const &item : body) {
     if (current_head_cell.x == item.x && current_head_cell.y == item.y) {
       alive = false;

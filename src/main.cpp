@@ -22,7 +22,11 @@ int main() {
 
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
-  Game game(kGridWidth, kGridHeight);
+
+//   enum class GameSpeeds { slow, medium, fast};
+// enum class GameObstacles { fixedObstacles, movingObstacles, noObstacles };
+// enum class GameSnakes { original, computerSnake };
+  Game game(kGridWidth, kGridHeight, GameSpeeds::medium, GameObstacles::noObstacles, GameSnakes::original);
 
   // newly added
   LeaderBoard leaderboard;

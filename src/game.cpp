@@ -2,12 +2,15 @@
 #include <iostream>
 #include "SDL.h"
 
-Game::Game(std::size_t grid_width, std::size_t grid_height)
+Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mode, GameObstacles obstacle_mode, GameSnakes snake_mode)
     : snake(grid_width, grid_height),
       fake_snake(grid_width, grid_height, true),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
-      random_h(0, static_cast<int>(grid_height - 1)) { // need to set game modes
+      random_h(0, static_cast<int>(grid_height - 1)),
+      speed_mode(speed_mode),
+      obstacle_mode(obstacle_mode),
+      snake_mode(snake_mode) {
 
       PlaceFood();
 }
@@ -28,7 +31,9 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     controller.HandleInput(running, snake);
     Update();
 
-    // call different Render function depending on what is initialized
+    // call different Render function depending on what set of modes are stored by game
+    // decided to make Game handle the modes instead of passing in malformed input
+    // and expecting Render to check for malformed input - increases verbosity of code however
     renderer.Render(snake, food, obstacles);
 
     frame_end = SDL_GetTicks();

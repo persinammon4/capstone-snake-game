@@ -10,16 +10,21 @@
 #include <vector>
 
 enum class GameSpeeds { slow, medium, fast};
-enum class GameObstacles { fixedObstacles, movingObstacles };
+enum class GameObstacles { fixedObstacles, movingObstacles, noObstacles };
 enum class GameSnakes { original, computerSnake };
 
 class Game {
  public:
-  Game(std::size_t grid_width, std::size_t grid_height);
+  Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mode, GameObstacles obstacle_mode, GameSnakes snake_mode);
   void Run(Controller const &controller, Renderer &renderer,
            std::size_t target_frame_duration); 
   int GetScore() const;
   int GetSize() const;
+
+  // user given modes, unable to set after init
+  GameSpeeds const speed_mode;
+  GameObstacles const obstacle_mode;
+  GameSnakes const snake_mode;
 
  private:
   Snake snake;

@@ -25,6 +25,15 @@ automatic win/rankings multiplier boost if eat the snake by hitting the last box
 - Gave the A* algorithm snake a handicap where it can't use the wraparound to go across the screen.
 - End print message with score, size, and leaderboard ranking (two leaderboards - respective mode and the general leaderboard).
 
+## Notes
+
+- `Renderer` and `Controller` don't own any of the class representations e.g. Snake, Obstacle. They just take in references or 
+copies and either draw out a renderering from a `const` object or mutate values within the object. The food is 
+implemented as an `SDL_Point` and not a class, which is perfect, but for some reason it's being passed in as a reference to 
+the `Renderer` instead of another deep copy. I am not sure why the original project creators decided to introduce
+that inconsistency. I may change it later.
+
+
 <img src="snake_game.gif"/>
 
 ## Dependencies for Running Locally
