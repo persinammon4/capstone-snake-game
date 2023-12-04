@@ -30,9 +30,9 @@ class LeaderBoard {
         // although these aren't going to be used as LeaderBoard is called on stack by main.cpp
         // and always a high level object
 
-        void addEntry(std::string username, int score, int size, GameObstacles obs_mode, GamesSnakes snake_mode);
-        tuple<std::string, int> getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode);
-        tuple<std::string, int> getGeneralRanking(std::string username);
+        void addEntry(std::string username, int score, int size, GameObstacles obs_mode, GameSnakes snake_mode);
+        std::tuple<std::string, int> getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode);
+        std::tuple<std::string, int> getGeneralRanking(std::string username);
 
         // all .txt files will be structured as:
         // username...score...size...timestamp/newlinecharacter

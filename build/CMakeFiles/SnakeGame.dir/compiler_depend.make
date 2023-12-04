@@ -1093,7 +1093,14 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/bits/codecvt.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
-  /usr/include/c++/11/bits/fstream.tcc
+  /usr/include/c++/11/bits/fstream.tcc \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/utility \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/invoke.h \
+  ../src/scenario.h
 
 CMakeFiles/SnakeGame.dir/src/renderer.cpp.o: ../src/renderer.cpp \
   /usr/include/stdc-predef.h \
@@ -1805,6 +1812,16 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 
 ../src/snake.cpp:
 
+../src/scenario.h:
+
+/usr/include/c++/11/bits/invoke.h:
+
+/usr/include/c++/11/bits/uses_allocator.h:
+
+/usr/include/c++/11/bits/stl_relops.h:
+
+/usr/include/c++/11/tuple:
+
 /usr/include/c++/11/bits/fstream.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h:
@@ -1928,6 +1945,8 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 /usr/include/c++/11/bits/exception_ptr.h:
 
 /usr/include/c++/11/bits/stringfwd.h:
+
+/usr/include/c++/11/utility:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
 
@@ -2334,6 +2353,8 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 /usr/include/c++/11/tr1/bessel_function.tcc:
 
 /usr/local/include/SDL2/SDL_keycode.h:
+
+/usr/include/c++/11/array:
 
 /usr/include/c++/11/tr1/beta_function.tcc:
 

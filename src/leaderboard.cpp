@@ -12,11 +12,11 @@ void LeaderBoard::addEntry(std::string username, int score, int size) {
 
 }
 
-tuple<std::string, int> LeaderBoard::getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode) {
+std::tuple<std::string, int> LeaderBoard::getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode) {
 
 }
 
-tuple<std::string, int> LeaderBoard::getGeneralRanking(std::string username) {
+std::tuple<std::string, int> LeaderBoard::getGeneralRanking(std::string username) {
 
 }
     

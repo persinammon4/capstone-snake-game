@@ -15,10 +15,10 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mod
       PlaceFood();
       // give snake pointers to fake_snake and obstacles
       // create ownership of obstacles and snakes?
-      if (snake_mode == GameSnakes::computerSnake) {
-        fake_snake = new Snake(); // init 
-        // populate both snakes to each other
-      }
+      // if (snake_mode == GameSnakes::computerSnake) {
+      //   fake_snake = new Snake(); // init 
+      //   // populate both snakes to each other
+      // }
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
