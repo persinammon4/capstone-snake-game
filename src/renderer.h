@@ -15,8 +15,8 @@ class Renderer {
   // overload Render function for different game modes
   void Render(Snake const snake, SDL_Point const &food); // original
   void Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle> const obstacles); // obstacles
-  void Render(Snake const snake, Snake const fake_snake, SDL_Point const &food); // competitor snake
-  void Render(Snake const snake, Snake const fake_snake, SDL_Point const &food, std::vector<Obstacle> const obstacles); // competitor snake and obstacles
+  void Render(Snake const snake, SDL_Point const &food, Snake const fake_snake); // competitor snake
+  void Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle> const obstacles, Snake const fake_snake); // competitor snake and obstacles
 
   void UpdateWindowTitle(int score, int fps);
 

@@ -39,8 +39,12 @@ Renderer::~Renderer() {
   SDL_Quit();
 }
 
-// add init of blocks
-void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle> obstacles) {
+void Renderer::UpdateWindowTitle(int score, int fps) {
+  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
+  SDL_SetWindowTitle(sdl_window, title.c_str());
+}
+
+void Renderer::Render(Snake const snake, SDL_Point const &food) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -54,8 +58,6 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obst
   block.x = food.x * block.w;
   block.y = food.y * block.h;
   SDL_RenderFillRect(sdl_renderer, &block);
-
-  // Render obstacles while avoiding collisions with food and snake(s)
 
   // Render snake's body
   SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
@@ -79,7 +81,162 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obst
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::UpdateWindowTitle(int score, int fps) {
-  std::string title{"Snake Score: " + std::to_string(score) + " FPS: " + std::to_string(fps)};
-  SDL_SetWindowTitle(sdl_window, title.c_str());
+void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle> obstacles) {
+  SDL_Rect block;
+  block.w = screen_width / grid_width;
+  block.h = screen_height / grid_height;
+
+  // Clear screen
+  SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
+  SDL_RenderClear(sdl_renderer);
+
+  // Render food
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+  block.x = food.x * block.w;
+  block.y = food.y * block.h;
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Render obstacles (purple)
+  SDL_SetRenderDrawColor(sdl_renderer, 191, 85, 236, 1);
+  for (Obstacle const obstacle : obstacles) {
+    block.y = obstacle.leftMostPoint.y * block.h;
+    for (int i = 0; i < obstacle.width; ++i) {
+      block.x = (obstacle.leftMostPoint.x + i)* block.w;
+      SDL_RenderFillRect(sdl_renderer, &block);
+    }
+  }
+
+  // Render snake's body
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  for (SDL_Point const &point : snake.body) {
+    block.x = point.x * block.w;
+    block.y = point.y * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+  }
+
+  // Render snake's head
+  block.x = static_cast<int>(snake.head_x) * block.w;
+  block.y = static_cast<int>(snake.head_y) * block.h;
+  if (snake.alive) {
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
+  } else {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  }
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Update Screen
+  SDL_RenderPresent(sdl_renderer);
 }
+
+void Renderer::Render(Snake const snake, SDL_Point const &food, Snake const fake_snake) {
+  SDL_Rect block;
+  block.w = screen_width / grid_width;
+  block.h = screen_height / grid_height;
+
+  // Clear screen
+  SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
+  SDL_RenderClear(sdl_renderer);
+
+  // Render food
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+  block.x = food.x * block.w;
+  block.y = food.y * block.h;
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Render snake's body
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  for (SDL_Point const &point : snake.body) {
+    block.x = point.x * block.w;
+    block.y = point.y * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+  }
+
+  // Render snake's head
+  block.x = static_cast<int>(snake.head_x) * block.w;
+  block.y = static_cast<int>(snake.head_y) * block.h;
+  if (snake.alive) {
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
+  } else {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  }
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Render fake snake's body
+  SDL_SetRenderDrawColor(sdl_renderer, 200, 247, 197, 1);
+  for (SDL_Point const &point : fake_snake.body) {
+    block.x = point.x * block.w;
+    block.y = point.y * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+  }
+
+  // Render fake snake's head
+  SDL_SetRenderDrawColor(sdl_renderer, 46, 204, 113, 1);
+  block.x = static_cast<int>(fake_snake.head_x) * block.w;
+  block.y = static_cast<int>(fake_snake.head_y) * block.h;
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Update Screen
+  SDL_RenderPresent(sdl_renderer);
+}
+
+void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle> obstacles, Snake const fake_snake) {
+  SDL_Rect block;
+  block.w = screen_width / grid_width;
+  block.h = screen_height / grid_height;
+
+  // Clear screen
+  SDL_SetRenderDrawColor(sdl_renderer, 0x1E, 0x1E, 0x1E, 0xFF);
+  SDL_RenderClear(sdl_renderer);
+
+  // Render food
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xCC, 0x00, 0xFF);
+  block.x = food.x * block.w;
+  block.y = food.y * block.h;
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Render obstacles (purple)
+  SDL_SetRenderDrawColor(sdl_renderer, 191, 85, 236, 1);
+  for (Obstacle const obstacle : obstacles) {
+    block.y = obstacle.leftMostPoint.y * block.h;
+    for (int i = 0; i < obstacle.width; ++i) {
+      block.x = (obstacle.leftMostPoint.x + i)* block.w;
+      SDL_RenderFillRect(sdl_renderer, &block);
+    }
+  }
+
+  // Render snake's body
+  SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0xFF, 0xFF, 0xFF);
+  for (SDL_Point const &point : snake.body) {
+    block.x = point.x * block.w;
+    block.y = point.y * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+  }
+
+  // Render snake's head
+  block.x = static_cast<int>(snake.head_x) * block.w;
+  block.y = static_cast<int>(snake.head_y) * block.h;
+  if (snake.alive) {
+    SDL_SetRenderDrawColor(sdl_renderer, 0x00, 0x7A, 0xCC, 0xFF);
+  } else {
+    SDL_SetRenderDrawColor(sdl_renderer, 0xFF, 0x00, 0x00, 0xFF);
+  }
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  SDL_SetRenderDrawColor(sdl_renderer, 200, 247, 197, 1);
+  for (SDL_Point const &point : fake_snake.body) {
+    block.x = point.x * block.w;
+    block.y = point.y * block.h;
+    SDL_RenderFillRect(sdl_renderer, &block);
+  }
+
+  // Render fake snake's head
+  SDL_SetRenderDrawColor(sdl_renderer, 46, 204, 113, 1);
+  block.x = static_cast<int>(fake_snake.head_x) * block.w;
+  block.y = static_cast<int>(fake_snake.head_y) * block.h;
+  SDL_RenderFillRect(sdl_renderer, &block);
+
+  // Update Screen
+  SDL_RenderPresent(sdl_renderer);
+}
+
+

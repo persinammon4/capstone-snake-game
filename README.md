@@ -27,12 +27,15 @@ automatic win/rankings multiplier boost if eat the snake by hitting the last box
 
 ## Notes
 
+- Figured out how to make flashing colored items! Have two `SDL_SetRenderDrawColor`s next to each other and it will effectively be a strobe light!
+
 - `Renderer` and `Controller` don't own any of the class representations e.g. Snake, Obstacle. They just take in references or 
 copies and either draw out a renderering from a `const` object or mutate values within the object. The food is 
 implemented as an `SDL_Point` and not a class, which is perfect, but for some reason it's being passed in as a reference to 
 the `Renderer` instead of another deep copy. I am not sure why the original project creators decided to introduce
 that inconsistency. I may change it later.
-
+- `Renderer` contains no game logic and takes in only `const` values to render a snapshot of all logic representations.
+- Speed mode is 100% solved without deeply touching classes (handled completely in `main.cpp`).
 
 <img src="snake_game.gif"/>
 

@@ -33,7 +33,24 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
     // call different Render function depending on what set of modes are stored by game
     // decided to make Game handle the modes instead of passing in malformed input
-    // and expecting Render to check for malformed input - increases verbosity of code however
+    // and expecting Render to check for malformed input - increases verbosity of code,
+    // but also allows further customization per Render method used
+    if (snake_mode == GameSnakes::original && obstacle_mode == GameObstacles::noObstacles) {
+      renderer.Render(snake, food);
+    } else if (snake_mode == GameSnakes::original && (obstacle_mode == GameObstacles::fixedObstacles ||
+      obstacle_mode == GameObstacles::mixedObstacles)) {
+        renderer.Render(snake, food, obstacles);
+    } else if (snake_mode == GameSnakes::computerSnake && obstacle_mode == GameObstacles::noObstacles) {
+      renderer.Render(snake, food, obstacles, fake_snake);
+    } else if (snake_mode == GameSnakes::computerSnake && (obstacle_mode == GameObstacles::fixedObstacles || 
+      obstacle_mode == GameObstacles::mixedObstacles)) {
+        renderer.Render(snake, food, obstacles, fake_snake);
+    } else {
+      //kill game as default case
+      running = false;
+      return;
+    }
+
     renderer.Render(snake, food, obstacles);
 
     frame_end = SDL_GetTicks();
