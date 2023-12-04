@@ -25,6 +25,17 @@ automatic win/rankings multiplier boost if eat the snake by hitting the last box
 - Gave the A* algorithm snake a handicap where it can't use the wraparound to go across the screen.
 - End print message with score, size, and leaderboard ranking (two leaderboards - respective mode and the general leaderboard).
 
+## How to Run
+
+1. Download `build/SnakeGame` and run using `./SnakeGame` from Unix command line in same directory.
+
+Or:
+
+1. Create own executable by cloning repo.
+2. If no build directory, create one `mkdir build`.
+3. Compile `cd build && cmake .. && make`.
+4. Run `./SnakeGame`
+
 ## Notes
 
 - Figured out how to make flashing colored items! Have two `SDL_SetRenderDrawColor`s next to each other and it will effectively be a strobe light!
@@ -54,17 +65,6 @@ that inconsistency. I may change it later.
   * Mac: same deal as make - [install Xcode command line tools](https://developer.apple.com/xcode/features/)
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 
-
-## Basic Build Instructions
-
-1. Clone this repo.
-2. Make a build directory in the top level directory: `mkdir build && cd build`
-3. Compile: `cmake .. && make`
-4. Run it: `./SnakeGame`.
-
-Or: 
-
-1. Download the executable `build/SnakeGame` and run it through `./SnakeGame` in the same directory.
 
 ## Credits
 

@@ -6,6 +6,7 @@
 #define NK_IMPLEMENTATION
 #include "nuklear.h"
 #include "leaderboard.h"
+#include "scenario.h"
 
 #define MAX_MEMORY (1024 * 1024 * 2) /* 2MB of memory */
 
@@ -30,6 +31,7 @@ int main() {
   // enum class GameObstacles { fixedObstacles, movingObstacles, noObstacles };
   // enum class GameSnakes { original, computerSnake };
   // set game completely based on user GUI input
+  // not happy with noObstacles == noob...
   Game game(kGridWidth, kGridHeight, GameSpeeds::medium, GameObstacles::noObstacles, GameSnakes::original);
 
 
@@ -93,6 +95,9 @@ int main() {
   }
 
   const std::size_t kMsPerFrame{1000 / kFramesPerSecond};
+
+  //populate Game with different scenario environments
+  Scenario::DecideEnv(game);
 
   game.Run(controller, renderer, kMsPerFrame); // start game loop
 

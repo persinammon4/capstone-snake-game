@@ -17,7 +17,7 @@ void Controller::AlgorithmInput(bool &running, Snake &fake_snake) const {
   // use A* to come up with a new direction, then update fake.snake = Snake::Direction;
   // need to ensure fake_snake.direction is not an opposite direction (impossible to turn from)
   // ChangeDirection(fake_snake, Snake::Direction::kUp, Snake::Direction::kDown);
-  // make it disallowed to go across the screen by using bounds check method
+  // make it disallowed to go across the screen by using bounds check method here
 }
 
 void Controller::HandleInput(bool &running, Snake &snake) const {

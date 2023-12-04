@@ -19,7 +19,6 @@ class MovingObstacle : public Obstacle {
     public:
         enum class Direction { kUp, kDown, kLeft, kRight };
         Direction direction = Direction::kRight; //horizontal movement
-        float speed{0.1f};    
         int path_size{3};
         int path_progress{0};
 };

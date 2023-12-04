@@ -4,7 +4,7 @@
 
 Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mode, GameObstacles obstacle_mode, GameSnakes snake_mode)
     : snake(grid_width, grid_height),
-      fake_snake(grid_width, grid_height, true),
+      fake_snake(grid_width, grid_height, true), // should this be init here??
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)),
@@ -13,6 +13,12 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mod
       snake_mode(snake_mode) {
 
       PlaceFood();
+      // give snake pointers to fake_snake and obstacles
+      // create ownership of obstacles and snakes?
+      if (snake_mode == GameSnakes::computerSnake) {
+        fake_snake = new Snake(); // init 
+        // populate both snakes to each other
+      }
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -23,6 +29,9 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   Uint32 frame_duration;
   int frame_count = 0;
   bool running = true;
+
+  // set environment of obstacles and fake snake here??
+  // for example by giving Game to a modifying function that will populate with blocks
 
   while (running) {
     frame_start = SDL_GetTicks();
@@ -139,7 +148,7 @@ void Game::Update() {
 
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
-    score++;
+    score++; // may be broken??
     PlaceFood();
     // Grow snake and increase speed.
     snake.GrowBody();

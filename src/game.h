@@ -22,6 +22,7 @@ class Game {
   int GetSize() const;
 
   // user given modes, unable to set after init
+  // but publicly readable
   GameSpeeds const speed_mode;
   GameObstacles const obstacle_mode;
   GameSnakes const snake_mode;
@@ -32,6 +33,7 @@ class Game {
 
   // always declare these, even if game mode ends up not using them
   // note that leaderboard is not owned by Game, but Game outputs are written to leaderboard
+  // should these be unique pointers?
   std::vector<Obstacle> obstacles;
   Snake fake_snake; 
 

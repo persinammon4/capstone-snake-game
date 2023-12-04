@@ -19,9 +19,11 @@ class Snake {
             head_y = grid_height/2;
             direction = Direction::kUp;
           } else {
+            // if it's computer controlled snake,
+            // initializing from the top left
             head_x = 0;
             head_y = 0;
-            direction = Direction::kLeft;
+            direction = Direction::kRight;
           }
   }
 
@@ -40,9 +42,10 @@ class Snake {
   bool ai;
   std::vector<SDL_Point> body;
 
-  // own pointer to other snake and obstacles
-  Snake * fake_snake;
-  std::vector<Obstacle *> obstacles;
+  // own read-only raw pointers to other snake and obstacles both created by Game
+  Snake const * fake_snake;
+  Snake const * real_snake;
+  std::vector<Obstacle const *> obstacles;
 
  private:
   void UpdateHead();
