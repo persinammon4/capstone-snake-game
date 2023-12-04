@@ -20,19 +20,18 @@ int main() {
   constexpr std::size_t kFPSmedium{60};
   constexpr std::size_t kFPSfast{70};
 
+  std::string username{"anonymous"}; //default value
+
+  LeaderBoard leaderboard;
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
 
-//   enum class GameSpeeds { slow, medium, fast};
-// enum class GameObstacles { fixedObstacles, movingObstacles, noObstacles };
-// enum class GameSnakes { original, computerSnake };
+  // enum class GameSpeeds { slow, medium, fast};
+  // enum class GameObstacles { fixedObstacles, movingObstacles, noObstacles };
+  // enum class GameSnakes { original, computerSnake };
+  // set game completely based on user GUI input
   Game game(kGridWidth, kGridHeight, GameSpeeds::medium, GameObstacles::noObstacles, GameSnakes::original);
 
-  // newly added
-  LeaderBoard leaderboard;
-  std::string username{"anonymous"};
-
-  // write a way to accept all options
 
   // launch a GUI
   // with options 
@@ -77,10 +76,25 @@ int main() {
 
 
   // change kFramesPerSecond to one of the the 3 constexpr options
-  const std::size_t kFramesPerSecond{kFPSmedium};
+  std::size_t kFramesPerSecond;
+
+  switch(game.speed_mode) {
+    case GameSpeeds::slow:
+      kFramesPerSecond = kFPSslow;
+      break;
+    case GameSpeeds::medium:
+      kFramesPerSecond = kFPSmedium;
+      break;
+    case GameSpeeds::fast:
+      kFramesPerSecond = kFPSfast;
+      break;
+    default:
+      kFramesPerSecond = kFPSmedium;
+  }
+
   const std::size_t kMsPerFrame{1000 / kFramesPerSecond};
 
-  game.Run(controller, renderer, kMsPerFrame); 
+  game.Run(controller, renderer, kMsPerFrame); // start game loop
 
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";

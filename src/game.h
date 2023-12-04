@@ -10,7 +10,7 @@
 #include <vector>
 
 enum class GameSpeeds { slow, medium, fast};
-enum class GameObstacles { fixedObstacles, movingObstacles, noObstacles };
+enum class GameObstacles { noObstacles, fixedObstacles, movingObstacles };
 enum class GameSnakes { original, computerSnake };
 
 class Game {
