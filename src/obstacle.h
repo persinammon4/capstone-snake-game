@@ -1,8 +1,6 @@
 #ifndef OBSTACLE_H
 #define OBSTACLE_H
 
-// relevant includes
-// flesh out every class related to obstacle
 #include "SDL.h"
 
 
@@ -11,7 +9,7 @@ class Obstacle {
         std::vector<SDL_Point> platform;
 
     private:
-        int grid_width;
+        int grid_width; 
         int grid_height;
         int width{1};
 };
@@ -22,6 +20,9 @@ class MovingObstacle : public Obstacle {
         Direction direction = Direction::kUp;
         float speed{0.1f};    
         int path_size{3};
+
+        // MovingObstacle(); - default constructor with initializer list of const vars
+        // declare any other methods that go into this class
 };
 
 class FixedObstacle : public Obstacle {

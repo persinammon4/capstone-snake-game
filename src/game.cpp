@@ -4,10 +4,12 @@
 
 Game::Game(std::size_t grid_width, std::size_t grid_height)
     : snake(grid_width, grid_height),
+      fake_snake(grid_width, grid_height, true),
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
-      random_h(0, static_cast<int>(grid_height - 1)) {
-  PlaceFood();
+      random_h(0, static_cast<int>(grid_height - 1)) { // need to set game modes
+
+      PlaceFood();
 }
 
 void Game::Run(Controller const &controller, Renderer &renderer,
@@ -25,7 +27,9 @@ void Game::Run(Controller const &controller, Renderer &renderer,
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
     Update();
-    renderer.Render(snake, food);
+
+    // call different Render function depending on what is initialized
+    renderer.Render(snake, food, obstacles);
 
     frame_end = SDL_GetTicks();
 
@@ -56,7 +60,7 @@ void Game::PlaceFood() {
     x = random_w(engine);
     y = random_h(engine);
     // Check that the location is not occupied by a snake item before placing
-    // food.
+    // food. - check for obstacles and fake snake too
     if (!snake.SnakeCell(x, y)) {
       food.x = x;
       food.y = y;
@@ -69,9 +73,15 @@ void Game::Update() {
   if (!snake.alive) return;
 
   snake.Update();
+  // fake_snake.Update(); 
 
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
+
+  // for fixed obstacles, only head can collide
+  // for moving obstacles, any part of the snake can collide
+  // for fake competitor snake, any part of the snake can collide
+  // if (collision) snake.alive = false, return;
 
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {

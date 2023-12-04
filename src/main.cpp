@@ -26,7 +26,7 @@ int main() {
 
   // newly added
   LeaderBoard leaderboard;
-  std::string username{"monica"};
+  std::string username{"anonymous"};
 
   // write a way to accept all options
 
@@ -73,19 +73,17 @@ int main() {
 
 
   // change kFramesPerSecond to one of the the 3 constexpr options
-  const std::size_t kFramesPerSecond{60};
+  const std::size_t kFramesPerSecond{kFPSmedium};
   const std::size_t kMsPerFrame{1000 / kFramesPerSecond};
 
   game.Run(controller, renderer, kMsPerFrame); 
-  // save data to leaderboard (cleanup action)
-  // create a file if no file exists
 
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";
   std::cout << "Size: " << game.GetSize() << "\n";
   // add leaderboard ranking to printout
-  //leaderboard.addRanking(username, game.getScore(), game.getSize());
-  //leaderboard.printOutGeneral(username);
+  //leaderboard.addEntry(username, game.getScore(), game.getSize(), game modes);
+  //std::cout << leaderboard.getRanking(username, type of leaderboard);
   //nk_font_atlas_clear(&atlas);
   return 0;
 }

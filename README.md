@@ -22,6 +22,7 @@ left an optional parameter to toggle encryption, but decided to make it a mandat
 - New `Obstacle` class with inheritance (fixed, moving).
 - New snake controlled by A* algorithm, which will lead to a loss if run into it or
 automatic win/rankings multiplier boost if eat the snake by hitting the last box of it.
+- Gave the A* algorithm snake a handicap where it can't use the wraparound to go across the screen.
 - End print message with score, size, and leaderboard ranking (two leaderboards - respective mode and the general leaderboard).
 
 <img src="snake_game.gif"/>

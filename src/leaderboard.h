@@ -17,16 +17,17 @@ class LeaderBoard {
             // } else {
             
             // }
+            // use make_unique and perhaps emplace to create an array of smart pointers
+            // to different files
         }
         ~LeaderBoard() {
             // let file be saved
             // rule that a name can only appear 3 times
         }
-        // implement rule of 5 - copy and move constructors
+        // implement rule of 5 - declare copy and move constructors
 
-        // use make_unique and perhaps emplace to create an array of smart pointers
-        // to different files
-
+        void addEntry(std::string username, int score, int size);
+        void getRanking(std::string username);
 
     private:
         void encryptFile(std::string filename);

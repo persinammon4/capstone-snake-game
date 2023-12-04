@@ -9,7 +9,22 @@ void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
   return;
 }
 
+void Controller::AlgorithmInput(bool &running, Snake &fake_snake) const {
+  if (!fake_snake.ai) {
+    std::cout << "Programmer error: Used AlgorithmInput for a user snake.";
+    return; // quick sanity check for programmer error
+  } 
+  // use A* to come up with a new direction, then update fake.snake = Snake::Direction;
+  // need to ensure fake_snake.direction is an opposite direction (impossible to turn from)
+  // ChangeDirection(fake_snake, Snake::Direction::kUp, Snake::Direction::kDown);
+  // make it disallowed to go across the screen
+}
+
 void Controller::HandleInput(bool &running, Snake &snake) const {
+  if (snake.ai) {
+    std::cout << "Programmer error: Used HandleInput for an AI snake.";
+    return; // quick sanity check for programmer error
+  }
   SDL_Event e;
   while (SDL_PollEvent(&e)) {
     if (e.type == SDL_QUIT) {
