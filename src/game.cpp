@@ -78,33 +78,64 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
 void Game::PlaceFood() {
   int x, y;
-  while (true) {
-    x = random_w(engine);
-    y = random_h(engine);
-    // Check that the location is not occupied by a snake item before placing
-    // food. - check for obstacles and fake snake too    i
-    if (!snake.SnakeCell(x, y)) {
-      food.x = x;
-      food.y = y;
-      return;
-    }
-  }
+
+  // Create a list of all open spots on the grid, then choose randomly from them
+  // next implementation
+
+  // while (true) {
+  //   x = random_w(engine);
+  //   y = random_h(engine);
+
+  //   food.x = x;
+  //   food.y = y;
+  //   break;
+
+
+  //   // Check that the location is not occupied by a snake item before placing
+  //   // food. 
+  //   if (this->snake_mode == GameSnakes::computerSnake && fake_snake.SnakeCell(x,y)) {
+  //       continue;
+  //   }
+  //   if (snake.SnakeCell(x, y)) continue;
+
+
+  //   // slight ugly usage of flag
+  //   bool hit_obstacle{false};
+  //   if (this->obstacle_mode == GameObstacles::fixedObstacles || this->obstacle_mode == GameObstacles::mixedObstacles) {
+  //     for (Obstacle obs : obstacles) {
+  //       SDL_Point p = obs.leftMostPoint;
+  //       if (y != p.y) continue; // continue to next obstacle
+  //       for (int i = 0; i < obs.width; ++i) {
+  //         if (p.x +i == x) hit_obstacle = true;
+  //       }
+  //     }
+  //   }
+
+  //   if (!hit_obstacle) {
+  //     food.x = x;
+  //     food.y = y;
+  //     return;
+  //   }
+    
+  // }
 }
 
 void Game::Update() {
   if (!snake.alive) return;
 
-  snake.Update();
+  snake.Update(); // collision check happens in UpdateBody
+  // fake snake cannot suffer from game terminating collision
   if (snake_mode == GameSnakes::computerSnake) fake_snake.Update();
 
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
-  // for fixed obstacles, only head can collide
-  // for moving obstacles, any part of the snake can collide
-  // for fake competitor snake, checks for collisions before movement
-  // if (collision) snake.alive = false, return;
-
+  if (obstacle_mode == GameObstacles::fixedObstacles || obstacle_mode == GameObstacles::mixedObstacles) {
+    for (auto obs : obstacles) {
+      obs.Update(); // consider if there's an apply function to pass in this too
+      // instead of an iterative loop
+    }
+  }
 
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {

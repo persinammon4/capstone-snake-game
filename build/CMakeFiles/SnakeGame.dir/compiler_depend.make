@@ -274,6 +274,7 @@ CMakeFiles/SnakeGame.dir/src/controller.cpp.o: ../src/controller.cpp \
   /usr/local/include/SDL2/SDL_version.h \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
+  ../src/obstacle.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -688,8 +689,8 @@ CMakeFiles/SnakeGame.dir/src/game.cpp.o: ../src/game.cpp \
   /usr/local/include/SDL2/SDL_misc.h \
   ../src/controller.h \
   ../src/snake.h \
-  ../src/renderer.h \
   ../src/obstacle.h \
+  ../src/renderer.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1072,6 +1073,7 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/local/include/SDL2/SDL_version.h \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
+  ../src/obstacle.h \
   ../src/game.h \
   /usr/include/c++/11/random \
   /usr/include/c++/11/bits/random.h \
@@ -1084,7 +1086,6 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: ../src/main.cpp \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
   ../src/renderer.h \
-  ../src/obstacle.h \
   ../src/nuklear.h \
   /usr/include/assert.h \
   ../src/leaderboard.h \
@@ -1720,6 +1721,7 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
   /usr/local/include/SDL2/SDL_version.h \
   /usr/local/include/SDL2/SDL_locale.h \
   /usr/local/include/SDL2/SDL_misc.h \
+  ../src/obstacle.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \

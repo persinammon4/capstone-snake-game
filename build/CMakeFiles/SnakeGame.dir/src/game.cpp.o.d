@@ -286,8 +286,8 @@ CMakeFiles/SnakeGame.dir/src/game.cpp.o: \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
  /home/monica/capstone-snake-game/src/controller.h \
  /home/monica/capstone-snake-game/src/snake.h \
- /home/monica/capstone-snake-game/src/renderer.h \
  /home/monica/capstone-snake-game/src/obstacle.h \
+ /home/monica/capstone-snake-game/src/renderer.h \
  /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
  /usr/include/c++/11/ios /usr/include/c++/11/exception \
  /usr/include/c++/11/bits/exception_ptr.h \

@@ -3,6 +3,7 @@
 
 #include <vector>
 #include "SDL.h"
+#include "obstacle.h"
 
 class Snake {
  public:
@@ -38,6 +39,10 @@ class Snake {
   float head_y;
   bool ai;
   std::vector<SDL_Point> body;
+
+  // own pointer to other snake and obstacles
+  Snake * fake_snake;
+  std::vector<Obstacle *> obstacles;
 
  private:
   void UpdateHead();

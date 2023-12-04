@@ -58,13 +58,18 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
   }
 
   // Check if the snake has died.
-
-  // Include new edge cases for this, so it's possible to die if hit second snake
-  // or any obstacle. Make sure second snake can't die.
-  for (auto const &item : body) {
-    if (current_head_cell.x == item.x && current_head_cell.y == item.y) {
-      alive = false;
+  // AI snake cannot die, and can run over themselves and obstacles (for now)
+  if (ai == false) {
+    for (auto const &item : body) {
+      if (current_head_cell.x == item.x && current_head_cell.y == item.y) {
+        alive = false;
+      }
     }
+
+    // dictionary of x points to y, so can compare every point in this snake
+    // to every banned point
+    //SDL_point throwaway_p;
+
   }
 }
 

@@ -8,6 +8,7 @@ class Obstacle {
     public:
         SDL_Point leftMostPoint;
         int width{2}; // mutable from public
+        void Update() {return;};
 
     private:
         int grid_width; 
@@ -17,13 +18,10 @@ class Obstacle {
 class MovingObstacle : public Obstacle {
     public:
         enum class Direction { kUp, kDown, kLeft, kRight };
-        Direction direction = Direction::kRight;
+        Direction direction = Direction::kRight; //horizontal movement
         float speed{0.1f};    
         int path_size{3};
-
-        // MovingObstacle(); - default constructor with initializer list of const vars
-        // declare any other methods that go into this class
-        // how to update position
+        int path_progress{0};
 };
 
 class FixedObstacle : public Obstacle {

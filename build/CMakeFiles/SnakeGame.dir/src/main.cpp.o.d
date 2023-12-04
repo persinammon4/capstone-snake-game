@@ -297,6 +297,7 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/local/include/SDL2/SDL_system.h /usr/local/include/SDL2/SDL_timer.h \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
+ /home/monica/capstone-snake-game/src/obstacle.h \
  /home/monica/capstone-snake-game/src/game.h /usr/include/c++/11/random \
  /usr/include/c++/11/bits/random.h \
  /usr/include/c++/11/bits/uniform_int_dist.h \
@@ -306,7 +307,6 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/c++/11/pstl/glue_numeric_defs.h \
  /usr/include/c++/11/pstl/execution_defs.h \
  /home/monica/capstone-snake-game/src/renderer.h \
- /home/monica/capstone-snake-game/src/obstacle.h \
  /home/monica/capstone-snake-game/src/nuklear.h /usr/include/assert.h \
  /home/monica/capstone-snake-game/src/leaderboard.h \
  /usr/include/c++/11/fstream /usr/include/c++/11/bits/codecvt.h \
