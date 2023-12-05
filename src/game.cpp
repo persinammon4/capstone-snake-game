@@ -1,10 +1,11 @@
 #include "game.h"
 #include <iostream>
+#include <memory>
+#include <algorithm>
 #include "SDL.h"
 
 Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mode, GameObstacles obstacle_mode, GameSnakes snake_mode)
     : snake(grid_width, grid_height),
-      fake_snake(grid_width, grid_height, true), // should this be init here??
       engine(dev()),
       random_w(0, static_cast<int>(grid_width - 1)),
       random_h(0, static_cast<int>(grid_height - 1)),
@@ -12,14 +13,16 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mod
       obstacle_mode(obstacle_mode),
       snake_mode(snake_mode) {
 
+      if (snake_mode == GameSnakes::computerSnake) {
+        auto s = new Snake(grid_width, grid_height, true);
+        fake_snake = std::make_unique<Snake>(*s);
+        snake.fake_snake = s;
+      }
+      // obstacles are initialized outside of constructor, so updated at time of obstacle change
+
       PlaceFood();
-      // give snake pointers to fake_snake and obstacles
-      // create ownership of obstacles and snakes?
-      // if (snake_mode == GameSnakes::computerSnake) {
-      //   fake_snake = new Snake(); // init 
-      //   // populate both snakes to each other
-      // }
 }
+
 
 void Game::Run(Controller const &controller, Renderer &renderer,
                std::size_t target_frame_duration) {
@@ -30,8 +33,6 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
 
-  // set environment of obstacles and fake snake here??
-  // for example by giving Game to a modifying function that will populate with blocks
 
   while (running) {
     frame_start = SDL_GetTicks();
@@ -48,19 +49,17 @@ void Game::Run(Controller const &controller, Renderer &renderer,
       renderer.Render(snake, food);
     } else if (snake_mode == GameSnakes::original && (obstacle_mode == GameObstacles::fixedObstacles ||
       obstacle_mode == GameObstacles::mixedObstacles)) {
-        renderer.Render(snake, food, obstacles);
+        renderer.Render(snake, food, getReadOnlyObstacles());
     } else if (snake_mode == GameSnakes::computerSnake && obstacle_mode == GameObstacles::noObstacles) {
-      renderer.Render(snake, food, obstacles, fake_snake);
+        renderer.Render(snake, food, getReadOnlyObstacles(), *fake_snake.get());
     } else if (snake_mode == GameSnakes::computerSnake && (obstacle_mode == GameObstacles::fixedObstacles || 
       obstacle_mode == GameObstacles::mixedObstacles)) {
-        renderer.Render(snake, food, obstacles, fake_snake);
+        renderer.Render(snake, food, getReadOnlyObstacles(), *fake_snake.get());
     } else {
       //kill game as default case
       running = false;
       return;
     }
-
-    renderer.Render(snake, food, obstacles);
 
     frame_end = SDL_GetTicks();
 
@@ -134,16 +133,14 @@ void Game::Update() {
 
   snake.Update(); // collision check happens in UpdateBody
   // fake snake cannot suffer from game terminating collision
-  if (snake_mode == GameSnakes::computerSnake) fake_snake.Update();
+  if (snake_mode == GameSnakes::computerSnake) fake_snake->Update();
 
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
   if (obstacle_mode == GameObstacles::fixedObstacles || obstacle_mode == GameObstacles::mixedObstacles) {
-    for (auto obs : obstacles) {
-      obs.Update(); // consider if there's an apply function to pass in this too
-      // instead of an iterative loop
-    }
+    auto read_only_obstacles = getReadOnlyObstacles();
+    std::for_each(read_only_obstacles.begin(), read_only_obstacles.end(), [](auto o){ o->Update();});
   }
 
   // Check if there's food over here
@@ -155,6 +152,39 @@ void Game::Update() {
     snake.speed += 0.02;
   }
 }
+
+void Game::addFixedObstacle(int width) {
+  auto obs = new FixedObstacle();
+  obs->width = width;
+  SDL_Point leftMostPoint;
+  // look for an unoccupied spot with enough width to accomodate
+  // set x, y of obs.leftMostPoint.x;
+  // auto item = std::make_unique<Obstacle>((Obstacle) *obs);
+  // obstacles.emplace_back(item); // uses move instead of copy (impossible with unique ptr)
+  snake.obstacles = getReadOnlyObstacles();
+  fake_snake->obstacles = getReadOnlyObstacles();
+}
+
+void Game::addMovingObstacle(int width, int path_size = 3) {
+  auto obs = new MovingObstacle();
+  obs->width = width;
+  obs->path_size = path_size;
+  SDL_Point leftMostPoint;
+  // look for an unoccupied spot with enough width to accomodate
+  // set x, y of obs.leftMostPoint.x;
+  // auto item = std::make_unique<Obstacle>((Obstacle) *obs);
+  // obstacles.emplace_back(item);
+  snake.obstacles = getReadOnlyObstacles();
+  fake_snake->obstacles = getReadOnlyObstacles();
+}
+
+std::vector<Obstacle *> Game::getReadOnlyObstacles() {
+  // implement logic here
+  std::vector<Obstacle *> read_only_obstacles;
+  std::transform(obstacles.cbegin(), obstacles.cend(), read_only_obstacles.begin(), [](auto &&o) { return o.get();});
+  return read_only_obstacles;
+};
+
 
 int Game::GetScore() const { return score; }
 int Game::GetSize() const { return snake.size; }

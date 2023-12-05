@@ -81,7 +81,7 @@ void Renderer::Render(Snake const snake, SDL_Point const &food) {
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle> obstacles) {
+void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle *> obstacles) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -98,10 +98,10 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obst
 
   // Render obstacles (purple)
   SDL_SetRenderDrawColor(sdl_renderer, 191, 85, 236, 1);
-  for (Obstacle const obstacle : obstacles) {
-    block.y = obstacle.leftMostPoint.y * block.h;
-    for (int i = 0; i < obstacle.width; ++i) {
-      block.x = (obstacle.leftMostPoint.x + i)* block.w;
+  for (Obstacle * obstacle : obstacles) {
+    block.y = (*obstacle).leftMostPoint.y * block.h;
+    for (int i = 0; i < (*obstacle).width; ++i) {
+      block.x = ((*obstacle).leftMostPoint.x + i)* block.w;
       SDL_RenderFillRect(sdl_renderer, &block);
     }
   }
@@ -179,7 +179,7 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, Snake const fake
   SDL_RenderPresent(sdl_renderer);
 }
 
-void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle> obstacles, Snake const fake_snake) {
+void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obstacle *> obstacles, Snake const fake_snake) {
   SDL_Rect block;
   block.w = screen_width / grid_width;
   block.h = screen_height / grid_height;
@@ -196,10 +196,10 @@ void Renderer::Render(Snake const snake, SDL_Point const &food, std::vector<Obst
 
   // Render obstacles (purple)
   SDL_SetRenderDrawColor(sdl_renderer, 191, 85, 236, 1);
-  for (Obstacle const obstacle : obstacles) {
-    block.y = obstacle.leftMostPoint.y * block.h;
-    for (int i = 0; i < obstacle.width; ++i) {
-      block.x = (obstacle.leftMostPoint.x + i)* block.w;
+  for (Obstacle * obstacle : obstacles) {
+    block.y = (*obstacle).leftMostPoint.y * block.h;
+    for (int i = 0; i < (*obstacle).width; ++i) {
+      block.x = ((*obstacle).leftMostPoint.x + i)* block.w;
       SDL_RenderFillRect(sdl_renderer, &block);
     }
   }

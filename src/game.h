@@ -8,6 +8,7 @@
 #include "snake.h"
 #include "obstacle.h"
 #include <vector>
+#include <memory>
 
 enum class GameSpeeds { slow, medium, fast};
 enum class GameObstacles { noObstacles, fixedObstacles, mixedObstacles };
@@ -20,6 +21,9 @@ class Game {
            std::size_t target_frame_duration); 
   int GetScore() const;
   int GetSize() const;
+
+  void addFixedObstacle(int width);
+  void addMovingObstacle(int width, int path_size);
 
   // user given modes, unable to set after init
   // but publicly readable
@@ -34,8 +38,8 @@ class Game {
   // always declare these, even if game mode ends up not using them
   // note that leaderboard is not owned by Game, but Game outputs are written to leaderboard
   // should these be unique pointers?
-  std::vector<Obstacle> obstacles;
-  Snake fake_snake; 
+  std::vector<std::unique_ptr<Obstacle>> obstacles;
+  std::unique_ptr<Snake> fake_snake;
 
   std::random_device dev;
   std::mt19937 engine;
@@ -46,6 +50,7 @@ class Game {
 
   void PlaceFood();
   void Update();
+  std::vector<Obstacle *> getReadOnlyObstacles();
 };
 
 #endif
