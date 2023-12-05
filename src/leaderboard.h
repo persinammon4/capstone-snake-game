@@ -4,10 +4,15 @@
 #include<fstream>
 #include<string>
 #include<vector>
-#include<tuple>
 #include "game.h"
 
+
 class LeaderBoard {
+
+    struct Entry {
+        std::string username;
+        int score;
+    };
 
     public:
         LeaderBoard() {
@@ -31,17 +36,18 @@ class LeaderBoard {
         // and always a high level object
 
         void addEntry(std::string username, int score, int size, GameObstacles obs_mode, GameSnakes snake_mode);
-        std::tuple<std::string, int> getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode);
-        std::tuple<std::string, int> getGeneralRanking(std::string username);
+        Entry getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode);
+        Entry getGeneralRanking(std::string username);
 
         // all .txt files will be structured as:
-        // username...score...size...timestamp/newlinecharacter
+        // username...score...snakesize...timestamp/newlinecharacter
         // orders are updated during addEntry with local dictionary working
         std::string general_leaderboard_path{"leaderboards/general.txt"};
         std::string original_leaderboard_path{"leaderboards/original.txt"};
         std::string ai_leaderboard_path{"leaderboards/ai_controlled_two_player.txt"};
         std::string obstacle_leaderboard_path{"leaderboards/obstacles.txt"};
         std::string ai_obstacle_leaderboard_path{"leaderboards/ai_controlled_and_obstacles.txt"};
+
 
     private:
         // saves back in original location
@@ -51,6 +57,9 @@ class LeaderBoard {
         // create and flush local dictionary in memory 
         void flushLocal();
         void loadLocal();
+
+        // decrypted files are temp files with paths stored here 
+        std::vector<std::string> decrypted_paths;
 };
 
 #endif

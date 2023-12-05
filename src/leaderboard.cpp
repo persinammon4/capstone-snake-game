@@ -1,5 +1,4 @@
 #include "leaderboard.h"
-#include<tuple>
 
 // the string path handles are as follows:
 // general_leaderboard_path
@@ -12,11 +11,11 @@ void LeaderBoard::addEntry(std::string username, int score, int size) {
 
 }
 
-std::tuple<std::string, int> LeaderBoard::getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode) {
+Entry LeaderBoard::getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode) {
 
 }
 
-std::tuple<std::string, int> LeaderBoard::getGeneralRanking(std::string username) {
+Entry LeaderBoard::getGeneralRanking(std::string username) {
 
 }
     
