@@ -2,6 +2,7 @@
 #define SNAKE_H
 
 #include <vector>
+#include <memory>
 #include "SDL.h"
 #include "obstacle.h"
 
@@ -45,15 +46,17 @@ class Snake {
   // own read-only raw pointers to other snake and obstacles both created by Game
   Snake const * fake_snake; // empty if it's the fake senake
   // fake snake has no pointer to real_snake
-  std::vector<Obstacle *> obstacles;
+  std::vector<std::unique_ptr<Obstacle> >* obstacles;
 
  private:
+
   void UpdateHead();
   void UpdateBody(SDL_Point &current_cell, SDL_Point &prev_cell);
 
   bool growing{false};
   int grid_width;
   int grid_height;
+
 };
 
 #endif

@@ -58,19 +58,18 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
   }
 
   // Check if the snake has died.
-  // AI snake cannot die, and can run over themselves and obstacles (for now)
+  // AI snake cannot die naturally, and avoid death causing directions (by running over obstacle or themselves)
+  // in their algorithm direction finder
   if (ai == false) {
     for (auto const &item : body) {
       if (current_head_cell.x == item.x && current_head_cell.y == item.y) {
         alive = false;
       }
     }
-
     // dictionary of x points to y, so can compare every point in this snake
     // to every banned point
     //SDL_point throwaway_p;gi
-
-  }
+  } 
 }
 
 void Snake::GrowBody() { growing = true; }

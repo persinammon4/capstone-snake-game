@@ -74,7 +74,7 @@ int main() {
   // enum class GameSnakes { original, computerSnake };
   // set game completely based on user GUI input
   // not happy with noObstacles == noob...
-  Game game(kGridWidth, kGridHeight, GameSpeeds::medium, GameObstacles::mixedObstacles, GameSnakes::original);
+  Game game(kGridWidth, kGridHeight, GameSpeeds::medium, GameObstacles::fixedObstacles, GameSnakes::original);
 
 
   // change kFramesPerSecond to one of the the 3 constexpr options

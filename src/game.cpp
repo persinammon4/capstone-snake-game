@@ -15,10 +15,12 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mod
       obstacle_mode(obstacle_mode),
       snake_mode(snake_mode) {
 
+      snake.obstacles = &obstacles;
       if (snake_mode == GameSnakes::computerSnake) {
         auto s = new Snake(grid_width, grid_height, true);
         fake_snake = std::make_unique<Snake>(*s);
         snake.fake_snake = s;
+        fake_snake->obstacles = &obstacles;
       }
       // obstacles are initialized outside of constructor, so updated at time of obstacle change
 
@@ -35,6 +37,11 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   int frame_count = 0;
   bool running = true;
 
+  // auto vec = getReadOnlyObstacles();
+  // for (size_t i = 0; i < obstacles.size(); ++i) {
+  //   std::cout << obstacles[i]->leftMostPoint.x << " " << obstacles[i]->leftMostPoint.y << std::endl;
+  // }
+  // std::cout << obstacles.size() << std::endl;
 
   while (running) {
     frame_start = SDL_GetTicks();
@@ -53,10 +60,10 @@ void Game::Run(Controller const &controller, Renderer &renderer,
       obstacle_mode == GameObstacles::mixedObstacles)) {
         renderer.Render(snake, food, getReadOnlyObstacles());
     } else if (snake_mode == GameSnakes::computerSnake && obstacle_mode == GameObstacles::noObstacles) {
-        renderer.Render(snake, food, getReadOnlyObstacles(), *fake_snake.get());
+        renderer.Render(snake, food, getReadOnlyObstacles(), *fake_snake);
     } else if (snake_mode == GameSnakes::computerSnake && (obstacle_mode == GameObstacles::fixedObstacles || 
       obstacle_mode == GameObstacles::mixedObstacles)) {
-        renderer.Render(snake, food, getReadOnlyObstacles(), *fake_snake.get());
+        renderer.Render(snake, food, getReadOnlyObstacles(), *fake_snake);
     } else {
       //kill game as default case
       running = false;
@@ -87,47 +94,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 }
 
 void Game::PlaceFood() {
-  int x, y;
-
-  // Create a list of all open spots on the grid, then choose randomly from them
-  // next implementation
-
-  // while (true) {
-  //   x = random_w(engine);
-  //   y = random_h(engine);
-
-  //   food.x = x;
-  //   food.y = y;
-  //   break;
-
-
-  //   // Check that the location is not occupied by a snake item before placing
-  //   // food. 
-  //   if (this->snake_mode == GameSnakes::computerSnake && fake_snake.SnakeCell(x,y)) {
-  //       continue;
-  //   }
-  //   if (snake.SnakeCell(x, y)) continue;
-
-
-  //   // slight ugly usage of flag
-  //   bool hit_obstacle{false};
-  //   if (this->obstacle_mode == GameObstacles::fixedObstacles || this->obstacle_mode == GameObstacles::mixedObstacles) {
-  //     for (Obstacle obs : obstacles) {
-  //       SDL_Point p = obs.leftMostPoint;
-  //       if (y != p.y) continue; // continue to next obstacle
-  //       for (int i = 0; i < obs.width; ++i) {
-  //         if (p.x +i == x) hit_obstacle = true;
-  //       }
-  //     }
-  //   }
-
-  //   if (!hit_obstacle) {
-  //     food.x = x;
-  //     food.y = y;
-  //     return;
-  //   }
-    
-  // }
+  //food = returnFreePoint(1);
 }
 
 void Game::Update() {
@@ -142,7 +109,7 @@ void Game::Update() {
 
   if (obstacle_mode == GameObstacles::fixedObstacles || obstacle_mode == GameObstacles::mixedObstacles) {
     auto read_only_obstacles = getReadOnlyObstacles();
-    std::for_each(read_only_obstacles.begin(), read_only_obstacles.end(), [](auto o){ o->Update();});
+    std::for_each(read_only_obstacles.begin(), read_only_obstacles.end(), [](auto o){ o.Update();});
   }
 
   // Check if there's food over here
@@ -158,10 +125,12 @@ void Game::Update() {
 void Game::addFixedObstacle(int width) {
   auto item = new FixedObstacle();
   item->width = width;
-  item->leftMostPoint = returnFreePoint(width);
+  SDL_Point p;
+  p.x = 5;
+  p.y = 5;
+  item->leftMostPoint = p;
+  //item->leftMostPoint = returnFreePoint(width);
   obstacles.emplace_back(item); // constructs new unique pointer with argument item
-  snake.obstacles = getReadOnlyObstacles();
-  fake_snake->obstacles = getReadOnlyObstacles();
 }
 
 void Game::addMovingObstacle(int width, int path_size = 3) {
@@ -170,14 +139,16 @@ void Game::addMovingObstacle(int width, int path_size = 3) {
   item->leftMostPoint = returnFreePoint(width);
   item->path_size = path_size;
   obstacles.emplace_back(item);
-  snake.obstacles = getReadOnlyObstacles();
-  fake_snake->obstacles = getReadOnlyObstacles();
 }
 
-std::vector<Obstacle *> Game::getReadOnlyObstacles() {
+std::vector<Obstacle> Game::getReadOnlyObstacles() {
   // implement logic here
-  std::vector<Obstacle *> read_only_obstacles;
-  std::transform(obstacles.cbegin(), obstacles.cend(), read_only_obstacles.begin(), [](auto &&o) { return o.get();});
+  std::vector<Obstacle> read_only_obstacles;
+  for (size_t i = 0; i < obstacles.size(); ++i) {
+    read_only_obstacles.push_back(*obstacles[i]); //pushes a copy
+  }
+  // I tried to use transform method, but several attempts to operatoe on unique pointers led to hard to debug errors
+  //std::transform(obstacles.cbegin(), obstacles.cend(), read_only_obstacles.begin(), [](auto &&o) { return o.get();});
   return read_only_obstacles;
 }
 
@@ -191,9 +162,15 @@ SDL_Point Game::returnFreePoint(int size) { // works for all horizontal obstacle
   // fyi, because push_back creates a copy, it's ok to 
   // reuse throwaway across the function
   SDL_Point throwaway;
+  // throwaway.x = 1;
+  // throwaway.y = 5;
+  // return throwaway;
+
   throwaway.x = snake.head_x;
   throwaway.y = snake.head_y;
   occupied_points_vector.push_back(throwaway);
+
+  occupied_points_vector.push_back(food);
 
   for (SDL_Point p : snake.body) {
     occupied_points_vector.push_back(p);
@@ -211,9 +188,10 @@ SDL_Point Game::returnFreePoint(int size) { // works for all horizontal obstacle
   
   auto obs_vec = getReadOnlyObstacles();
   for (auto obs : obs_vec) {
-    throwaway.y = obs->leftMostPoint.y;
-    for (int i =  0; i < obs->width; ++i) {
-      throwaway.x = obs->leftMostPoint.x + i;
+    throwaway.y = obs.leftMostPoint.y;
+    // add in extra spots for the entire path of the obstacle
+    for (int i =  0; i < obs.width; ++i) {
+      throwaway.x = obs.leftMostPoint.x + i;
       occupied_points_vector.push_back(throwaway);
     }
   }
@@ -247,6 +225,7 @@ SDL_Point Game::returnFreePoint(int size) { // works for all horizontal obstacle
   // access a random point that works and return it
   int randomIndex = rand() % potential_points.size();
   return potential_points[randomIndex];
+  // not returning ?? 
 }
 
 

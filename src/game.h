@@ -40,6 +40,7 @@ class Game {
   // should these be unique pointers?
   std::vector<std::unique_ptr<Obstacle>> obstacles;
   std::unique_ptr<Snake> fake_snake;
+  //Snake fake_snake;
 
   std::random_device dev;
   std::mt19937 engine;
@@ -55,7 +56,7 @@ class Game {
 
   void PlaceFood();
   void Update();
-  std::vector<Obstacle *> getReadOnlyObstacles();
+  std::vector<Obstacle> getReadOnlyObstacles();
 };
 
 #endif
