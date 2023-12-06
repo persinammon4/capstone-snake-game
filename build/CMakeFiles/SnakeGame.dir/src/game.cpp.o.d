@@ -285,10 +285,8 @@ CMakeFiles/SnakeGame.dir/src/game.cpp.o: \
  /usr/local/include/SDL2/SDL_version.h \
  /usr/local/include/SDL2/SDL_locale.h /usr/local/include/SDL2/SDL_misc.h \
  /home/monica/capstone-snake-game/src/controller.h \
- /home/monica/capstone-snake-game/src/snake.h \
- /home/monica/capstone-snake-game/src/obstacle.h \
- /home/monica/capstone-snake-game/src/renderer.h \
- /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_tempbuf.h \
+ /home/monica/capstone-snake-game/src/snake.h /usr/include/c++/11/memory \
+ /usr/include/c++/11/bits/stl_tempbuf.h \
  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
  /usr/include/c++/11/bits/align.h \
  /usr/include/c++/11/bits/uses_allocator.h \
@@ -308,9 +306,11 @@ CMakeFiles/SnakeGame.dir/src/game.cpp.o: \
  /usr/include/c++/11/bits/atomic_base.h \
  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
  /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h /usr/include/c++/11/iostream \
- /usr/include/c++/11/ostream /usr/include/c++/11/ios \
- /usr/include/c++/11/bits/ios_base.h \
+ /usr/include/c++/11/pstl/glue_memory_defs.h \
+ /home/monica/capstone-snake-game/src/obstacle.h \
+ /home/monica/capstone-snake-game/src/renderer.h \
+ /usr/include/c++/11/iostream /usr/include/c++/11/ostream \
+ /usr/include/c++/11/ios /usr/include/c++/11/bits/ios_base.h \
  /usr/include/c++/11/bits/locale_classes.h \
  /usr/include/c++/11/bits/locale_classes.tcc \
  /usr/include/c++/11/system_error \

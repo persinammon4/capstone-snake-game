@@ -66,9 +66,25 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
         alive = false;
       }
     }
-    // dictionary of x points to y, so can compare every point in this snake
-    // to every banned point
-    //SDL_point throwaway_p;gi
+
+    std::vector<SDL_Point> obstacle_points;
+
+    for (int i = 0; i < obstacles->size(); ++i) {
+      SDL_Point p;
+      auto obs = (*obstacles)[i].get();
+      p.y = obs->leftMostPoint.y;
+      for (int k = 0; k < obs->width; ++k) {
+        p.x = obs->leftMostPoint.x + k;
+        obstacle_points.push_back(p);
+      }
+    }
+
+    for (auto p : obstacle_points) {
+      if (current_head_cell.x == p.x && current_head_cell.y == p.y) alive = false;
+      for (auto p_body : body) {
+        if (p_body.x == p.x && p_body.y == p.y) alive = false;
+      }
+    }
   } 
 }
 
