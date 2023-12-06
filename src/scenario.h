@@ -33,40 +33,47 @@ namespace Scenario {
     // create fixed obstacles
     void GameEnv1(Game &game) { 
         if (game.obstacle_mode == GameObstacles::noObstacles) throw std::logic_error("Wrong obstacle mode for GameEnv1 scenario");
-        //game.addItem();
+        game.addFixedObstacle(3);
+        game.addFixedObstacle(2);
     }
 
     // create fake snake
     void GameEnv2(Game &game) {
         if (!(game.snake_mode == GameSnakes::computerSnake)) throw std::logic_error("Wrong snake mode for GameEnv2 scenario");
-
+        // it automatically creates the snake
     }
 
     // create moving obstacles
     void GameEnv3(Game &game) {
         if (!(game.obstacle_mode == GameObstacles::mixedObstacles)) throw std::logic_error("Wrong obstacle mode for GameEnv3 scenario");
-
-
+        game.addMovingObstacle(3, 1);
+        game.addMovingObstacle(2, 2);
     }
 
     // create moving and fixed obstacles
     void GameEnv4(Game &game) {
         if (!(game.obstacle_mode == GameObstacles::mixedObstacles)) throw std::logic_error("Wrong obstacle mode for GameEnv4 scenario");
-
+        game.addFixedObstacle(1);
+        game.addFixedObstacle(2);
+        game.addMovingObstacle(2, 2);
     }
 
     // create fake snake and fixed obstacles
     void GameEnv5(Game &game) {
         if (!(game.obstacle_mode == GameObstacles::fixedObstacles) || !(game.snake_mode == GameSnakes::computerSnake)) throw std::logic_error("Wrong obstacle and snake mode for GameEnv5 scenario");
-
+        game.addFixedObstacle(2);
+        game.addFixedObstacle(1);
+        //it automatically creates the snake
     }
 
     // create fake snake, fixed obstacles, moving obstacle
     // let chaos and buggy programs ensue!!
     void GameEnv6(Game &game) {
         if (!(game.obstacle_mode == GameObstacles::mixedObstacles) || !(game.snake_mode == GameSnakes::computerSnake)) throw std::logic_error("Wrong obstacle and snake mode for GameEnv6 scenario");
-
-
+        game.addFixedObstacle(2);
+        game.addMovingObstacle(3, 2);
+        game.addFixedObstacle(1);
+        // it automatically creates the snake
     }
 
     // modify this with new function name when adding a new test case scenario
@@ -76,12 +83,13 @@ namespace Scenario {
     // this driver method will try all game env's until one works
     // catch all case is GameEnv0
     void DecideEnv(Game &game) {
-        function_names_except_zero.push_back(GameEnv1);
-        function_names_except_zero.push_back(GameEnv2);
-        function_names_except_zero.push_back(GameEnv3);
-        function_names_except_zero.push_back(GameEnv4);
-        function_names_except_zero.push_back(GameEnv5);
+        // (temp) ordered backwards because more specific cases were written last
         function_names_except_zero.push_back(GameEnv6);
+        function_names_except_zero.push_back(GameEnv5);
+        function_names_except_zero.push_back(GameEnv4);
+        function_names_except_zero.push_back(GameEnv3);
+        function_names_except_zero.push_back(GameEnv2);
+        function_names_except_zero.push_back(GameEnv1);
         for (auto func : function_names_except_zero) {
             try {
                 func(game);

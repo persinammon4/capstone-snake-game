@@ -27,13 +27,6 @@ int main() {
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
 
-  // enum class GameSpeeds { slow, medium, fast};
-  // enum class GameObstacles { fixedObstacles, movingObstacles, noObstacles };
-  // enum class GameSnakes { original, computerSnake };
-  // set game completely based on user GUI input
-  // not happy with noObstacles == noob...
-  Game game(kGridWidth, kGridHeight, GameSpeeds::medium, GameObstacles::noObstacles, GameSnakes::original);
-
 
   // launch a GUI
   // with options 
@@ -75,6 +68,13 @@ int main() {
 //     nk_layout_row_end(&ctx);
 // }
 // nk_end(&ctx); // called at end of window buildiing process for general cleanup and scaling, scrollbars etc
+
+  // enum class GameSpeeds { slow, medium, fast};
+  // enum class GameObstacles { fixedObstacles, movingObstacles, noObstacles };
+  // enum class GameSnakes { original, computerSnake };
+  // set game completely based on user GUI input
+  // not happy with noObstacles == noob...
+  Game game(kGridWidth, kGridHeight, GameSpeeds::medium, GameObstacles::mixedObstacles, GameSnakes::original);
 
 
   // change kFramesPerSecond to one of the the 3 constexpr options
