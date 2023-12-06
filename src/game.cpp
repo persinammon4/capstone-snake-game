@@ -2,6 +2,8 @@
 #include <iostream>
 #include <memory>
 #include <algorithm>
+#include <map>
+#include <stdlib.h>    
 #include "SDL.h"
 
 Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mode, GameObstacles obstacle_mode, GameSnakes snake_mode)
@@ -154,26 +156,20 @@ void Game::Update() {
 }
 
 void Game::addFixedObstacle(int width) {
-  auto obs = new FixedObstacle();
-  obs->width = width;
-  SDL_Point leftMostPoint;
-  // look for an unoccupied spot with enough width to accomodate
-  // set x, y of obs.leftMostPoint.x;
-  // auto item = std::make_unique<Obstacle>((Obstacle) *obs);
-  // obstacles.emplace_back(item); // uses move instead of copy (impossible with unique ptr)
+  auto item = new FixedObstacle();
+  item->width = width;
+  item->leftMostPoint = returnFreePoint(width);
+  obstacles.emplace_back(item); // constructs new unique pointer with argument item
   snake.obstacles = getReadOnlyObstacles();
   fake_snake->obstacles = getReadOnlyObstacles();
 }
 
 void Game::addMovingObstacle(int width, int path_size = 3) {
-  auto obs = new MovingObstacle();
-  obs->width = width;
-  obs->path_size = path_size;
-  SDL_Point leftMostPoint;
-  // look for an unoccupied spot with enough width to accomodate
-  // set x, y of obs.leftMostPoint.x;
-  // auto item = std::make_unique<Obstacle>((Obstacle) *obs);
-  // obstacles.emplace_back(item);
+  auto item = new MovingObstacle();
+  item->width = width;
+  item->leftMostPoint = returnFreePoint(width);
+  item->path_size = path_size;
+  obstacles.emplace_back(item);
   snake.obstacles = getReadOnlyObstacles();
   fake_snake->obstacles = getReadOnlyObstacles();
 }
@@ -183,7 +179,75 @@ std::vector<Obstacle *> Game::getReadOnlyObstacles() {
   std::vector<Obstacle *> read_only_obstacles;
   std::transform(obstacles.cbegin(), obstacles.cend(), read_only_obstacles.begin(), [](auto &&o) { return o.get();});
   return read_only_obstacles;
-};
+}
+
+// Finds a left most point to place an obstacle (moving or fixed)
+// which is int size. Am OK with inefficiency as this is a setup step,
+// possibly the scenario method calling this can become some kind of constexpr compile time method
+SDL_Point Game::returnFreePoint(int size) { // works for all horizontal obstacles
+
+  std::vector<SDL_Point> occupied_points_vector;
+
+  // fyi, because push_back creates a copy, it's ok to 
+  // reuse throwaway across the function
+  SDL_Point throwaway;
+  throwaway.x = snake.head_x;
+  throwaway.y = snake.head_y;
+  occupied_points_vector.push_back(throwaway);
+
+  for (SDL_Point p : snake.body) {
+    occupied_points_vector.push_back(p);
+  }
+
+  if (snake_mode == GameSnakes::computerSnake) {
+    throwaway.x = fake_snake->head_x;
+    throwaway.y = fake_snake->head_y;
+    occupied_points_vector.push_back(throwaway);
+
+    for (SDL_Point p : fake_snake->body) {
+      occupied_points_vector.push_back(p);
+    }
+  }
+  
+  auto obs_vec = getReadOnlyObstacles();
+  for (auto obs : obs_vec) {
+    throwaway.y = obs->leftMostPoint.y;
+    for (int i =  0; i < obs->width; ++i) {
+      throwaway.x = obs->leftMostPoint.x + i;
+      occupied_points_vector.push_back(throwaway);
+    }
+  }
+
+  // create a list of occupied points as a 0-1 matrix
+  std::vector<std::vector<int>> occupied_points_matrix;
+  for (size_t i = 0; i < grid_height; ++i) {
+    std::vector<int> temp_vect(grid_width, 0);
+    occupied_points_matrix.push_back(temp_vect);
+  }
+
+  for (SDL_Point p : occupied_points_vector) {
+    occupied_points_matrix[p.y][p.x] = 1;
+  }
+
+  std::vector<SDL_Point> potential_points;
+  for (size_t i = 0; i < grid_height; ++i) {
+    for (size_t j = 0; j < grid_width; ++j) {
+      for (int k = 0; k < size; ++i) {
+        if (occupied_points_matrix[i][j] == 1) {
+          break;
+        } else if (k == size-1) {
+          throwaway.x = j;
+          throwaway.y = i;
+          potential_points.push_back(throwaway);
+        }
+      }
+    }
+  }
+
+  // access a random point that works and return it
+  int randomIndex = rand() % potential_points.size();
+  return potential_points[randomIndex];
+}
 
 
 int Game::GetScore() const { return score; }

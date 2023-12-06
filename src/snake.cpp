@@ -68,7 +68,7 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
 
     // dictionary of x points to y, so can compare every point in this snake
     // to every banned point
-    //SDL_point throwaway_p;
+    //SDL_point throwaway_p;gi
 
   }
 }

@@ -46,7 +46,12 @@ class Game {
   std::uniform_int_distribution<int> random_w;
   std::uniform_int_distribution<int> random_h;
 
+  std::size_t grid_height;
+  std::size_t grid_width;
+
   int score{0};
+
+  SDL_Point returnFreePoint(int size);
 
   void PlaceFood();
   void Update();
