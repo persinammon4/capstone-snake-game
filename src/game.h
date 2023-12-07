@@ -38,9 +38,10 @@ class Game {
   // always declare these, even if game mode ends up not using them
   // note that leaderboard is not owned by Game, but Game outputs are written to leaderboard
   // should these be unique pointers?
-  std::vector<std::unique_ptr<Obstacle>> obstacles;
+  //std::vector<std::unique_ptr<Obstacle>> obstacles;
+  std::vector<std::unique_ptr<FixedObstacle>> fixed_obstacles;
+  std::vector<std::unique_ptr<MovingObstacle>> moving_obstacles;
   std::unique_ptr<Snake> fake_snake;
-  //Snake fake_snake;
 
   std::random_device dev;
   std::mt19937 engine;

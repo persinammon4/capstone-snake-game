@@ -55,8 +55,8 @@ namespace Scenario {
     // create moving and fixed obstacles
     void GameEnv4(Game &game) {
         if (!((game.obstacle_mode == GameObstacles::mixedObstacles) && (game.snake_mode == GameSnakes::original))) throw std::logic_error("Wrong obstacle mode for GameEnv4 scenario");
-        game.addFixedObstacle(1);
-        game.addFixedObstacle(2);
+        //game.addFixedObstacle(1);
+        //game.addFixedObstacle(2);
         game.addMovingObstacle(2, 2);
     }
 

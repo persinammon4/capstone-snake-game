@@ -10,7 +10,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/monica/capstone-snake-game/src/controller.cpp" "CMakeFiles/SnakeGame.dir/src/controller.cpp.o" "gcc" "CMakeFiles/SnakeGame.dir/src/controller.cpp.o.d"
   "/home/monica/capstone-snake-game/src/game.cpp" "CMakeFiles/SnakeGame.dir/src/game.cpp.o" "gcc" "CMakeFiles/SnakeGame.dir/src/game.cpp.o.d"
+  "/home/monica/capstone-snake-game/src/leaderboard.cpp" "CMakeFiles/SnakeGame.dir/src/leaderboard.cpp.o" "gcc" "CMakeFiles/SnakeGame.dir/src/leaderboard.cpp.o.d"
   "/home/monica/capstone-snake-game/src/main.cpp" "CMakeFiles/SnakeGame.dir/src/main.cpp.o" "gcc" "CMakeFiles/SnakeGame.dir/src/main.cpp.o.d"
+  "/home/monica/capstone-snake-game/src/obstacle.cpp" "CMakeFiles/SnakeGame.dir/src/obstacle.cpp.o" "gcc" "CMakeFiles/SnakeGame.dir/src/obstacle.cpp.o.d"
   "/home/monica/capstone-snake-game/src/renderer.cpp" "CMakeFiles/SnakeGame.dir/src/renderer.cpp.o" "gcc" "CMakeFiles/SnakeGame.dir/src/renderer.cpp.o.d"
   "/home/monica/capstone-snake-game/src/snake.cpp" "CMakeFiles/SnakeGame.dir/src/snake.cpp.o" "gcc" "CMakeFiles/SnakeGame.dir/src/snake.cpp.o.d"
   )

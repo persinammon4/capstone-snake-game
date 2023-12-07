@@ -23,7 +23,7 @@ int main() {
 
   std::string username{"anonymous"}; //default value
 
-  LeaderBoard leaderboard;
+  //LeaderBoard leaderboard;
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
 
@@ -74,7 +74,7 @@ int main() {
   // enum class GameSnakes { original, computerSnake };
   // set game completely based on user GUI input
   // not happy with noObstacles == noob...
-  Game game(kGridWidth, kGridHeight, GameSpeeds::medium, GameObstacles::fixedObstacles, GameSnakes::original);
+  Game game(kGridWidth, kGridHeight, GameSpeeds::medium, GameObstacles::mixedObstacles, GameSnakes::computerSnake);
 
 
   // change kFramesPerSecond to one of the the 3 constexpr options
@@ -98,6 +98,7 @@ int main() {
 
   //populate Game with different scenario environments
   Scenario::DecideEnv(game);
+
 
   game.Run(controller, renderer, kMsPerFrame); // start game loop
 

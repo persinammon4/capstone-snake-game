@@ -7,31 +7,31 @@
 // obstacle_leaderboard_path
 // ai_obstacle_leaderboard_path
 
-void LeaderBoard::addEntry(std::string username, int score, int size) {
+// void LeaderBoard::addEntry(std::string username, int score, int size) {
 
-}
+// }
 
-Entry LeaderBoard::getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode) {
+// Entry LeaderBoard::getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode) {
 
-}
+// }
 
-Entry LeaderBoard::getGeneralRanking(std::string username) {
+// Entry LeaderBoard::getGeneralRanking(std::string username) {
 
-}
+// }
     
-void LeaderBoard::encryptFile(std::string filename) {
+// void LeaderBoard::encryptFile(std::string filename) {
 
 
-}
+// }
 
-void LeaderBoard::decryptFile(std::string filename, std::string out) {
+// void LeaderBoard::decryptFile(std::string filename, std::string out) {
 
-}
+// }
 
-void LeaderBoard::flushLocal() {
+// void LeaderBoard::flushLocal() {
 
-}
+// }
 
-void LeaderBoard::loadLocal() {
+// void LeaderBoard::loadLocal() {
 
-}
+// }

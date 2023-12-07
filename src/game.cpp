@@ -4,6 +4,7 @@
 #include <algorithm>
 #include <map>
 #include <stdlib.h>    
+#include <typeinfo>
 #include "SDL.h"
 
 Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mode, GameObstacles obstacle_mode, GameSnakes snake_mode)
@@ -15,12 +16,14 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mod
       obstacle_mode(obstacle_mode),
       snake_mode(snake_mode) {
 
-      snake.obstacles = &obstacles;
+      snake.fixed_obstacles = &fixed_obstacles;
+      snake.moving_obstacles = &moving_obstacles;
       if (snake_mode == GameSnakes::computerSnake) {
         auto s = new Snake(grid_width, grid_height, true);
         fake_snake = std::make_unique<Snake>(*s);
         snake.fake_snake = s;
-        fake_snake->obstacles = &obstacles;
+        fake_snake->fixed_obstacles = &fixed_obstacles;
+        fake_snake->moving_obstacles = &moving_obstacles;
       }
       // obstacles are initialized outside of constructor, so updated at time of obstacle change
 
@@ -100,16 +103,34 @@ void Game::PlaceFood() {
 void Game::Update() {
   if (!snake.alive) return;
 
+
   snake.Update(); // collision check happens in UpdateBody
   // fake snake cannot suffer from game terminating collision
-  if (snake_mode == GameSnakes::computerSnake) fake_snake->Update();
+
+  if (snake_mode == GameSnakes::computerSnake) 
+  {
+    fake_snake->Update();
+    if (!fake_snake->alive) score += 100;
+  }
+
 
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
-  if (obstacle_mode == GameObstacles::fixedObstacles || obstacle_mode == GameObstacles::mixedObstacles) {
-    auto read_only_obstacles = getReadOnlyObstacles();
-    std::for_each(read_only_obstacles.begin(), read_only_obstacles.end(), [](auto o){ o.Update();});
+  if (obstacle_mode == GameObstacles::fixedObstacles) {
+    for (int i = 0; i < fixed_obstacles.size(); ++i) {
+      fixed_obstacles[i]->Update();
+    }
+    //std::for_each(obstacles.begin(), obstacles.end(), [](auto o){ o.Update();});
+  }
+
+  if (obstacle_mode == GameObstacles::mixedObstacles) {
+    for (int i = 0; i < fixed_obstacles.size(); ++i) {
+      fixed_obstacles[i]->Update();
+    }
+    for (int i = 0; i < moving_obstacles.size(); ++i) {
+      moving_obstacles[i]->Update();
+    }
   }
 
   // Check if there's food over here
@@ -123,30 +144,42 @@ void Game::Update() {
 }
 
 void Game::addFixedObstacle(int width) {
-  auto item = new FixedObstacle();
+  auto item = new FixedObstacle((int) grid_width, (int) grid_height);
   item->width = width;
   SDL_Point p;
   p.x = 5;
   p.y = 5;
   item->leftMostPoint = p;
   //item->leftMostPoint = returnFreePoint(width);
-  obstacles.emplace_back(item); // constructs new unique pointer with argument item
+  fixed_obstacles.emplace_back(item); // constructs new unique pointer with argument item
 }
 
 void Game::addMovingObstacle(int width, int path_size = 3) {
-  auto item = new MovingObstacle();
+  auto item = new MovingObstacle((int) grid_width, (int) grid_height);
   item->width = width;
-  item->leftMostPoint = returnFreePoint(width);
+  SDL_Point p;
+  p.x = 10;
+  p.y = 10;
+  item->leftMostPoint = p;
+  //item->leftMostPoint = returnFreePoint(width);
   item->path_size = path_size;
-  obstacles.emplace_back(item);
+  moving_obstacles.emplace_back(item);
 }
 
 std::vector<Obstacle> Game::getReadOnlyObstacles() {
   // implement logic here
   std::vector<Obstacle> read_only_obstacles;
-  for (size_t i = 0; i < obstacles.size(); ++i) {
-    read_only_obstacles.push_back(*obstacles[i]); //pushes a copy
+  for (size_t i = 0; i < fixed_obstacles.size(); ++i) {
+    Obstacle o = *fixed_obstacles[i];
+    read_only_obstacles.push_back(o);
+    //read_only_obstacles.push_back((Obstacle) (*fixed_obstacles[i])); //pushes a copy
   }
+  for (size_t i = 0; i < moving_obstacles.size(); ++i) {
+    Obstacle o = *moving_obstacles[i];
+    read_only_obstacles.push_back(o);
+    //read_only_obstacles.push_back((Obstacle) (*moving_obstacles[i])); //pushes a copy
+  }
+
   // I tried to use transform method, but several attempts to operatoe on unique pointers led to hard to debug errors
   //std::transform(obstacles.cbegin(), obstacles.cend(), read_only_obstacles.begin(), [](auto &&o) { return o.get();});
   return read_only_obstacles;
@@ -164,68 +197,68 @@ SDL_Point Game::returnFreePoint(int size) { // works for all horizontal obstacle
   SDL_Point throwaway;
   // throwaway.x = 1;
   // throwaway.y = 5;
-  // return throwaway;
+  return throwaway;
 
-  throwaway.x = snake.head_x;
-  throwaway.y = snake.head_y;
-  occupied_points_vector.push_back(throwaway);
+  // throwaway.x = snake.head_x;
+  // throwaway.y = snake.head_y;
+  // occupied_points_vector.push_back(throwaway);
 
-  occupied_points_vector.push_back(food);
+  // occupied_points_vector.push_back(food);
 
-  for (SDL_Point p : snake.body) {
-    occupied_points_vector.push_back(p);
-  }
+  // for (SDL_Point p : snake.body) {
+  //   occupied_points_vector.push_back(p);
+  // }
 
-  if (snake_mode == GameSnakes::computerSnake) {
-    throwaway.x = fake_snake->head_x;
-    throwaway.y = fake_snake->head_y;
-    occupied_points_vector.push_back(throwaway);
+  // if (snake_mode == GameSnakes::computerSnake) {
+  //   throwaway.x = fake_snake->head_x;
+  //   throwaway.y = fake_snake->head_y;
+  //   occupied_points_vector.push_back(throwaway);
 
-    for (SDL_Point p : fake_snake->body) {
-      occupied_points_vector.push_back(p);
-    }
-  }
+  //   for (SDL_Point p : fake_snake->body) {
+  //     occupied_points_vector.push_back(p);
+  //   }
+  // }
   
-  auto obs_vec = getReadOnlyObstacles();
-  for (auto obs : obs_vec) {
-    throwaway.y = obs.leftMostPoint.y;
-    // add in extra spots for the entire path of the obstacle
-    for (int i =  0; i < obs.width; ++i) {
-      throwaway.x = obs.leftMostPoint.x + i;
-      occupied_points_vector.push_back(throwaway);
-    }
-  }
+  // auto obs_vec = getReadOnlyObstacles();
+  // for (auto obs : obs_vec) {
+  //   throwaway.y = obs.leftMostPoint.y;
+  //   // add in extra spots for the entire path of the obstacle
+  //   for (int i =  0; i < obs.width; ++i) {
+  //     throwaway.x = obs.leftMostPoint.x + i;
+  //     occupied_points_vector.push_back(throwaway);
+  //   }
+  // }
 
-  // create a list of occupied points as a 0-1 matrix
-  std::vector<std::vector<int>> occupied_points_matrix;
-  for (size_t i = 0; i < grid_height; ++i) {
-    std::vector<int> temp_vect(grid_width, 0);
-    occupied_points_matrix.push_back(temp_vect);
-  }
+  // // create a list of occupied points as a 0-1 matrix
+  // std::vector<std::vector<int>> occupied_points_matrix;
+  // for (size_t i = 0; i < grid_height; ++i) {
+  //   std::vector<int> temp_vect(grid_width, 0);
+  //   occupied_points_matrix.push_back(temp_vect);
+  // }
 
-  for (SDL_Point p : occupied_points_vector) {
-    occupied_points_matrix[p.y][p.x] = 1;
-  }
+  // for (SDL_Point p : occupied_points_vector) {
+  //   occupied_points_matrix[p.y][p.x] = 1;
+  // }
 
-  std::vector<SDL_Point> potential_points;
-  for (size_t i = 0; i < grid_height; ++i) {
-    for (size_t j = 0; j < grid_width; ++j) {
-      for (int k = 0; k < size; ++i) {
-        if (occupied_points_matrix[i][j] == 1) {
-          break;
-        } else if (k == size-1) {
-          throwaway.x = j;
-          throwaway.y = i;
-          potential_points.push_back(throwaway);
-        }
-      }
-    }
-  }
+  // std::vector<SDL_Point> potential_points;
+  // for (size_t i = 0; i < grid_height; ++i) {
+  //   for (size_t j = 0; j < grid_width; ++j) {
+  //     for (int k = 0; k < size; ++i) {
+  //       if (occupied_points_matrix[i][j] == 1) {
+  //         break;
+  //       } else if (k == size-1) {
+  //         throwaway.x = j;
+  //         throwaway.y = i;
+  //         potential_points.push_back(throwaway);
+  //       }
+  //     }
+  //   }
+  // }
 
-  // access a random point that works and return it
-  int randomIndex = rand() % potential_points.size();
-  return potential_points[randomIndex];
-  // not returning ?? 
+  // // access a random point that works and return it
+  // int randomIndex = rand() % potential_points.size();
+  // return potential_points[randomIndex];
+  // // not returning ?? 
 }
 
 
