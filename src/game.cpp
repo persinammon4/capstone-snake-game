@@ -109,8 +109,10 @@ void Game::Update() {
 
   if (snake_mode == GameSnakes::computerSnake) 
   {
-    fake_snake->Update();
-    if (!fake_snake->alive) score += 100;
+    if (fake_snake->alive) {
+      fake_snake->Update();
+      if (!fake_snake->alive) score += 100;
+    } 
   }
 
 
@@ -140,6 +142,16 @@ void Game::Update() {
     // Grow snake and increase speed.
     snake.GrowBody();
     snake.speed += 0.02;
+  }
+
+  // fake snake grows if it eats food
+  int new_x_fake = static_cast<int>(fake_snake->head_x);
+  int new_y_fake = static_cast<int>(fake_snake->head_y);
+
+  if (food.x == new_x_fake && food.y == new_y_fake) {
+    PlaceFood();
+    fake_snake->GrowBody();
+    // fake_snake->speed += 0.02;
   }
 }
 
@@ -199,14 +211,14 @@ SDL_Point Game::returnFreePoint(int size) { // works for all horizontal obstacle
   // throwaway.y = 5;
   return throwaway;
 
-  // throwaway.x = snake.head_x;
-  // throwaway.y = snake.head_y;
+  // throwaway.x = (int) snake.head_x;
+  // throwaway.y = (int) snake.head_y;
   // occupied_points_vector.push_back(throwaway);
 
   // occupied_points_vector.push_back(food);
 
   // for (SDL_Point p : snake.body) {
-  //   occupied_points_vector.push_back(p);
+  //    occupied_points_vector.push_back(p);
   // }
 
   // if (snake_mode == GameSnakes::computerSnake) {

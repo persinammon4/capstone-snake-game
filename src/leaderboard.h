@@ -5,6 +5,9 @@
 #include<string>
 #include<vector>
 #include "game.h"
+#include <ctime>
+#include <fstream>
+#include <map>
 
 
 class LeaderBoard {
@@ -12,6 +15,14 @@ class LeaderBoard {
     struct Entry {
         std::string username;
         int score;
+        int snake_size;
+        std::time_t timestamp;
+
+        Entry(std::string username, int score, int snake_size, std::time_t timestamp) : 
+            username(username),
+            score(score),
+            snake_size(snake_size),
+            timestamp(timestamp) {}
     };
 
     public:
@@ -22,6 +33,7 @@ class LeaderBoard {
             // 
             // use make_unique and perhaps emplace to create an array of smart pointers
             // to different files
+            // hold locks to the leaderboard files, just in case of other leaderboard objects
         } 
     
         ~LeaderBoard() {
@@ -36,8 +48,8 @@ class LeaderBoard {
         // and always a high level object
 
         void addEntry(std::string username, int score, int size, GameObstacles obs_mode, GameSnakes snake_mode);
-        Entry getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode);
-        Entry getGeneralRanking(std::string username);
+        std::vector<Entry> getSpecificRanking(std::string username, GameObstacles obs_mode, GameSnakes snake_mode);
+        std::vector<Entry> getGeneralRanking(std::string username);
 
         // all .txt files will be structured as:
         // username...score...snakesize...timestamp/newlinecharacter
@@ -60,6 +72,11 @@ class LeaderBoard {
 
         // decrypted files are temp files with paths stored here 
         std::vector<std::string> decrypted_paths;
+
+        // in memory local dictionary mapping leader board identification to vector of entries
+        // simple file path to data relationship, no pre computed optimizations using other dictionaries
+        // e.g. username to all entries, sorting by time_stamp
+        std::map<std::string, std::vector<Entry>> data; 
 };
 
 #endif

@@ -106,12 +106,15 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
 
       auto body_except_last = fake_snake->body; // creates a 
 
-      if (body_except_last.size() == 0) return; // have a case where die if hit the snake head in this scenario
+      int new_x_fake = static_cast<int>(fake_snake->head_x);
+      int new_y_fake = static_cast<int>(fake_snake->head_y);
+
+      if (current_head_cell.x == new_x_fake && current_head_cell.y == new_y_fake) alive = false;
+      if (body_except_last.size() == 0) return; // checked head, so done with collision logic if zero size body vector
       
       size_t s = body_except_last.size()-1;
       SDL_Point last_point = body_except_last[s];
       body_except_last.pop_back();
-
 
       if (current_head_cell.x == last_point.x && current_head_cell.y == last_point.y) {
         fake_snake->alive = false;
