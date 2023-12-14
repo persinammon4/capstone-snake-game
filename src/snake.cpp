@@ -61,10 +61,9 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
   // AI snake has different death rules
   // in their algorithm direction finder
   std::vector<SDL_Point> obstacle_points;
-
+  SDL_Point p;
 
   for (int i = 0; i < obstacles->size(); ++i) {
-    SDL_Point p;
     auto obs = (*obstacles)[i].get();
     p.y = obs->leftMostPoint.y;
     for (int k = 0; k < obs->width; ++k) {
@@ -91,40 +90,23 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
 
     // if there exists a computer controlled snake
     if (fake_snake != nullptr) {
-
-      auto body_except_last = fake_snake->body; 
-
-      int new_x_fake = static_cast<int>(fake_snake->head_x);
-      int new_y_fake = static_cast<int>(fake_snake->head_y);
-
-      // hit head of fake snake
-      if (current_head_cell.x == new_x_fake && current_head_cell.y == new_y_fake) alive = false;
-      // and there is no body, so no need to check further (avoids segmentation fault from iterating over empty vec)
-      if (body_except_last.size() == 0) return; 
-      
-      // last point is going to have a win scenario for player snake
-      size_t s = body_except_last.size()-1;
-      SDL_Point last_point = body_except_last[s];
-      body_except_last.pop_back();
-
-      if (current_head_cell.x == last_point.x && current_head_cell.y == last_point.y) {
-        fake_snake->alive = false;
-        // game score increases += 100 in the parent game, indiscriminately after computer snake death
-      }
-      for (auto p_body : body ) {
-        if (p_body.x == last_point.x && p_body.y == last_point.y) fake_snake->alive = false;
-        // same game score boost etc as previous if statement
-      }
-
-      // collision logic against the fake snake body
-      for (auto const &item : body_except_last) {
-        if (current_head_cell.x == item.x && current_head_cell.y == item.y) alive = false;
-        for (auto p_body : body) {
-          if (p_body.x == item.x && p_body.y == item.y) alive = false;
+      std::vector<SDL_Point> fake_snake_points;
+      SDL_Point last_point;
+      for (int i = 0; i < fake_snake->body.size(); ++i) {
+        if (i == fake_snake->body.size()-1) {
+          last_point = fake_snake->body[i];
+        } else {
+          fake_snake_points.push_back(fake_snake->body[i]);
         }
       }
+      for (auto p : fake_snake_points) {
+        for (auto p_me : body) {
+          if (p_me.x == p.x && p_me.y == p.y) alive = false;
+        }
+        if (current_head_cell.x == p.x && current_head_cell.y == p.y) alive = false;
+      }
+      if (current_head_cell.x == last_point.x && current_head_cell.y == last_point.y) fake_snake->alive = false;
     }
-
   }
  
 }
