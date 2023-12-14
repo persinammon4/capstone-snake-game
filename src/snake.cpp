@@ -63,26 +63,15 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
   std::vector<SDL_Point> obstacle_points;
 
 
-  for (int i = 0; i < fixed_obstacles->size(); ++i) {
+  for (int i = 0; i < obstacles->size(); ++i) {
     SDL_Point p;
-    auto obs = (*fixed_obstacles)[i].get();
+    auto obs = (*obstacles)[i].get();
     p.y = obs->leftMostPoint.y;
     for (int k = 0; k < obs->width; ++k) {
       p.x = obs->leftMostPoint.x + k;
       obstacle_points.push_back(p);
     }
   }
-  
-  for (int i = 0; i < moving_obstacles->size(); ++i) {
-    SDL_Point p;
-    auto obs = (*moving_obstacles)[i].get();
-    p.y = obs->leftMostPoint.y;
-    for (int k = 0; k < obs->width; ++k) {
-      p.x = obs->leftMostPoint.x + k;
-      obstacle_points.push_back(p);
-    }
-  }
-
 
   for (auto p : obstacle_points) {
     if (current_head_cell.x == p.x && current_head_cell.y == p.y) alive = false;
@@ -91,36 +80,43 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
     }
   }
 
-  if (ai == false) {
+  if (!ai) {
+
+    // if user snake runs into itself
     for (auto const &item : body) {
       if (current_head_cell.x == item.x && current_head_cell.y == item.y) {
         alive = false;
       }
     }
-    
-    // if hit fake snake then will perish, but if hit fake snake tail then will kill the fake snake and get points
-    //if (current_head_cell.x == fake_snake->head_x && current_head_cell.y == fake_snake->head_y) alive = false;
 
-
+    // if there exists a computer controlled snake
     if (fake_snake != nullptr) {
 
-      auto body_except_last = fake_snake->body; // creates a 
+      auto body_except_last = fake_snake->body; 
 
       int new_x_fake = static_cast<int>(fake_snake->head_x);
       int new_y_fake = static_cast<int>(fake_snake->head_y);
 
+      // hit head of fake snake
       if (current_head_cell.x == new_x_fake && current_head_cell.y == new_y_fake) alive = false;
-      if (body_except_last.size() == 0) return; // checked head, so done with collision logic if zero size body vector
+      // and there is no body, so no need to check further (avoids segmentation fault from iterating over empty vec)
+      if (body_except_last.size() == 0) return; 
       
+      // last point is going to have a win scenario for player snake
       size_t s = body_except_last.size()-1;
       SDL_Point last_point = body_except_last[s];
       body_except_last.pop_back();
 
       if (current_head_cell.x == last_point.x && current_head_cell.y == last_point.y) {
         fake_snake->alive = false;
-        // game score should increase, in parent game
+        // game score increases += 100 in the parent game, indiscriminately after computer snake death
+      }
+      for (auto p_body : body ) {
+        if (p_body.x == last_point.x && p_body.y == last_point.y) fake_snake->alive = false;
+        // same game score boost etc as previous if statement
       }
 
+      // collision logic against the fake snake body
       for (auto const &item : body_except_last) {
         if (current_head_cell.x == item.x && current_head_cell.y == item.y) alive = false;
         for (auto p_body : body) {

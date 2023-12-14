@@ -1,29 +1,13 @@
 # Capstone Snake Game
 
-The original project had a fully functional Snake game implemented. A Snake game has a keyboard controlled snake that's constantly moving.
-When it eats a food (by running over it), it grows in length by one block while still moving. The original implementation infinitely runs until the snake runs into itself.
+The Snake game is a game world where a keyboard controlled snake attempts to eat food. Every time it eats food it grows longer one by one block, but if it turns in on itself and hits another part of its body it dies. The original implementation set up a basic game loop including a Snake class, SDL library usage, and rendering of abstract objects. It runs infinitely unless the snake dies.
 
-Original implementation:
-- A `main` function handling creating objects of the three main steps of the game loop (`Controller`, `Game`, `Renderer`). The `Game::Game` constructor creates a `Snake` object, while `Game::Run` starts the game loop.
-- A `Game::Update` method that takes care of snake movement, handling the snake eating food, basic movement in response to user input.
-- Score updated regularly.
-- The `Snake` stores float coordinates of the head, and a vector of points (int cell coordinates) as the body. The head has float
-coordinates to suggest speed as a gradient, versus blockily moving from point to point. Location updates based on the snake's speed
-are all handled. The `Snake::Update` method both handles updating the head and the body.
-- Most of the SDL usage is already written.
-
-The project spec asked to create features to the original game which used concepts discussed through the course. 
-
-Added features:
+The extended implementation has the following features:
+- Multiple Game modes: new snake controlled by A* algorithm, with its own collision rules (user snake death if run into it, will not run into obstacles or use wraparound) and a score boost if the new snake is killed by the user snake hitting its last box (essentially eating it). Second mode is to insert obstacles into the grid.
+- Leaderboard with scores for all previous attempts written to `*.txt` files. I felt very uncomfortable leaving a plaintext file with data public on GitHub, so I implemented encryption with a symmetric key. Encryption is a mandatory opt-in.
 - Create a GUI with speed (frames per second) toggling, leaderboard option, original mode, obstacle mode, computer snake mode. Used [Nuklear](https://github.com/Immediate-Mode-UI/Nuklear/) to do so.
-- Leaderboard is read and written from a `*.txt` file. The text file is encrypted using a symmetric key. I kept the key up on GitHub,
-so it's not like it's actually a security improvement. I just felt very uncomfortable leaving a plaintext file with data public. I could've
-left an optional parameter to toggle encryption, but decided to make it a mandatory design feature.
-- New `Obstacle` class with inheritance (fixed, moving).
-- New snake controlled by A* algorithm, which will lead to a loss if run into it or
-automatic win/rankings multiplier boost if eat the snake by hitting the last box of it.
-- Gave the A* algorithm snake a handicap where it can't use the wraparound to go across the screen.
-- End print message with score, size, and leaderboard ranking (two leaderboards - respective mode and the general leaderboard).
+
+The project has in-line comments with reasoning behind implementation decisions. Details further down the README.
 
 ## How to Run
 
@@ -36,10 +20,26 @@ Or:
 3. Compile `cd build && cmake .. && make`.
 4. Run `./SnakeGame`
 
+
+## Testing
+
+This is a freeform game project, so human input and observation is required for testing (not as simple as automatically running a test suite
+from command line). Recording scores and gameplay logic are both based on human input. Reading and writing files can be tested with unit tests,
+but it was faster to visually inspect (this being a personal project, not professional).
+
+1. In `main.cpp`, pass in the two game mode parameters that you want to test.
+2. To add a new environment (of obstacles and whether to have an AI controlled competitor snake),
+go to `scenario.h`, write a new `GameEnv[x]` where x is an unused positive integer, and change the order
+of the method names in the vector to guarantee your function will be used to populate the game. Include
+an invariant to ensure the correct game mode is set.
+3. Comment out the GUI in `main.cpp` if necessary.
+4. Build and run.
+
 ## Notes
 
-- Figured out how to make flashing colored items! Have two `SDL_SetRenderDrawColor`s next to each other and it will effectively be a strobe light!
+- This project was amenable to being solved quickly, because of the separation of concerns already built in (e.g. Renderer only renders a snapshot of abstract objects, imports go in header files, leaderboard is a file writer independent of other parts of the game, snake collision logic is all in one area, abstract object movement is handled inside of the object itself through the Update method, controller just needs directions fed into it allowing for A* to only focus on returning directions instead of handling updating the points themselves, GUI can be the last to be implemented).
 
+- Figured out how to make flashing colored items! Have two `SDL_SetRenderDrawColor`s next to each other and it will effectively be a strobe light!
 - `Renderer` and `Controller` don't own any of the class representations e.g. Snake, Obstacle. They just take in references or 
 copies and either draw out a renderering from a `const` object or mutate values within the object. The food is 
 implemented as an `SDL_Point` and not a class, which is perfect, but for some reason it's being passed in as a reference to 
@@ -47,6 +47,13 @@ the `Renderer` instead of another deep copy. I am not sure why the original proj
 that inconsistency. I may change it later.
 - `Renderer` contains no game logic and takes in only `const` values to render a snapshot of all logic representations.
 - Speed mode is 100% solved without deeply touching classes (handled completely in `main.cpp`).
+
+- Is it possible to go back to one vector of Obstacle class but add overrides and a virtual function to parent class? Attempt this after working project is done.
+
+- How to introduce multiple threads into this game? An idea is have one thread for every moving object (moving obstacles and 2 snakes,
+with a future extension being multiple computer controlled snakes). Originally the `Game::Update` method guarantees order of execution of 
+Object::Update methods, so there being a change in the environment between reads and writes is impossible. An idea is first update all the obstacles. Computer snakes move around obstacles, so this guarantees the current grid - from there each can compute their new location independently (through multiple threads) and update themselves independently.
+
 
 <img src="snake_game.gif"/>
 
@@ -66,26 +73,53 @@ that inconsistency. I may change it later.
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 
 
-## Credits
+## Rubric Points for Udacity Graders
 
-Udacity team credited [this](https://codereview.stackexchange.com/questions/212296/snake-game-in-c-with-sdl) excellent StackOverflow thread.
+| Rubric Criterion | File:Line Number |
+|  --------------- | -----------------|
+| Understanding of C++ functions and control structures | |
+| Read/write data to/from files; process the file data |  |
+| Accept and process user input | |
+| Data structures and immutable values | |
+| One or more classes with appropriate access specifiers for members | |
+| Class constructor with member initialization list | | 
+| Member functions abstract away implementations and have well documented function names | |
+| Overloaded function with multiple parameter signatures | |
+| References in function declarations, or using pass-by-reference | |
+| Well-implemented destructor | |
+| RAII and resource management through scoping | |
+| Rule of 5 | |
+| Smart pointers | |
+| Multi-threading or async tasks | |
+| Mutex or lock | |
+
 
 ## Links
+
+Fan of this: https://bumbershootsoft.wordpress.com/2019/04/07/working-with-dlls-on-windows-mac-and-linux/
+
+Never ever (ever ever) roll your own encryption (like Geeks4Geeks and other articles/short courses were suggesting):
+https://medium.com/@jmayuresh25/create-a-simple-file-encryption-system-in-c-e3726e0f265b
+Although, with the character based encryption, if you encrypt the whitespaces by introducing a simple shift in characters by one number, surely that's a way to crack the cipher. How I could know that - I read that Caesar cipher was cracked because the letter "e" in English plaintext is very frequent.
+
+I read from StackOverflow OpenSSL is good, but I preferred Wei Dai's Crypto++ because I found the instructions clearer to install.
+
+https://github.com/weidai11/cryptopp
+
+
+Preferred DLL over static library, I do not like bloat:
+https://stackoverflow.com/questions/140061/when-to-use-dynamic-vs-static-libraries
+
 
 https://dexp.in/articles/nuklear-intro/
 https://cpp.hotexamples.com/examples/-/-/nk_option_label/cpp-nk_option_label-function-examples.html
 https://www.geeksforgeeks.org/encrypt-and-decrypt-text-file-using-cpp/
+https://linuxhint.com/regular-expression-basics-cpp/
+https://cplusplus.com/reference/ctime/ctime/
 
-## CC Attribution-ShareAlike 4.0 International
 
 
-Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
-This work is licensed under a
+## Licensing of Starter Project
+
 [Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
-
-[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
-
-[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
-[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
-[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg

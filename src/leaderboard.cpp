@@ -54,5 +54,5 @@ void LeaderBoard::addEntry(std::string username, int score, int size, GameObstac
 // }
 
 // void LeaderBoard::loadLocal() {
-
+// if (std::regex_match(sting, regex)) { create an entry }
 // }

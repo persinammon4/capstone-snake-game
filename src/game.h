@@ -41,6 +41,7 @@ class Game {
   //std::vector<std::unique_ptr<Obstacle>> obstacles;
   std::vector<std::unique_ptr<FixedObstacle>> fixed_obstacles;
   std::vector<std::unique_ptr<MovingObstacle>> moving_obstacles;
+  std::vector<std::unique_ptr<Obstacle>> obstacles;
   std::unique_ptr<Snake> fake_snake;
 
   std::random_device dev;

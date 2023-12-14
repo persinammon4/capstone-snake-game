@@ -16,14 +16,12 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mod
       obstacle_mode(obstacle_mode),
       snake_mode(snake_mode) {
 
-      snake.fixed_obstacles = &fixed_obstacles;
-      snake.moving_obstacles = &moving_obstacles;
+      snake.obstacles = &obstacles;
       if (snake_mode == GameSnakes::computerSnake) {
         auto s = new Snake(grid_width, grid_height, true);
         fake_snake = std::make_unique<Snake>(*s);
         snake.fake_snake = s;
-        fake_snake->fixed_obstacles = &fixed_obstacles;
-        fake_snake->moving_obstacles = &moving_obstacles;
+        fake_snake->obstacles = &obstacles;
       }
       // obstacles are initialized outside of constructor, so updated at time of obstacle change
 
@@ -39,12 +37,6 @@ void Game::Run(Controller const &controller, Renderer &renderer,
   Uint32 frame_duration;
   int frame_count = 0;
   bool running = true;
-
-  // auto vec = getReadOnlyObstacles();
-  // for (size_t i = 0; i < obstacles.size(); ++i) {
-  //   std::cout << obstacles[i]->leftMostPoint.x << " " << obstacles[i]->leftMostPoint.y << std::endl;
-  // }
-  // std::cout << obstacles.size() << std::endl;
 
   while (running) {
     frame_start = SDL_GetTicks();
@@ -119,21 +111,11 @@ void Game::Update() {
   int new_x = static_cast<int>(snake.head_x);
   int new_y = static_cast<int>(snake.head_y);
 
-  if (obstacle_mode == GameObstacles::fixedObstacles) {
-    for (int i = 0; i < fixed_obstacles.size(); ++i) {
-      fixed_obstacles[i]->Update();
-    }
+  if (obstacle_mode == GameObstacles::fixedObstacles || obstacle_mode == GameObstacles::mixedObstacles) {
+    for (int i = 0; i < obstacles.size(); ++i) obstacles[i]->Update();
     //std::for_each(obstacles.begin(), obstacles.end(), [](auto o){ o.Update();});
   }
 
-  if (obstacle_mode == GameObstacles::mixedObstacles) {
-    for (int i = 0; i < fixed_obstacles.size(); ++i) {
-      fixed_obstacles[i]->Update();
-    }
-    for (int i = 0; i < moving_obstacles.size(); ++i) {
-      moving_obstacles[i]->Update();
-    }
-  }
 
   // Check if there's food over here
   if (food.x == new_x && food.y == new_y) {
@@ -163,7 +145,7 @@ void Game::addFixedObstacle(int width) {
   p.y = 5;
   item->leftMostPoint = p;
   //item->leftMostPoint = returnFreePoint(width);
-  fixed_obstacles.emplace_back(item); // constructs new unique pointer with argument item
+  obstacles.emplace_back(item); // constructs new unique pointer with argument item
 }
 
 void Game::addMovingObstacle(int width, int path_size = 3) {
@@ -175,24 +157,18 @@ void Game::addMovingObstacle(int width, int path_size = 3) {
   item->leftMostPoint = p;
   //item->leftMostPoint = returnFreePoint(width);
   item->path_size = path_size;
-  moving_obstacles.emplace_back(item);
+  obstacles.emplace_back(item);
 }
 
 std::vector<Obstacle> Game::getReadOnlyObstacles() {
   // implement logic here
   std::vector<Obstacle> read_only_obstacles;
-  for (size_t i = 0; i < fixed_obstacles.size(); ++i) {
-    Obstacle o = *fixed_obstacles[i];
+  for (size_t i = 0; i < obstacles.size(); ++i) {
+    Obstacle o = *obstacles[i];
     read_only_obstacles.push_back(o);
-    //read_only_obstacles.push_back((Obstacle) (*fixed_obstacles[i])); //pushes a copy
-  }
-  for (size_t i = 0; i < moving_obstacles.size(); ++i) {
-    Obstacle o = *moving_obstacles[i];
-    read_only_obstacles.push_back(o);
-    //read_only_obstacles.push_back((Obstacle) (*moving_obstacles[i])); //pushes a copy
   }
 
-  // I tried to use transform method, but several attempts to operatoe on unique pointers led to hard to debug errors
+  // I tried to use transform method, but several attempts to operate on unique pointers led to hard to debug errors
   //std::transform(obstacles.cbegin(), obstacles.cend(), read_only_obstacles.begin(), [](auto &&o) { return o.get();});
   return read_only_obstacles;
 }

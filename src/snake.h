@@ -46,8 +46,7 @@ class Snake {
   // own read-only raw pointers to other snake and obstacles both created by Game
   Snake * fake_snake; // empty if it's the fake senake
   // fake snake has no pointer to real_snake
-  std::vector<std::unique_ptr<FixedObstacle> >* fixed_obstacles;
-  std::vector<std::unique_ptr<MovingObstacle> >* moving_obstacles;
+  std::vector<std::unique_ptr<Obstacle> >* obstacles;
 
  private:
 

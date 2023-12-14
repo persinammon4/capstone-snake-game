@@ -23,7 +23,7 @@ int main() {
 
   std::string username{"anonymous"}; //default value
 
-  //LeaderBoard leaderboard;
+  LeaderBoard leaderboard;
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
   Controller controller;
 
@@ -69,17 +69,22 @@ int main() {
 // }
 // nk_end(&ctx); // called at end of window buildiing process for general cleanup and scaling, scrollbars etc
 
+  auto obstacle_mode = GameObstacles::mixedObstacles;
+  auto snake_mode = GameSnakes::computerSnake;
+  auto speed_mode = GameSpeeds::medium;
+
+  // these are the enum definitions in game.h
   // enum class GameSpeeds { slow, medium, fast};
   // enum class GameObstacles { fixedObstacles, movingObstacles, noObstacles };
   // enum class GameSnakes { original, computerSnake };
-  // set game completely based on user GUI input
   // not happy with noObstacles == noob...
-  Game game(kGridWidth, kGridHeight, GameSpeeds::medium, GameObstacles::mixedObstacles, GameSnakes::computerSnake);
+  Game game(kGridWidth, kGridHeight, speed_mode, obstacle_mode, snake_mode);
 
 
   // change kFramesPerSecond to one of the the 3 constexpr options
   std::size_t kFramesPerSecond;
 
+  // slight sanity check by using the game's speed_mode
   switch(game.speed_mode) {
     case GameSpeeds::slow:
       kFramesPerSecond = kFPSslow;
@@ -105,8 +110,11 @@ int main() {
   std::cout << "Game has terminated successfully!\n";
   std::cout << "Score: " << game.GetScore() << "\n";
   std::cout << "Size: " << game.GetSize() << "\n";
+  //leaderboard.addEntry(username, game.getScore(), game.getSize(), game.obstacle_mode, game.snake_mode);
+  std::cout << "Added entry to leaderboards.\n";
+  //leaderboard.getSpecificRanking(username, type of );
+  //leaderboard.getGeneralRanking(username);
   // add leaderboard ranking to printout
-  //leaderboard.addEntry(username, game.getScore(), game.getSize(), game modes);
   //std::cout << leaderboard.getRanking(username, type of leaderboard);
   //nk_font_atlas_clear(&atlas);
   return 0;
