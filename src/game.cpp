@@ -14,7 +14,9 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mod
       random_h(0, static_cast<int>(grid_height - 1)),
       speed_mode(speed_mode),
       obstacle_mode(obstacle_mode),
-      snake_mode(snake_mode) {
+      snake_mode(snake_mode),
+      grid_width(grid_width),
+      grid_height(grid_height) {
 
       snake.obstacles = &obstacles;
       if (snake_mode == GameSnakes::computerSnake) {
@@ -90,6 +92,8 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 
 void Game::PlaceFood() {
   //food = returnFreePoint(1);
+  food.x = (int) grid_width-1;
+  food.y = (int) grid_height-1;
 }
 
 void Game::Update() {

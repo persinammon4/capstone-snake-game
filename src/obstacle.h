@@ -18,10 +18,10 @@ class Obstacle {
 class MovingObstacle : public Obstacle {
     public:
         enum class Direction { kUp, kDown, kLeft, kRight };
-        Direction direction = Direction::kRight; //horizontal movement
+        Direction direction = Direction::kUp; //horizontal movement
         int path_size{3};
         int path_progress{0};
-        float path_speed_stable_increment{0.5};
+        int denominator_slowdown{6};
         void Update() override;
         MovingObstacle(int w, int h) {
             grid_width = w;
