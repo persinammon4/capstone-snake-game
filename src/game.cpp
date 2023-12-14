@@ -91,9 +91,7 @@ void Game::Run(Controller const &controller, Renderer &renderer,
 }
 
 void Game::PlaceFood() {
-  //food = returnFreePoint(1);
-  food.x = (int) grid_width-1;
-  food.y = (int) grid_height-1;
+  food = returnFreePoint(1);
 }
 
 void Game::Update() {
@@ -144,22 +142,14 @@ void Game::Update() {
 void Game::addFixedObstacle(int width) {
   auto item = new FixedObstacle((int) grid_width, (int) grid_height);
   item->width = width;
-  SDL_Point p;
-  p.x = 5;
-  p.y = 5;
-  item->leftMostPoint = p;
-  //item->leftMostPoint = returnFreePoint(width);
+  item->leftMostPoint = returnFreePoint(width);
   obstacles.emplace_back(item); // constructs new unique pointer with argument item
 }
 
 void Game::addMovingObstacle(int width, int path_size = 3) {
   auto item = new MovingObstacle((int) grid_width, (int) grid_height);
   item->width = width;
-  SDL_Point p;
-  p.x = 10;
-  p.y = 10;
-  item->leftMostPoint = p;
-  //item->leftMostPoint = returnFreePoint(width);
+  item->leftMostPoint = returnFreePoint(width);
   item->path_size = path_size;
   obstacles.emplace_back(item);
 }
@@ -182,75 +172,64 @@ std::vector<Obstacle> Game::getReadOnlyObstacles() {
 // possibly the scenario method calling this can become some kind of constexpr compile time method
 SDL_Point Game::returnFreePoint(int size) { // works for all horizontal obstacles
 
-  std::vector<SDL_Point> occupied_points_vector;
+  // fyi, because push_back creates a copy
+  // it's ok to reuse zero_vec and throwaway
+  std::vector<int> zero_vec(grid_width-1,0);
+  std::vector<std::vector<int>> occupied_points_matrix;
+  for (int i = 0; i < grid_width; ++i) occupied_points_matrix.push_back(zero_vec);
 
-  // fyi, because push_back creates a copy, it's ok to 
-  // reuse throwaway across the function
   SDL_Point throwaway;
-  // throwaway.x = 1;
-  // throwaway.y = 5;
-  return throwaway;
 
-  // throwaway.x = (int) snake.head_x;
-  // throwaway.y = (int) snake.head_y;
-  // occupied_points_vector.push_back(throwaway);
+  // now proceed to use throwaway to add in all occupied points in a data structure
+  // will use this to populate a 0-1 grid for easy access of current layout
+  throwaway.x = (int) snake.head_x;
+  throwaway.y = (int) snake.head_y;
+  occupied_points_matrix[throwaway.y][throwaway.x] = 1;
 
-  // occupied_points_vector.push_back(food);
+  // using this to create new placement for food too, but ok to use old food coord
+  occupied_points_matrix[food.y][food.x] = 1;
 
-  // for (SDL_Point p : snake.body) {
-  //    occupied_points_vector.push_back(p);
-  // }
+  for (SDL_Point p : snake.body) {
+     occupied_points_matrix[p.y][p.x] = 1;
+  }
 
-  // if (snake_mode == GameSnakes::computerSnake) {
-  //   throwaway.x = fake_snake->head_x;
-  //   throwaway.y = fake_snake->head_y;
-  //   occupied_points_vector.push_back(throwaway);
+  if (snake_mode == GameSnakes::computerSnake) {
+    throwaway.x = fake_snake->head_x;
+    throwaway.y = fake_snake->head_y;
+    occupied_points_matrix[throwaway.y][throwaway.x] = 1;
 
-  //   for (SDL_Point p : fake_snake->body) {
-  //     occupied_points_vector.push_back(p);
-  //   }
-  // }
+    for (SDL_Point p : fake_snake->body) {
+      occupied_points_matrix[p.y][p.x] = 1;
+    }
+  }
   
-  // auto obs_vec = getReadOnlyObstacles();
-  // for (auto obs : obs_vec) {
-  //   throwaway.y = obs.leftMostPoint.y;
-  //   // add in extra spots for the entire path of the obstacle
-  //   for (int i =  0; i < obs.width; ++i) {
-  //     throwaway.x = obs.leftMostPoint.x + i;
-  //     occupied_points_vector.push_back(throwaway);
-  //   }
-  // }
+  auto obs_vec = getReadOnlyObstacles();
+  for (auto obs : obs_vec) {
+    throwaway.y = obs.leftMostPoint.y;
+    // add in extra spots for the entire path of the obstacle
+    for (int i = 0; i < obs.width; ++i) {
+      throwaway.x = obs.leftMostPoint.x + i;
+      occupied_points_matrix[throwaway.y][throwaway.x] = 1;
+    }
+  }
 
-  // // create a list of occupied points as a 0-1 matrix
-  // std::vector<std::vector<int>> occupied_points_matrix;
-  // for (size_t i = 0; i < grid_height; ++i) {
-  //   std::vector<int> temp_vect(grid_width, 0);
-  //   occupied_points_matrix.push_back(temp_vect);
-  // }
+  std::vector<SDL_Point> available_points;
+  for (int j = 0; j < grid_height; ++j) {
+    for (int i = 0; i < grid_width; ++i) {
+      for (int k = 0; k < size; ++k) {
+        if (occupied_points_matrix[j][i+k] == 1) break;
+        if (occupied_points_matrix[j][i+k] == 0 && k == size-1) {
+          throwaway.x = i;
+          throwaway.y = j;
+          available_points.push_back(throwaway);
+        }
+      }
+    }
+  }
 
-  // for (SDL_Point p : occupied_points_vector) {
-  //   occupied_points_matrix[p.y][p.x] = 1;
-  // }
-
-  // std::vector<SDL_Point> potential_points;
-  // for (size_t i = 0; i < grid_height; ++i) {
-  //   for (size_t j = 0; j < grid_width; ++j) {
-  //     for (int k = 0; k < size; ++i) {
-  //       if (occupied_points_matrix[i][j] == 1) {
-  //         break;
-  //       } else if (k == size-1) {
-  //         throwaway.x = j;
-  //         throwaway.y = i;
-  //         potential_points.push_back(throwaway);
-  //       }
-  //     }
-  //   }
-  // }
-
-  // // access a random point that works and return it
-  // int randomIndex = rand() % potential_points.size();
-  // return potential_points[randomIndex];
-  // // not returning ?? 
+  // access a random point that works and return it
+  int randomIndex = rand() % available_points.size();
+  return available_points[randomIndex];
 }
 
 
