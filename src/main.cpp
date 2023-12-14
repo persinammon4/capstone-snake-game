@@ -70,7 +70,7 @@ int main() {
 // nk_end(&ctx); // called at end of window buildiing process for general cleanup and scaling, scrollbars etc
 
   auto obstacle_mode = GameObstacles::mixedObstacles;
-  auto snake_mode = GameSnakes::computerSnake;
+  auto snake_mode = GameSnakes::original;
   auto speed_mode = GameSpeeds::medium;
 
   // these are the enum definitions in game.h

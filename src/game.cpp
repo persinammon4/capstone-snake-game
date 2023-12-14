@@ -24,6 +24,8 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mod
         fake_snake = std::make_unique<Snake>(*s);
         snake.fake_snake = s;
         fake_snake->obstacles = &obstacles;
+      } else if (snake_mode == GameSnakes::original) {
+        fake_snake = nullptr;
       }
       // obstacles are initialized outside of constructor, so updated at time of obstacle change
 
@@ -107,6 +109,15 @@ void Game::Update() {
       fake_snake->Update();
       if (!fake_snake->alive) score += 100;
     } 
+    // fake snake grows if it eats food
+    int new_x_fake = static_cast<int>(fake_snake->head_x);
+    int new_y_fake = static_cast<int>(fake_snake->head_y);
+
+    if (food.x == new_x_fake && food.y == new_y_fake) {
+      PlaceFood();
+      fake_snake->GrowBody();
+    // fake_snake->speed += 0.02;
+    }
   }
 
 
@@ -128,15 +139,6 @@ void Game::Update() {
     snake.speed += 0.02;
   }
 
-  // fake snake grows if it eats food
-  int new_x_fake = static_cast<int>(fake_snake->head_x);
-  int new_y_fake = static_cast<int>(fake_snake->head_y);
-
-  if (food.x == new_x_fake && food.y == new_y_fake) {
-    PlaceFood();
-    fake_snake->GrowBody();
-    // fake_snake->speed += 0.02;
-  }
 }
 
 void Game::addFixedObstacle(int width) {

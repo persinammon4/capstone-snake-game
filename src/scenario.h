@@ -48,7 +48,6 @@ namespace Scenario {
     // create moving obstacles
     void GameEnv3(Game &game) {
         if (!((game.obstacle_mode == GameObstacles::mixedObstacles) && (game.snake_mode == GameSnakes::original))) throw std::logic_error("Wrong obstacle mode for GameEnv3 scenario");
-        std::cout << " Hello game 3" << std::endl;
         game.addMovingObstacle(3, 1);
         game.addMovingObstacle(2, 2);
     }
