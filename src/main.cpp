@@ -3,17 +3,10 @@
 #include "controller.h"
 #include "game.h"
 #include "renderer.h"
-#define NK_IMPLEMENTATION
-#include "nuklear.h"
 #include "leaderboard.h"
 #include "scenario.h"
 
-#define MAX_MEMORY (1024 * 1024 * 2) /* 2MB of memory */
 
-
-float minor_helper_font_create() {
-  return 4.0;
-}
 
 int main() {
   constexpr std::size_t kScreenWidth{640};
@@ -38,17 +31,6 @@ int main() {
   auto speed_mode = GameSpeeds::medium;
 
   // launch a GUI
-  // struct nk_context ctx;
-  // struct nk_user_font font;
-  // //font.userdata.ptr = &your_font_class_or_struct;
-  // font.height = 5.0;
-  // font.width = (nk_text_width_f) minor_helper_font_create;
-  // nk_init_default(&ctx, &font);
-  // if (true) { // use a begin func
-  //   // do GUI stuff here to get the 3 parameters
-  // } 
-  // nk_end(&ctx);
-  // nk_free(&ctx);
 
 
   // these are the enum definitions in game.h
@@ -94,6 +76,5 @@ int main() {
   //leaderboard.getGeneralRanking(username);
   // add leaderboard ranking to printout
   //std::cout << leaderboard.getRanking(username, type of leaderboard);
-  //nk_font_atlas_clear(&atlas);
   return 0;
 }

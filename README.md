@@ -5,7 +5,7 @@ The Snake game is a game world where a keyboard controlled snake attempts to eat
 The extended implementation has the following features:
 - Multiple Game modes: new snake controlled by A* algorithm, with its own collision rules (user snake death if run into it, will not run into obstacles or use wraparound) and a score boost if the new snake is killed by the user snake hitting its last box (essentially eating it). Second mode is to insert obstacles into the grid in randomly selected locations.
 - Leaderboard with scores for all previous attempts written to `*.txt` files. I felt very uncomfortable leaving a plaintext file with data public on GitHub, so I implemented encryption with a symmetric key. Encryption is a mandatory feature. Used [Crypto++](https://github.com/weidai11/cryptopp).
-- Create a GUI with speed (frames per second) toggling, leaderboard option, original mode, obstacle mode, computer snake mode. Used [Nuklear](https://github.com/Immediate-Mode-UI/Nuklear/) to do so.
+- Create a GUI with speed (frames per second) toggling, leaderboard option, original mode, obstacle mode, computer snake mode. Used [Elements](https://cycfi.github.io/elements/) to do so.
 
 The project has in-line comments with reasoning behind implementation decisions. Details further down the README.
 
