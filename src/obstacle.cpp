@@ -4,6 +4,8 @@
 void MovingObstacle::Update() {
     switch (direction) {
         case Direction::kUp:
+            // * and % denominator slowdown will burn cycles with no movement but always increment path_progress, allowing for a more
+            // pleasant appearing movement from the obstacle. originally tried this by multiplying coord by a float, but wasn't really working
             if (path_progress >= path_size* denominator_slowdown) {
                 direction = Direction::kDown;
                 path_progress = 0;
@@ -70,4 +72,4 @@ void MovingObstacle::Update() {
     }
 }
 
-void FixedObstacle::Update() {}
+void FixedObstacle::Update() {} // method stub for no movement

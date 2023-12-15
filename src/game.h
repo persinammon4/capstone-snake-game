@@ -17,7 +17,7 @@ enum class GameSnakes { original, computerSnake };
 class Game {
  public:
   Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mode, GameObstacles obstacle_mode, GameSnakes snake_mode);
-  void Run(Controller const &controller, Renderer &renderer,
+  void Run(Renderer &renderer,
            std::size_t target_frame_duration); 
   int GetScore() const;
   int GetSize() const;
@@ -32,16 +32,14 @@ class Game {
   GameSnakes const snake_mode;
 
  private:
-  Snake snake;
+ // these two objects are not pointers of any sort. they are declared on the stack in the game constructor and implicitly automatically destroyed in the game destructor
+  Snake snake; 
   SDL_Point food;
 
-  // always declare these, even if game mode ends up not using them
-  // note that leaderboard is not owned by Game, but Game outputs are written to leaderboard
-  // should these be unique pointers?
-  //std::vector<std::unique_ptr<Obstacle>> obstacles;
-  std::vector<std::unique_ptr<FixedObstacle>> fixed_obstacles;
-  std::vector<std::unique_ptr<MovingObstacle>> moving_obstacles;
+  // note that leaderboard is not owned by Game, but Game outputs are written to leaderboard in main.cpp
+  // unique pointers allow for automatic RAII by Game object 
   std::vector<std::unique_ptr<Obstacle>> obstacles;
+  // always declare this - is explicitly init to either nullptr or a right type of snake in Game constructor
   std::unique_ptr<Snake> fake_snake;
 
   std::random_device dev;
@@ -59,6 +57,8 @@ class Game {
   void PlaceFood();
   void Update();
   std::vector<Obstacle> getReadOnlyObstacles();
+
+  Controller controller;
 };
 
 #endif

@@ -16,12 +16,13 @@ class Snake {
         ai(ai)
         {
           if (!ai) {
+            // if user controlled snake, initialize in middle of grid
             head_x = grid_width/2;
             head_y = grid_height/2;
             direction = Direction::kUp;
           } else {
             // if it's computer controlled snake,
-            // initializing from the top left
+            // initialize from the top left
             head_x = 0;
             head_y = 0;
             direction = Direction::kRight;
@@ -43,9 +44,11 @@ class Snake {
   bool ai;
   std::vector<SDL_Point> body;
 
-  // own read-only raw pointers to other snake and obstacles both created by Game
-  Snake * fake_snake; // empty if it's the fake senake
-  // fake snake has no pointer to real_snake
+  // own raw pointers to other snake and obstacles both created by Game
+  // no explicit const against modification of resource and it's a direct reference
+  // so take care not to modify these resources and ruin gameplay with magic logic
+  Snake * fake_snake; // nullptr if it's the fake snake, so if manipulate nullptr will cause seg fault
+  // fake snake has no pointer to real_snake, as it's unnecessary for it to know
   std::vector<std::unique_ptr<Obstacle> >* obstacles;
 
  private:

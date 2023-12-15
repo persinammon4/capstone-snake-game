@@ -66,7 +66,6 @@ class LeaderBoard {
                 // do actions
                 // release lock
             }
-            
         } 
     
         ~LeaderBoard() {
@@ -107,6 +106,9 @@ class LeaderBoard {
         // create and flush local dictionary in memory 
         void flushLocal();
         void loadLocal();
+
+        std::vector<Entry> searchEntryVector(std::string username, std::vector<Entry> general_entries);
+
 
         // decrypted files are temp files with paths stored here 
         std::vector<std::string> decrypted_paths;

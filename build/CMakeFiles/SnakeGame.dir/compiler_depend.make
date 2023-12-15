@@ -377,7 +377,22 @@ CMakeFiles/SnakeGame.dir/src/controller.cpp.o: ../src/controller.cpp \
   /usr/include/c++/11/bits/basic_ios.tcc \
   /usr/include/c++/11/bits/ostream.tcc \
   /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc
+  /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/11/functional \
+  /usr/include/c++/11/bits/std_function.h \
+  /usr/include/c++/11/unordered_map \
+  /usr/include/c++/11/bits/hashtable.h \
+  /usr/include/c++/11/bits/hashtable_policy.h \
+  /usr/include/c++/11/bits/enable_special_members.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/bits/erase_if.h
 
 CMakeFiles/SnakeGame.dir/src/game.cpp.o: ../src/game.cpp \
   /usr/include/stdc-predef.h \
@@ -2832,14 +2847,6 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 
 /usr/include/c++/11/map:
 
-/usr/include/c++/11/bits/hashtable_policy.h:
-
-/usr/include/c++/11/bits/hashtable.h:
-
-/usr/include/c++/11/bits/stl_algo.h:
-
-/usr/include/c++/11/algorithm:
-
 ../src/renderer.h:
 
 /usr/include/c++/11/numeric:
@@ -2847,6 +2854,14 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 /usr/include/c++/11/bits/random.h:
 
 ../src/game.h:
+
+/usr/include/c++/11/bits/hashtable_policy.h:
+
+/usr/include/c++/11/bits/hashtable.h:
+
+/usr/include/c++/11/bits/stl_algo.h:
+
+/usr/include/c++/11/algorithm:
 
 /usr/include/c++/11/bits/regex_scanner.h:
 
@@ -2858,9 +2873,9 @@ CMakeFiles/SnakeGame.dir/src/snake.cpp.o: ../src/snake.cpp \
 
 /usr/include/c++/11/bits/codecvt.h:
 
-/usr/include/c++/11/bits/enable_special_members.h:
-
 /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h:
+
+/usr/include/c++/11/bits/enable_special_members.h:
 
 /usr/include/c++/11/bits/basic_ios.tcc:
 

@@ -20,6 +20,7 @@ void Snake::Update() {
 }
 
 void Snake::UpdateHead() {
+  // this was pre-implemented for me
   switch (direction) {
     case Direction::kUp:
       head_y -= speed;
@@ -59,10 +60,10 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
 
   // Check if the snake has died.
   // AI snake has different death rules
-  // in their algorithm direction finder
   std::vector<SDL_Point> obstacle_points;
   SDL_Point p;
 
+  // get a snapshot of all current obstacle points
   for (int i = 0; i < obstacles->size(); ++i) {
     auto obs = (*obstacles)[i].get();
     p.y = obs->leftMostPoint.y;
@@ -72,6 +73,7 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
     }
   }
 
+  // if snake (either fake or user controlled) runs into obstacle
   for (auto p : obstacle_points) {
     if (current_head_cell.x == p.x && current_head_cell.y == p.y) alive = false;
     for (auto p_body : body) {
@@ -88,8 +90,10 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
       }
     }
 
-    // if there exists a computer controlled snake
+    // if there exists a computer controlled snake, but still this is for
+    // the user snake 
     if (fake_snake != nullptr) {
+      // gather computer controlled snake current points in grid
       std::vector<SDL_Point> fake_snake_points;
       SDL_Point last_point;
       for (int i = 0; i < fake_snake->body.size(); ++i) {
@@ -99,12 +103,15 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
           fake_snake_points.push_back(fake_snake->body[i]);
         }
       }
+      // check if there's a collision between user snake and computer controlled snake
       for (auto p : fake_snake_points) {
         for (auto p_me : body) {
           if (p_me.x == p.x && p_me.y == p.y) alive = false;
         }
         if (current_head_cell.x == p.x && current_head_cell.y == p.y) alive = false;
       }
+      // a special edge case where user controlled snake is allowed to "eat" the computer controlled snake by hitting its tail
+      // for any way the computer controlled snake dies (even if it hits an obstacle by accident), it stops moving and a 100 points are added to user score
       if (current_head_cell.x == last_point.x && current_head_cell.y == last_point.y) fake_snake->alive = false;
     }
   }

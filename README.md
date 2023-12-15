@@ -3,8 +3,8 @@
 The Snake game is a game world where a keyboard controlled snake attempts to eat food. Every time it eats food it grows longer one by one block, but if it turns in on itself and hits another part of its body it dies. The original implementation set up a basic game loop including a Snake class, SDL library usage, and rendering of abstract objects. It runs infinitely unless the snake dies.
 
 The extended implementation has the following features:
-- Multiple Game modes: new snake controlled by A* algorithm, with its own collision rules (user snake death if run into it, will not run into obstacles or use wraparound) and a score boost if the new snake is killed by the user snake hitting its last box (essentially eating it). Second mode is to insert obstacles into the grid.
-- Leaderboard with scores for all previous attempts written to `*.txt` files. I felt very uncomfortable leaving a plaintext file with data public on GitHub, so I implemented encryption with a symmetric key. Encryption is a mandatory opt-in.
+- Multiple Game modes: new snake controlled by A* algorithm, with its own collision rules (user snake death if run into it, will not run into obstacles or use wraparound) and a score boost if the new snake is killed by the user snake hitting its last box (essentially eating it). Second mode is to insert obstacles into the grid in randomly selected locations.
+- Leaderboard with scores for all previous attempts written to `*.txt` files. I felt very uncomfortable leaving a plaintext file with data public on GitHub, so I implemented encryption with a symmetric key. Encryption is a mandatory feature. Used [Crypto++](https://github.com/weidai11/cryptopp).
 - Create a GUI with speed (frames per second) toggling, leaderboard option, original mode, obstacle mode, computer snake mode. Used [Nuklear](https://github.com/Immediate-Mode-UI/Nuklear/) to do so.
 
 The project has in-line comments with reasoning behind implementation decisions. Details further down the README.
@@ -36,6 +36,22 @@ an invariant to ensure the correct game mode is set.
 4. Build and run.
 
 ## Notes
+
+- Possible extensions of this project:
+    - Implement the ability to have multiple computer controlled snakes initialized in random locations (still all run by A*). Allow
+      user to toggle how many computer controlled competitor snakes there will be.
+    - For multiple computer controlled snakes, use multi-threading to run A* for each snake.
+    - Think of other ways to introduce concurrency to complete tasks in parallel and speed up the game or increase the game's possible throughput.
+    - Have the computer controlled snake chase the user controlled snake. :0
+    - Have a way to implement an overall leaderboard being written to from multiple games run on different computers.
+    - Create new scenarios or types of obstacles.
+    - Add changing colors of obstacles.
+
+
+
+- Never ever (ever ever) roll your own encryption (like Geeks4Geeks and other articles/short courses were suggesting):
+https://medium.com/@jmayuresh25/create-a-simple-file-encryption-system-in-c-e3726e0f265b
+Although, with the character based encryption, if you encrypt the whitespaces by introducing a simple shift in characters by one number, surely that's a way to crack the cipher. How I could know that - I read that Caesar cipher was cracked because the letter "e" in English plaintext is very frequent.
 
 - This project was amenable to being solved quickly, because of the separation of concerns already built in (e.g. Renderer only renders a snapshot of abstract objects, imports go in header files, leaderboard is a file writer independent of other parts of the game, snake collision logic is all in one area, abstract object movement is handled inside of the object itself through the Update method, controller just needs directions fed into it allowing for A* to only focus on returning directions instead of handling updating the points themselves, GUI can be the last to be implemented).
 
@@ -73,6 +89,29 @@ Object::Update methods, so there being a change in the environment between reads
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 
 
+## Links
+
+Fan of this: https://bumbershootsoft.wordpress.com/2019/04/07/working-with-dlls-on-windows-mac-and-linux/
+
+https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+
+I read from StackOverflow OpenSSL is good, but I preferred Wei Dai's Crypto++ because I found the instructions clearer to install.
+
+https://github.com/weidai11/cryptopp
+
+
+Preferred DLL over static library, I do not like bloat:
+https://stackoverflow.com/questions/140061/when-to-use-dynamic-vs-static-libraries
+
+https://stackoverflow.com/questions/2321511/what-is-meant-by-resource-acquisition-is-initialization-raii
+
+https://dexp.in/articles/nuklear-intro/
+https://cpp.hotexamples.com/examples/-/-/nk_option_label/cpp-nk_option_label-function-examples.html
+https://www.geeksforgeeks.org/encrypt-and-decrypt-text-file-using-cpp/
+https://linuxhint.com/regular-expression-basics-cpp/
+https://cplusplus.com/reference/ctime/ctime/
+
+
 ## Rubric Points for Udacity Graders
 
 | Rubric Criterion | File:Line Number |
@@ -92,31 +131,6 @@ Object::Update methods, so there being a change in the environment between reads
 | Smart pointers | |
 | Multi-threading or async tasks | |
 | Mutex or lock | |
-
-
-## Links
-
-Fan of this: https://bumbershootsoft.wordpress.com/2019/04/07/working-with-dlls-on-windows-mac-and-linux/
-
-Never ever (ever ever) roll your own encryption (like Geeks4Geeks and other articles/short courses were suggesting):
-https://medium.com/@jmayuresh25/create-a-simple-file-encryption-system-in-c-e3726e0f265b
-Although, with the character based encryption, if you encrypt the whitespaces by introducing a simple shift in characters by one number, surely that's a way to crack the cipher. How I could know that - I read that Caesar cipher was cracked because the letter "e" in English plaintext is very frequent.
-
-I read from StackOverflow OpenSSL is good, but I preferred Wei Dai's Crypto++ because I found the instructions clearer to install.
-
-https://github.com/weidai11/cryptopp
-
-
-Preferred DLL over static library, I do not like bloat:
-https://stackoverflow.com/questions/140061/when-to-use-dynamic-vs-static-libraries
-
-
-https://dexp.in/articles/nuklear-intro/
-https://cpp.hotexamples.com/examples/-/-/nk_option_label/cpp-nk_option_label-function-examples.html
-https://www.geeksforgeeks.org/encrypt-and-decrypt-text-file-using-cpp/
-https://linuxhint.com/regular-expression-basics-cpp/
-https://cplusplus.com/reference/ctime/ctime/
-
 
 
 
