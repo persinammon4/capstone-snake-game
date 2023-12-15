@@ -108,20 +108,22 @@ void Snake::UpdateBody(SDL_Point &current_head_cell, SDL_Point &prev_head_cell) 
         // for any way the computer controlled snake dies (even if it hits an obstacle by accident), it stops moving and a 100 points are added to user score
         last_point = fake_snake_points.back();
         fake_snake_points.pop_back();
+
         if (static_cast<int>(current_head_cell.x) == last_point.x && static_cast<int>(current_head_cell.y) == last_point.y) {
           fake_snake->alive = false;
           fake_snake->flag_slain = true;
           return;
-        }
-        // else check if there's a collision between user snake and computer controlled snake
-        for (auto p : fake_snake_points) { // this noticeably slows the program down
-          for (auto p_me : body) {
-            if (p_me.x == p.x && p_me.y == p.y) {
+        } else {
+          // else check if there's a collision between user snake and computer controlled snake
+          for (auto p : fake_snake_points) { // this noticeably slows the program down
+            for (auto p_me : body) {
+              if (p_me.x == p.x && p_me.y == p.y) {
+                alive = false;
+              }
+            }
+            if (static_cast<int>(current_head_cell.x) == p.x && static_cast<int>(current_head_cell.y) == p.y) {
               alive = false;
             }
-          }
-          if (static_cast<int>(current_head_cell.x) == p.x && static_cast<int>(current_head_cell.y) == p.y) {
-            alive = false;
           }
         }
       }
