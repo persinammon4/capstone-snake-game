@@ -74,21 +74,17 @@ void Controller::AlgorithmInput(bool &running, Snake &fake_snake) {
   // if there is no path already saved
   // later, if an obstacle changed (to create computer snakes that do not collide)
   if (presaved_path.size() == 0 || food_ptr->x != food_snapshot.x || food_ptr->y != food_snapshot.y)  {
-    food_snapshot.x = food_ptr->x;
-    food_snapshot.y = food_ptr->y;
-    presaved_path = Search(fake_snake); // does this return a good path???
-  }
+    food_snapshot.x = food_ptr->x; // will update, even if it updates to same thing e..g the original food and food snapshot are still the same
+    food_snapshot.y = food_ptr->y; // makes it easier to read
+    //presaved_path = Search(fake_snake); // A* is not constructing a valid path?? - 
+  } 
 
-  // print out presaved path to see if it is populated by anything - does A* actually make a good path?
 
-  print_vec(presaved_path);
   // protect against a case where optimal_path still is empty
   if (presaved_path.size() != 0) {
     direction = presaved_path[0];
     presaved_path.erase(presaved_path.begin());
   }
-  print_vec(presaved_path);
-
 
   // attempts to update computer controlled snake to determined next direction, if 
   // it's invalid somehow, will skip this cycle but keep checking next cycle if change in grid
@@ -143,6 +139,7 @@ std::vector<Snake::Direction> Controller::Search(Snake &fake_snake) {
     temp_grid_Astar[closest_node.y][closest_node.x] = 1; //visited this
     if (closest_node.x == food_snapshot.x && closest_node.y == food_snapshot.y) {
       std::cout << " found the food \n";
+      print_vec(closest_node.prev_directions); 
       return closest_node.prev_directions;
     }
     ExpandNeighbors(closest_node, open_list); // do something here
@@ -158,12 +155,15 @@ void Controller::CellSort(std::vector<Controller::Node> &open_list) {
   std::sort(open_list.begin(), open_list.end(), [](Controller::Node node1, Controller::Node node2){ return (node1.g + node1.h) > (node2.g + node2.h); });
 }
 
+// this had an error over not being a static function 
 bool Controller::Compare(Controller::Node node1, Controller::Node node2) {
   return (node1.g + node1.h) > (node2.g + node2.h); // compares f-values and returns true if f-val of first is greater than that of second (f = g prev path length + h heuristic defined in Heuristic func)
 }
 
 void Controller::ExpandNeighbors(Controller::Node currentnode, std::vector<Controller::Node> &open_list) {
   SDL_Point p;
+
+  // is this method working?????
 
   // if matrix[y][x] == 0, then unchecked and free, if == 2 then obstacle, if == 1 then already visited during this run of A*
 

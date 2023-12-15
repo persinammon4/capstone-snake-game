@@ -23,7 +23,7 @@ Game::Game(std::size_t grid_width, std::size_t grid_height, GameSpeeds speed_mod
       if (snake_mode == GameSnakes::computerSnake) {
         auto s = new Snake(grid_width, grid_height, true);
         fake_snake = std::make_unique<Snake>(*s);
-        snake.fake_snake = s;
+        snake.fake_snake = fake_snake.get();
         fake_snake->obstacles = &obstacles; // this is a pointer within fake_snake to game level unique_ptr obstacles, original truth
       } else if (snake_mode == GameSnakes::original) {
         fake_snake = nullptr;
@@ -101,7 +101,9 @@ void Game::Run(Renderer &renderer,
 }
 
 void Game::PlaceFood() {
-  food = returnFreePoint(1); // originally this function was for obstacle placement, but found that can reuse for food (!!)
+  food.x = 0;
+  food.y = 0;
+  //food = returnFreePoint(1); // originally this function was for obstacle placement, but found that can reuse for food (!!)
 }
 
 void Game::Update() {
@@ -112,9 +114,12 @@ void Game::Update() {
 
   if (snake_mode == GameSnakes::computerSnake) 
   {
+    if (fake_snake->flag_slain) {
+      score+=1000; // computer controlled snake death leads to score bump and no game termination
+      fake_snake->flag_slain = false;
+    }
     if (fake_snake->alive) {
       fake_snake->Update(); // computer controlled snake collision check happens in UpdateBody
-      if (!fake_snake->alive) score += 100; // computer controlled snake death leads to score bump and no game termination
     } 
     // fake snake grows if it eats food; static_cast is reused from earlier code and allows compiler to create a compiler time error for mismatched types instead of runtime error
     int new_x_fake = static_cast<int>(fake_snake->head_x);

@@ -42,6 +42,7 @@ class Snake {
   float head_x;
   float head_y;
   bool ai;
+  bool flag_slain{false}; // edge case where ai snake can be killed
   std::vector<SDL_Point> body;
 
   // own raw pointers to other snake and obstacles both created by Game
