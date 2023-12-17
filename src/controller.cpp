@@ -86,6 +86,14 @@ void print_dir(Snake::Direction d) {
   std::cout << "\n";
 }
 
+void print_open_list(std::vector<Controller::Node> open_list) {
+  std::cout << "printing out an open list completely ordered: ";
+  for (Controller::Node o : open_list) {
+    std::cout << "{ " << o.x << ", " << o.y << " } with f-val " << o.g+o.h << ";";
+  }
+  std::cout << "\n";
+}
+
 void Controller::AlgorithmInput(bool &running, Snake &fake_snake) {
   static int count = 0;
   static int dir_index = 0;
@@ -115,7 +123,7 @@ void Controller::AlgorithmInput(bool &running, Snake &fake_snake) {
     if (dir_index < presaved_path.size()) {
       direction = presaved_path[dir_index];
       dir_index++;
-    } else  dir_index = 0;
+    } else dir_index = 0;
   }
 
   // attempts to update computer controlled snake to determined next direction, if 
@@ -165,12 +173,18 @@ std::vector<Snake::Direction> Controller::Search(Snake &fake_snake) {
   }
 
   std::vector<Snake::Direction> prev_dirs;
-  AddToOpen(p.x, p.y, g, Heuristic(p, p), prev_dirs, Snake::Direction::kRight, open_list); // the last var is pass-by-references to mutate original
+  AddToOpen(p.x, p.y, g, Heuristic(p, p), prev_dirs, Snake::Direction::kRight, open_list); // the last var is pass-by-reference to mutate original
 
   while (open_list.size() > 0) { 
+    std::cout << "1\n";
+    print_open_list(open_list);
     CellSort(open_list);
+    std::cout << "2\n";
+    print_open_list(open_list);
     Controller::Node closest_node = open_list[0];
     open_list.erase(open_list.begin());
+    std::cout << "3\n";
+    print_open_list(open_list);
     temp_grid_Astar[closest_node.y][closest_node.x] = 1; //visited this
     if (closest_node.x == food_snapshot.x && closest_node.y == food_snapshot.y) {
       std::cout << " found the food \n";
@@ -184,14 +198,11 @@ std::vector<Snake::Direction> Controller::Search(Snake &fake_snake) {
   return optimal_path;
 }
 
+
+
 void Controller::CellSort(std::vector<Controller::Node> &open_list) {
   // compares f-values and returns true if f-val of first is greater than that of second (f = g prev path length + h heuristic defined in Heuristic func)
-  std::sort(open_list.begin(), open_list.end(), [](Controller::Node node1, Controller::Node node2){ return (node1.g + node1.h) > (node2.g + node2.h); });
-}
-
-// this had an error over not being a static function 
-bool Controller::Compare(Controller::Node node1, Controller::Node node2) {
-  return (node1.g + node1.h) > (node2.g + node2.h); // compares f-values and returns true if f-val of first is greater than that of second (f = g prev path length + h heuristic defined in Heuristic func)
+  std::sort(open_list.begin(), open_list.end(), [](Controller::Node node1, Controller::Node node2){ return (node1.g + node1.h) < (node2.g + node2.h); });
 }
 
 void Controller::ExpandNeighbors(Controller::Node currentnode, std::vector<Controller::Node> &open_list) {

@@ -71,6 +71,20 @@ that inconsistency. I may change it later.
 with a future extension being multiple computer controlled snakes). Originally the `Game::Update` method guarantees order of execution of 
 Object::Update methods, so there being a change in the environment between reads and writes is impossible. An idea is first update all the obstacles. Computer snakes move around obstacles, so this guarantees the current grid - from there each can compute their new location independently (through multiple threads) and update themselves independently.
 
+## Notes about A*
+
+A* moves the computer controlled snake by having a method be given a snake and change its direction based on a one time computed vector of directions.
+(Technically, this could be fed the user controlled snake to overwrite the user inputted commands for that snake in the Input-Update-Render loop).
+To read the directions, static variables are declared in `Controller::AlgorithmInput`, a vector is assigned, and direction is read and updated by
+reading without writing to vector and a modular operation so that once hits end it starts at beginning. Originally, the attempt was to have a vector,
+use `vector.erase(vector.begin())` to pop off element 0, and then re-compute a vector if `vector.size() == 0`. This led to no changes in direction.
+Also, the frame rate means movement is fractional not just integer based like the SDL_Points the nodes are based off (e.g. if snake speed is `0.1f`,
+that means it takes ten steps at the same direction before the snake reaches the next point/node and can switch to the next direction).
+
+There may be a way to solve this read-only vec + modulo to always keep a new direction through a better means, but for now it is implemented like this.
+Also, if there are going to be multiple snakes the `static` count and the `% [int]` can be reused, but the vectors need to be separated.
+There needs to be a `dir_index` for each vector, because each vector can have different sizes so doing something like messing with the count variable
+will make it messier than necessary.
 
 <img src="snake_game.gif"/>
 
