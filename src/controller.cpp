@@ -112,9 +112,9 @@ void Controller::AlgorithmInput(bool &running, Snake &fake_snake) {
   if (presaved_path.size() == 0 || food_ptr-> x != food_snapshot.x || food_ptr->y != food_snapshot.y) {
       food_snapshot.x = food_ptr->x; // will update, even if it updates to same thing e..g the original food and food snapshot are still the same
       food_snapshot.y = food_ptr->y; // makes it easier to read
-      print_vec(presaved_path);
+      // print_vec(presaved_path);
       presaved_path = Search(fake_snake); // A* is not constructing a valid path?? -
-      print_vec(presaved_path);
+      // print_vec(presaved_path);
   }
 
   // Every 10 moves change direction
@@ -123,7 +123,10 @@ void Controller::AlgorithmInput(bool &running, Snake &fake_snake) {
     if (dir_index < presaved_path.size()) {
       direction = presaved_path[dir_index];
       dir_index++;
-    } else dir_index = 0;
+    } else {
+      dir_index = 0;
+      presaved_path = Search(fake_snake);
+    }
   }
 
   // attempts to update computer controlled snake to determined next direction, if 
@@ -176,18 +179,18 @@ std::vector<Snake::Direction> Controller::Search(Snake &fake_snake) {
   AddToOpen(p.x, p.y, g, Heuristic(p, p), prev_dirs, Snake::Direction::kRight, open_list); // the last var is pass-by-reference to mutate original
 
   while (open_list.size() > 0) { 
-    std::cout << "1\n";
-    print_open_list(open_list);
+    // std::cout << "1\n";
+    // print_open_list(open_list);
     CellSort(open_list);
-    std::cout << "2\n";
-    print_open_list(open_list);
+    // std::cout << "2\n";
+    // print_open_list(open_list);
     Controller::Node closest_node = open_list[0];
     open_list.erase(open_list.begin());
-    std::cout << "3\n";
-    print_open_list(open_list);
+    // std::cout << "3\n";
+    // print_open_list(open_list);
     temp_grid_Astar[closest_node.y][closest_node.x] = 1; //visited this
     if (closest_node.x == food_snapshot.x && closest_node.y == food_snapshot.y) {
-      std::cout << " found the food \n";
+      // std::cout << " found the food \n";
       return closest_node.prev_directions;
     }
     ExpandNeighbors(closest_node, open_list); // do something here
