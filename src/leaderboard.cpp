@@ -83,3 +83,5 @@ std::vector<LeaderBoard::Entry> LeaderBoard::getGeneralRanking(std::string usern
 // void LeaderBoard::loadLocal() {
 // if (std::regex_match(sting, regex)) { create an entry }
 // }
+
+// take concurrency into account if on the heap

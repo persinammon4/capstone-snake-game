@@ -9,7 +9,6 @@
 #include <map>
 #include <regex>
 
-
 class LeaderBoard {
 
     struct Entry {
@@ -28,7 +27,7 @@ class LeaderBoard {
             const time_t * temp_timestamp = &timestamp;
             return username + delimeter + std::to_string(score) +
                 delimeter + std::to_string(snake_size) + 
-                delimeter + ctime(temp_timestamp); // ctime will convert time_t to a c-style string; both functions are from C 
+                delimeter + ctime(temp_timestamp); // ctime will convert time_t to a c-style string; both time_t and ctime are from C 
         }
 
         std::string createRegex() { 
@@ -46,12 +45,23 @@ class LeaderBoard {
     public:
         LeaderBoard() {
 
+            // Using symmetric AES encryption
+            // Load key for encrypt/decrypt on init from security_keys/key.txt. If no key, then assume there's no way to find the key
+            // apart from trial and error from backuped locations - random, possibly forever.
+            // Therefore, if no key, delete all files in leaderboards as they are assumed useless. (this is a local copy of the game)
+            // Create new files per handle if deletion occurred.
+
+            // Otherwise if key, decrypt all files that exist.
+
+            // Now parse the files, using loadLocal.
             // this looks odd, but it allows for the delimeter to remain private instead of a public read
             // and for the entire write pattern of data to be stored in one location (the Entry struct above) 
             // this prevents two definitions of the format, so it's impossible for there to be a programmer error
             Entry temp_e("", 0, 0, std::time(nullptr));
             std::regex line_regex(temp_e.createRegex());
             general_line_regex = line_regex;
+
+            // std::shared_ptr(); // for the files instantiated - can coord multiple classes
 
             // for each encrypted path
             // hold a lock onto the file

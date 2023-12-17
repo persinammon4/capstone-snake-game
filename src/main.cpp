@@ -18,7 +18,7 @@ int main() {
   constexpr std::size_t kFPSmedium{60};
   constexpr std::size_t kFPSfast{70};
 
-  std::string username{"anonymous"}; //default value
+  std::string username{"anonymous"}; //default value, should use heap?
 
   LeaderBoard leaderboard;
   Renderer renderer(kScreenWidth, kScreenHeight, kGridWidth, kGridHeight);
@@ -63,6 +63,8 @@ int main() {
 
   //populate Game with different scenario environments
   Scenario::DecideEnv(game);
+
+  // take concurrency into account if on the heap
 
 
   game.Run(renderer, kMsPerFrame); // start game loop

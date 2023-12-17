@@ -26,6 +26,7 @@ class Snake {
             head_x = 0;
             head_y = 0;
             direction = Direction::kRight;
+            //speed = 1.0f;
           }
   }
 

@@ -1,13 +1,15 @@
 # Capstone Snake Game
 
-The Snake game is a game world where a keyboard controlled snake attempts to eat food. Every time it eats food it grows longer one by one block, but if it turns in on itself and hits another part of its body it dies. The original implementation set up a basic game loop including a Snake class, SDL library usage, and rendering of abstract objects. It runs infinitely unless the snake dies.
+The Snake game is a game world where a keyboard controlled snake attempts to eat food. Every time it eats food it grows longer by one block, but if it turns in on itself and hits another part of its body it dies. The original implementation set up a basic game loop including a Snake class, SDL library usage, and rendering of abstract objects. It ran infinitely unless the snake dies.
 
 The extended implementation has the following features:
-- Multiple Game modes: new snake controlled by A* algorithm, with its own collision rules (user snake death if run into it, will not run into obstacles or use wraparound) and a score boost if the new snake is killed by the user snake hitting its last box (essentially eating it). Second mode is to insert obstacles into the grid in randomly selected locations.
-- Leaderboard with scores for all previous attempts written to `*.txt` files. I felt very uncomfortable leaving a plaintext file with data public on GitHub, so I implemented encryption with a symmetric key. Encryption is a mandatory feature. Used [Crypto++](https://github.com/weidai11/cryptopp).
-- Create a GUI with speed (frames per second) toggling, leaderboard option, original mode, obstacle mode, computer snake mode. Used [Elements](https://cycfi.github.io/elements/) to do so.
+- Multiple Game modes: new AI snake controlled by A* algorithm, with its own collision rules (user snake death if run into it but if user snake hits its tail then a major score boost - "eating" it). Obstacle modes will place moving or stationary obstacles that will kill either type of snake if the snake runs into it.
+- Leaderboard with scores for all previous attempts written to `*.txt` files. I felt very uncomfortable leaving a plaintext file with data public on GitHub, so I implemented encryption with a symmetric key. Encryption is a mandatory feature. Used [Crypto++](https://github.com/weidai11/cryptopp). The DLL was preferred over the static library to avoid bloat.
+- Initial GUI with speed (frames per second) toggling, leaderboard option, original mode, obstacle mode, computer snake mode. Game end GUI with option to add entry to leaderboard or play again. Used [Elements](https://cycfi.github.io/elements/) to do so. Originally tried Nuklear, but the Elements documentation made a world of difference! Kudos to the author!
 
 The project has in-line comments with reasoning behind implementation decisions. Details further down the README.
+
+It may not look like a lot, but huge additions were made to the original project!
 
 ## How to Run
 
@@ -25,7 +27,7 @@ Or:
 
 This is a freeform game project, so human input and observation is required for testing (not as simple as automatically running a test suite
 from command line). Recording scores and gameplay logic are both based on human input. Reading and writing files can be tested with unit tests,
-but it was faster to visually inspect (this being a personal project, not professional).
+but it was faster to visually inspect (this being a personal project, not professional shared amongst a group).
 
 1. In `main.cpp`, pass in the two game mode parameters that you want to test.
 2. To add a new environment (of obstacles and whether to have an AI controlled competitor snake),
@@ -39,13 +41,14 @@ an invariant to ensure the correct game mode is set.
 
 - Possible extensions of this project:
     - Implement the ability to have multiple computer controlled snakes initialized in random locations (still all run by A*). Allow
-      user to toggle how many computer controlled competitor snakes there will be.
+      user to toggle how many computer controlled competitor snakes there will be in initial GUI.
     - For multiple computer controlled snakes, use multi-threading to run A* for each snake.
     - Think of other ways to introduce concurrency to complete tasks in parallel and speed up the game or increase the game's possible throughput.
-    - Have the computer controlled snake chase the user controlled snake. :0
+    - Have the computer controlled snake chase the user controlled snake.
     - Have a way to implement an overall leaderboard being written to from multiple games run on different computers.
     - Create new scenarios or types of obstacles.
     - Add changing colors of obstacles.
+    - Have a negative score deduction for if computer controlled snake eats the food first, or have a ticking time bomb sudden death type game, where if the score difference becomes too large then the game ends and computer snake wins.
 
 
 
@@ -63,8 +66,6 @@ the `Renderer` instead of another deep copy. I am not sure why the original proj
 that inconsistency. I may change it later.
 - `Renderer` contains no game logic and takes in only `const` values to render a snapshot of all logic representations.
 - Speed mode is 100% solved without deeply touching classes (handled completely in `main.cpp`).
-
-- Is it possible to go back to one vector of Obstacle class but add overrides and a virtual function to parent class? Attempt this after working project is done.
 
 - How to introduce multiple threads into this game? An idea is have one thread for every moving object (moving obstacles and 2 snakes,
 with a future extension being multiple computer controlled snakes). Originally the `Game::Update` method guarantees order of execution of 
@@ -91,11 +92,11 @@ Object::Update methods, so there being a change in the environment between reads
 
 ## Links
 
+Unbelievably, this helped upgrade from `cmake 3.22` to `cmake 3.28`: https://askubuntu.com/questions/355565/how-do-i-install-the-latest-version-of-cmake-from-the-command-line. My version of Ubuntu through WSL was the Jammy Jellyfish one. 
+
 Fan of this: https://bumbershootsoft.wordpress.com/2019/04/07/working-with-dlls-on-windows-mac-and-linux/
 
 https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
-
-I read from StackOverflow OpenSSL is good, but I preferred Wei Dai's Crypto++ because I found the instructions clearer to install.
 
 https://github.com/weidai11/cryptopp
 
