@@ -28,7 +28,7 @@ int main() {
 
   auto obstacle_mode = GameObstacles::mixedObstacles;
   auto snake_mode = GameSnakes::computerSnake;
-  auto speed_mode = GameSpeeds::medium;
+  auto speed_mode = GameSpeeds::fast;
 
   // launch a GUI
 
@@ -44,7 +44,7 @@ int main() {
   // change kFramesPerSecond to one of the the 3 constexpr options
   std::size_t kFramesPerSecond;
 
-  // slight sanity check by using the game's speed_mode
+  // slight sanity check by using the game's assigned speed_mode and not the user given value
   switch(game.speed_mode) {
     case GameSpeeds::slow:
       kFramesPerSecond = kFPSslow;
@@ -74,9 +74,10 @@ int main() {
   std::cout << "Size: " << game.GetSize() << "\n";
   //leaderboard.addEntry(username, game.getScore(), game.getSize(), game.obstacle_mode, game.snake_mode);
   std::cout << "Added entry to leaderboards.\n";
+  std::cout << "Highest challenge specific ranking...\n";
+  std::cout << "Highest all time ranking...\n";
   //leaderboard.getSpecificRanking(username, type of );
   //leaderboard.getGeneralRanking(username);
   // add leaderboard ranking to printout
-  //std::cout << leaderboard.getRanking(username, type of leaderboard);
   return 0;
 }

@@ -49,6 +49,7 @@ void Game::Run(Renderer &renderer,
 
     // Input, Update, Render - the main game loop.
     controller.HandleInput(running, snake);
+    SDL_Point* food_ptr = &food;
 
     if (snake_mode == GameSnakes::computerSnake) {
       controller.AlgorithmInput(running, *fake_snake);
@@ -100,8 +101,6 @@ void Game::Run(Renderer &renderer,
 }
 
 void Game::PlaceFood() {
-  // food.x = 0;
-  // food.y = 0;
   food = returnFreePoint(1); // originally this function was for obstacle placement, but found that can reuse for food (!!)
 }
 

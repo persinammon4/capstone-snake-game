@@ -35,7 +35,6 @@ class Controller {
   void AddToOpen(int x, int y, int g, int h, std::vector<Controller::Node> &open_list);
 
 
-  // do I need to implement Rule of 5???
   Controller(SDL_Point* food_ptr, int grid_width, int grid_height, std::vector<std::unique_ptr<Obstacle>>* obstacles) : food_ptr(food_ptr), grid_width(grid_width), grid_height(grid_height), obstacles(obstacles) {
     food_snapshot = *food_ptr;
 

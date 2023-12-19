@@ -8,6 +8,13 @@
 #include <ctime>
 #include <map>
 #include <regex>
+#include <filesystem>
+
+#include <iostream>
+#include <iomanip>
+#include "cryptopp/modes.h"
+#include "cryptopp/aes.h"
+#include "cryptopp/filters.h"
 
 class LeaderBoard {
 
@@ -43,54 +50,18 @@ class LeaderBoard {
     };
 
     public:
-        LeaderBoard() {
+        LeaderBoard();
 
-            // Using symmetric AES encryption
-            // Load key for encrypt/decrypt on init from security_keys/key.txt. If no key, then assume there's no way to find the key
-            // apart from trial and error from backuped locations - random, possibly forever.
-            // Therefore, if no key, delete all files in leaderboards as they are assumed useless. (this is a local copy of the game)
-            // Create new files per handle if deletion occurred.
-
-            // Otherwise if key, decrypt all files that exist.
-
-            // Now parse the files, using loadLocal.
-            // this looks odd, but it allows for the delimeter to remain private instead of a public read
-            // and for the entire write pattern of data to be stored in one location (the Entry struct above) 
-            // this prevents two definitions of the format, so it's impossible for there to be a programmer error
-            Entry temp_e("", 0, 0, std::time(nullptr));
-            std::regex line_regex(temp_e.createRegex());
-            general_line_regex = line_regex;
-
-            // std::shared_ptr(); // for the files instantiated - can coord multiple classes
-
-            // for each encrypted path
-            // hold a lock onto the file
-            // if the file doesn't exist, 
-            // create an empty file and an empty decrypted temp file (with a separate lock on it)
-            // rename the empty decrypted file if it's already made by another LeaderBoard
-            // save make_unique resource and emplace to a vector
-            // and load the contents into the data var
-            // release the lock
-            for (auto p : encrypted_paths) {
-                // hold a lock on a file
-                // do actions
-                // release lock
-            }
-        } 
+        // Rule of 5 implemented, although move and copy are unused currently by the usage in main.cpp (declared once on stack with no moves/copies)
+        ~LeaderBoard();
     
-        ~LeaderBoard() {
-            // for all data
-            // flush local using another lock on the file
-            // encrypt all using a lock on the file
-            // release the locks
-            // delete data
-            // destroy any manually made by new keyword resource
-        }
+        // copy constructor and assignment operator
+        LeaderBoard(const LeaderBoard &source);
+        LeaderBoard& operator=(const LeaderBoard &source);
 
-
-        // implement rule of 5 - declare copy and move constructors
-        // although these aren't going to be used as LeaderBoard is called on stack by main.cpp
-        // and always a high level object
+        // move constructor and assignment operator
+        LeaderBoard(LeaderBoard &&source);
+        LeaderBoard& operator=(LeaderBoard &&source);
 
 
         void addEntry(std::string username, int score, int size, GameObstacles obs_mode, GameSnakes snake_mode);
@@ -101,15 +72,16 @@ class LeaderBoard {
         // all .txt files will be structured as:
         // username...score...snakesize...timestamp/newlinecharacter
         // orders are updated during addEntry with local dictionary working
-        std::string general_leaderboard_path{"leaderboards/general.txt"};
-        std::string original_leaderboard_path{"leaderboards/original.txt"};
-        std::string ai_leaderboard_path{"leaderboards/ai_controlled_two_player.txt"};
-        std::string obstacle_leaderboard_path{"leaderboards/obstacles.txt"};
-        std::string ai_obstacle_leaderboard_path{"leaderboards/ai_controlled_and_obstacles.txt"};
+        std::filesystem::path general_leaderboard_path{"general.txt"};
+        std::filesystem::path original_leaderboard_path{"original.txt"};
+        std::filesystem::path ai_leaderboard_path{"ai_controlled_two_player.txt"};
+        std::filesystem::path obstacle_leaderboard_path{"obstacles.txt"};
+        std::filesystem::path ai_obstacle_leaderboard_path{"ai_controlled_and_obstacles.txt"};
 
 
     private:
-        // saves back in original location
+        // saves input file into a custom location or back to main folder
+        // decided to call encrypt/decrypt in constructor/destructor instead of flush and load local data
         void encryptFile(std::string filename);
         void decryptFile(std::string filename, std::string out);
 
@@ -117,14 +89,20 @@ class LeaderBoard {
         void flushLocal();
         void loadLocal();
 
+        // helper method for getting all entries with the search username, can be optimized later
         std::vector<Entry> searchEntryVector(std::string username, std::vector<Entry> general_entries);
 
 
         // decrypted files are temp files with paths stored here 
-        std::vector<std::string> decrypted_paths;
+        // use shared_ptr for potentially multiple LeaderBoards using the same init created fstream
+        std::vector<std::shared_ptr<std::fstream>> decrypted_files;
         
-        std::vector<std::string> encrypted_paths{general_leaderboard_path, original_leaderboard_path,
-        ai_leaderboard_path, obstacle_leaderboard_path, ai_obstacle_leaderboard_path};
+        std::vector<std::filesystem::path> encrypted_paths;
+
+        std::filesystem::path main_folder{"leaderboards/"};
+        
+        std::filesystem::path key_path{"security_keys/key.txt"};
+
 
         // in memory local dictionary mapping leader board identification to vector of entries
         // simple file path to data relationship, no pre computed optimizations using other dictionaries
