@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+0fb1f393ea6d4bdc4a369106f9a7ce11 cryptopp-cmake/test/CMakeFiles/test-verbose

@@ -1,3 +1,25 @@
+// #include <sdlgui/label.h>
+// #include <sdlgui/checkbox.h>
+// #include <sdlgui/button.h>
+// #include <sdlgui/toolbutton.h>
+// #include <sdlgui/popupbutton.h>
+// #include <sdlgui/combobox.h>
+// #include <sdlgui/dropdownbox.h>
+// #include <sdlgui/progressbar.h>
+// #include <sdlgui/entypo.h>
+// #include <sdlgui/messagedialog.h>
+// #include <sdlgui/textbox.h>
+// #include <sdlgui/slider.h>
+// #include <sdlgui/imagepanel.h>
+// #include <sdlgui/imageview.h>
+// #include <sdlgui/vscrollpanel.h>
+// #include <sdlgui/colorwheel.h>
+// #include <sdlgui/graph.h>
+// #include <sdlgui/tabwidget.h>
+// #include <sdlgui/switchbox.h>
+// #include <sdlgui/formhelper.h>
+
+#include <memory>
 #include <iostream>
 #include <string>
 #include "controller.h"
@@ -6,7 +28,16 @@
 #include "leaderboard.h"
 #include "scenario.h"
 
+//using namespace sdlgui;
 
+
+// class WelcomeWindow : public Screen {
+
+// };
+
+// class EndingWindow : public Screen {
+
+// };
 
 int main() {
   constexpr std::size_t kScreenWidth{640};
@@ -31,6 +62,7 @@ int main() {
   auto speed_mode = GameSpeeds::fast;
 
   // launch a GUI
+  
 
 
   // these are the enum definitions in game.h
@@ -64,8 +96,6 @@ int main() {
   //populate Game with different scenario environments
   Scenario::DecideEnv(game);
 
-  // take concurrency into account if on the heap
-
 
   game.Run(renderer, kMsPerFrame); // start game loop
 
@@ -76,8 +106,8 @@ int main() {
   std::cout << "Added entry to leaderboards.\n";
   std::cout << "Highest challenge specific ranking...\n";
   std::cout << "Highest all time ranking...\n";
-  //leaderboard.getSpecificRanking(username, type of );
-  //leaderboard.getGeneralRanking(username);
-  // add leaderboard ranking to printout
+  //leaderboard.getSpecificRanking(username, game.obstacle_mode, game.snake_mode)[0];
+  //leaderboard.getGeneralRanking(username)[0];
+
   return 0;
 }

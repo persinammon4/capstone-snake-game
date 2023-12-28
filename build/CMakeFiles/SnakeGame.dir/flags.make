@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/monica/capstone-snake-game/src -isystem /usr/local/include/SDL2
+CXX_INCLUDES = -I/home/monica/capstone-snake-game/src -I/home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp -I/home/monica/capstone-snake-game/build/cryptopp-cmake -isystem /usr/local/include/SDL2
 
-CXX_FLAGS = -std=gnu++17   -std=c++17
+CXX_FLAGS = -g -std=gnu++17   -std=c++17
 

@@ -13,7 +13,7 @@ void Controller::ChangeDirection(Snake &snake, Snake::Direction input,
 void Controller::HandleInput(bool &running, Snake &snake) const {
   // don't want to introduce try catch into the caller function so have a logging print statement and early break
   if (snake.ai) {
-    std::cout << "Programmer error: Used HandleInput for an AI snake.";
+    std::cerr << "Programmer error: Used HandleInput for an AI snake.\n";
     return; // quick sanity check for programmer error
   }
   SDL_Event e;
@@ -101,7 +101,7 @@ void Controller::AlgorithmInput(bool &running, Snake &fake_snake) {
 
   // don't want to introduce try catch into the caller function so have a logging print statement and early break
   if (!fake_snake.ai) {
-    std::cout << "Programmer error: Used AlgorithmInput for a user snake.";
+    std::cerr << "Programmer error: Used AlgorithmInput for a user snake.\n";
     return; // quick sanity check for programmer error
   } 
 

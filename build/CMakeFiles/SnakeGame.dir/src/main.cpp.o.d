@@ -1,6 +1,6 @@
 CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /home/monica/capstone-snake-game/src/main.cpp /usr/include/stdc-predef.h \
- /usr/include/c++/11/iostream \
+ /usr/include/c++/11/memory /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
  /usr/include/features.h /usr/include/features-time64.h \
@@ -11,17 +11,58 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
- /usr/include/c++/11/pstl/pstl_config.h /usr/include/c++/11/ostream \
- /usr/include/c++/11/ios /usr/include/c++/11/iosfwd \
- /usr/include/c++/11/bits/stringfwd.h \
- /usr/include/c++/11/bits/memoryfwd.h /usr/include/c++/11/bits/postypes.h \
- /usr/include/c++/11/cwchar /usr/include/wchar.h \
+ /usr/include/c++/11/pstl/pstl_config.h \
+ /usr/include/c++/11/bits/functexcept.h \
+ /usr/include/c++/11/bits/exception_defines.h \
+ /usr/include/c++/11/bits/cpp_type_traits.h \
+ /usr/include/c++/11/ext/type_traits.h \
+ /usr/include/c++/11/ext/numeric_traits.h \
+ /usr/include/c++/11/bits/stl_pair.h /usr/include/c++/11/bits/move.h \
+ /usr/include/c++/11/type_traits \
+ /usr/include/c++/11/bits/stl_iterator_base_types.h \
+ /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
+ /usr/include/c++/11/bits/concept_check.h \
+ /usr/include/c++/11/debug/assertions.h \
+ /usr/include/c++/11/bits/stl_iterator.h \
+ /usr/include/c++/11/bits/ptr_traits.h /usr/include/c++/11/debug/debug.h \
+ /usr/include/c++/11/bits/predefined_ops.h \
+ /usr/include/c++/11/bits/allocator.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
+ /usr/include/c++/11/ext/new_allocator.h /usr/include/c++/11/new \
+ /usr/include/c++/11/bits/exception.h \
+ /usr/include/c++/11/bits/memoryfwd.h \
+ /usr/include/c++/11/bits/stl_construct.h \
+ /usr/include/c++/11/bits/stl_uninitialized.h \
+ /usr/include/c++/11/ext/alloc_traits.h \
+ /usr/include/c++/11/bits/alloc_traits.h \
+ /usr/include/c++/11/bits/stl_tempbuf.h \
+ /usr/include/c++/11/bits/stl_raw_storage_iter.h \
+ /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+ /usr/include/x86_64-linux-gnu/bits/types.h \
+ /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+ /usr/include/x86_64-linux-gnu/bits/time64.h \
+ /usr/include/x86_64-linux-gnu/bits/wchar.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+ /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+ /usr/include/c++/11/bits/uses_allocator.h \
+ /usr/include/c++/11/bits/unique_ptr.h /usr/include/c++/11/utility \
+ /usr/include/c++/11/bits/stl_relops.h \
+ /usr/include/c++/11/initializer_list /usr/include/c++/11/tuple \
+ /usr/include/c++/11/array /usr/include/c++/11/bits/range_access.h \
+ /usr/include/c++/11/bits/invoke.h \
+ /usr/include/c++/11/bits/stl_function.h \
+ /usr/include/c++/11/backward/binders.h \
+ /usr/include/c++/11/bits/functional_hash.h \
+ /usr/include/c++/11/bits/hash_bytes.h \
+ /usr/include/c++/11/bits/shared_ptr.h /usr/include/c++/11/iosfwd \
+ /usr/include/c++/11/bits/stringfwd.h /usr/include/c++/11/bits/postypes.h \
+ /usr/include/c++/11/cwchar /usr/include/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/floatn.h \
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
- /usr/include/x86_64-linux-gnu/bits/wchar.h \
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
@@ -29,46 +70,18 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
- /usr/include/c++/11/exception /usr/include/c++/11/bits/exception.h \
- /usr/include/c++/11/bits/exception_ptr.h \
- /usr/include/c++/11/bits/exception_defines.h \
- /usr/include/c++/11/bits/cxxabi_init_exception.h \
- /usr/include/c++/11/typeinfo /usr/include/c++/11/bits/hash_bytes.h \
- /usr/include/c++/11/new /usr/include/c++/11/bits/move.h \
- /usr/include/c++/11/type_traits \
- /usr/include/c++/11/bits/nested_exception.h \
- /usr/include/c++/11/bits/char_traits.h \
- /usr/include/c++/11/bits/stl_algobase.h \
- /usr/include/c++/11/bits/functexcept.h \
- /usr/include/c++/11/bits/cpp_type_traits.h \
- /usr/include/c++/11/ext/type_traits.h \
- /usr/include/c++/11/ext/numeric_traits.h \
- /usr/include/c++/11/bits/stl_pair.h \
- /usr/include/c++/11/bits/stl_iterator_base_types.h \
- /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
- /usr/include/c++/11/bits/concept_check.h \
- /usr/include/c++/11/debug/assertions.h \
- /usr/include/c++/11/bits/stl_iterator.h \
- /usr/include/c++/11/bits/ptr_traits.h /usr/include/c++/11/debug/debug.h \
- /usr/include/c++/11/bits/predefined_ops.h /usr/include/c++/11/cstdint \
- /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h /usr/include/stdint.h \
- /usr/include/x86_64-linux-gnu/bits/types.h \
- /usr/include/x86_64-linux-gnu/bits/typesizes.h \
- /usr/include/x86_64-linux-gnu/bits/time64.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
- /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
- /usr/include/c++/11/bits/localefwd.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
- /usr/include/c++/11/clocale /usr/include/locale.h \
- /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/11/cctype \
- /usr/include/ctype.h /usr/include/x86_64-linux-gnu/bits/endian.h \
- /usr/include/x86_64-linux-gnu/bits/endianness.h \
- /usr/include/c++/11/bits/ios_base.h /usr/include/c++/11/ext/atomicity.h \
+ /usr/include/c++/11/bits/shared_ptr_base.h /usr/include/c++/11/typeinfo \
+ /usr/include/c++/11/bits/allocated_ptr.h \
+ /usr/include/c++/11/bits/refwrap.h \
+ /usr/include/c++/11/ext/aligned_buffer.h \
+ /usr/include/c++/11/ext/atomicity.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h \
  /usr/include/pthread.h /usr/include/sched.h \
  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+ /usr/include/x86_64-linux-gnu/bits/endian.h \
+ /usr/include/x86_64-linux-gnu/bits/endianness.h \
  /usr/include/x86_64-linux-gnu/bits/sched.h \
  /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
  /usr/include/x86_64-linux-gnu/bits/cpu-set.h /usr/include/time.h \
@@ -92,21 +105,27 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+ /usr/include/c++/11/ext/concurrence.h /usr/include/c++/11/exception \
+ /usr/include/c++/11/bits/exception_ptr.h \
+ /usr/include/c++/11/bits/cxxabi_init_exception.h \
+ /usr/include/c++/11/bits/nested_exception.h \
+ /usr/include/c++/11/bits/shared_ptr_atomic.h \
+ /usr/include/c++/11/bits/atomic_base.h \
+ /usr/include/c++/11/bits/atomic_lockfree_defines.h \
+ /usr/include/c++/11/backward/auto_ptr.h \
+ /usr/include/c++/11/pstl/glue_memory_defs.h \
+ /usr/include/c++/11/pstl/execution_defs.h /usr/include/c++/11/iostream \
+ /usr/include/c++/11/ostream /usr/include/c++/11/ios \
+ /usr/include/c++/11/bits/char_traits.h /usr/include/c++/11/cstdint \
+ /usr/include/c++/11/bits/localefwd.h \
+ /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
+ /usr/include/c++/11/clocale /usr/include/locale.h \
+ /usr/include/x86_64-linux-gnu/bits/locale.h /usr/include/c++/11/cctype \
+ /usr/include/ctype.h /usr/include/c++/11/bits/ios_base.h \
  /usr/include/c++/11/bits/locale_classes.h /usr/include/c++/11/string \
- /usr/include/c++/11/bits/allocator.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
- /usr/include/c++/11/ext/new_allocator.h \
  /usr/include/c++/11/bits/ostream_insert.h \
  /usr/include/c++/11/bits/cxxabi_forced.h \
- /usr/include/c++/11/bits/stl_function.h \
- /usr/include/c++/11/backward/binders.h \
- /usr/include/c++/11/bits/range_access.h \
- /usr/include/c++/11/initializer_list \
- /usr/include/c++/11/bits/basic_string.h \
- /usr/include/c++/11/ext/alloc_traits.h \
- /usr/include/c++/11/bits/alloc_traits.h \
- /usr/include/c++/11/bits/stl_construct.h /usr/include/c++/11/string_view \
- /usr/include/c++/11/bits/functional_hash.h \
+ /usr/include/c++/11/bits/basic_string.h /usr/include/c++/11/string_view \
  /usr/include/c++/11/bits/string_view.tcc \
  /usr/include/c++/11/ext/string_conversions.h /usr/include/c++/11/cstdlib \
  /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
@@ -148,29 +167,9 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/istream.tcc \
  /home/monica/capstone-snake-game/src/controller.h \
  /home/monica/capstone-snake-game/src/snake.h /usr/include/c++/11/vector \
- /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
- /usr/include/c++/11/bits/vector.tcc /usr/include/c++/11/memory \
- /usr/include/c++/11/bits/stl_tempbuf.h \
- /usr/include/c++/11/bits/stl_raw_storage_iter.h \
- /usr/include/c++/11/bits/align.h /usr/include/c++/11/bit \
- /usr/include/c++/11/bits/uses_allocator.h \
- /usr/include/c++/11/bits/unique_ptr.h /usr/include/c++/11/utility \
- /usr/include/c++/11/bits/stl_relops.h /usr/include/c++/11/tuple \
- /usr/include/c++/11/array /usr/include/c++/11/bits/invoke.h \
- /usr/include/c++/11/bits/shared_ptr.h \
- /usr/include/c++/11/bits/shared_ptr_base.h \
- /usr/include/c++/11/bits/allocated_ptr.h \
- /usr/include/c++/11/bits/refwrap.h \
- /usr/include/c++/11/ext/aligned_buffer.h \
- /usr/include/c++/11/ext/concurrence.h \
- /usr/include/c++/11/bits/shared_ptr_atomic.h \
- /usr/include/c++/11/bits/atomic_base.h \
- /usr/include/c++/11/bits/atomic_lockfree_defines.h \
- /usr/include/c++/11/backward/auto_ptr.h \
- /usr/include/c++/11/pstl/glue_memory_defs.h \
- /usr/include/c++/11/pstl/execution_defs.h /usr/local/include/SDL2/SDL.h \
+ /usr/include/c++/11/bits/vector.tcc /usr/local/include/SDL2/SDL.h \
  /usr/local/include/SDL2/SDL_main.h /usr/local/include/SDL2/SDL_stdinc.h \
  /usr/local/include/SDL2/SDL_config.h \
  /usr/local/include/SDL2/SDL_platform.h \
@@ -371,18 +370,26 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/c++/11/bits/fs_path.h /usr/include/c++/11/iomanip \
  /usr/include/c++/11/bits/quoted_string.h /usr/include/c++/11/codecvt \
  /usr/include/c++/11/bits/fs_dir.h /usr/include/c++/11/bits/fs_ops.h \
- /usr/include/cryptopp/modes.h /usr/include/cryptopp/cryptlib.h \
- /usr/include/cryptopp/config.h /usr/include/cryptopp/config_align.h \
- /usr/include/cryptopp/config_asm.h /usr/include/cryptopp/config_os.h \
- /usr/include/cryptopp/config_ver.h /usr/include/cryptopp/config_cpu.h \
- /usr/include/cryptopp/config_cxx.h /usr/include/c++/11/cstddef \
- /usr/include/cryptopp/config_dll.h /usr/include/cryptopp/config_int.h \
- /usr/include/cryptopp/config_ns.h /usr/include/cryptopp/config_misc.h \
- /usr/include/cryptopp/stdcpp.h /usr/include/c++/11/list \
- /usr/include/c++/11/bits/stl_list.h /usr/include/c++/11/bits/list.tcc \
- /usr/include/c++/11/atomic /usr/include/c++/11/mutex \
+ /usr/include/c++/11/optional /usr/include/c++/11/mutex \
  /usr/include/c++/11/bits/std_mutex.h \
- /usr/include/c++/11/bits/unique_lock.h /usr/include/c++/11/climits \
+ /usr/include/c++/11/bits/unique_lock.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/cryptlib.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config_align.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config_asm.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config_os.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config_ver.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config_cpu.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config_cxx.h \
+ /usr/include/c++/11/cstddef \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config_dll.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config_int.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config_ns.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/config_misc.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/stdcpp.h \
+ /usr/include/c++/11/list /usr/include/c++/11/bits/stl_list.h \
+ /usr/include/c++/11/bits/list.tcc /usr/include/c++/11/atomic \
+ /usr/include/c++/11/climits \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
  /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
@@ -391,13 +398,41 @@ CMakeFiles/SnakeGame.dir/src/main.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
- /usr/include/cryptopp/trap.h /usr/include/cryptopp/secblock.h \
- /usr/include/cryptopp/allocate.h /usr/include/cryptopp/misc.h \
- /usr/include/cryptopp/secblockfwd.h /usr/include/cryptopp/smartptr.h \
- /usr/include/byteswap.h /usr/include/cryptopp/strciphr.h \
- /usr/include/cryptopp/seckey.h /usr/include/cryptopp/simple.h \
- /usr/include/cryptopp/argnames.h /usr/include/cryptopp/algparam.h \
- /usr/include/cryptopp/integer.h /usr/include/cryptopp/aes.h \
- /usr/include/cryptopp/rijndael.h /usr/include/cryptopp/filters.h \
- /usr/include/cryptopp/queue.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/trap.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/rijndael.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/seckey.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/cryptlib.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/misc.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/secblockfwd.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/smartptr.h \
+ /usr/include/byteswap.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/simple.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/secblock.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/allocate.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/modes.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/strciphr.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/argnames.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/algparam.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/integer.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/files.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/filters.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/queue.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/osrng.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/randpool.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/aes.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/rijndael.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/fips140.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/hkdf.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/hmac.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/rng.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/sha.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/iterhash.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/hex.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/basecode.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/aes.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/pch.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/filters.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/ccm.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/authenc.h \
+ /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/modes.h \
  /home/monica/capstone-snake-game/src/scenario.h

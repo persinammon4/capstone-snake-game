@@ -541,3 +541,2238 @@ events:
       
       
 ...
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineCompilerId.cmake:1131 (message)"
+      - "/usr/share/cmake-3.28/Modules/CMakeDetermineASMCompiler.cmake:131 (CMAKE_DETERMINE_COMPILER_ID_VENDOR)"
+      - "cryptopp-cmake/CMakeLists.txt:53 (project)"
+    message: |
+      Checking whether the ASM compiler is GNU using "--version" matched "(GNU assembler)|(GCC)|(Free Software Foundation)":
+      cc (Ubuntu 11.4.0-1ubuntu1~22.04) 11.4.0
+      Copyright (C) 2021 Free Software Foundation, Inc.
+      This is free software; see the source for copying conditions.  There is NO
+      warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+      
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:219 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_53146/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_53146.dir/build.make CMakeFiles/cmTC_53146.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_53146.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_53146.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_53146.dir/build.make:78: CMakeFiles/cmTC_53146.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_53146/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:220 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_87747/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_87747.dir/build.make CMakeFiles/cmTC_87747.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_87747.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_87747.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_87747.dir/build.make:78: CMakeFiles/cmTC_87747.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_87747/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:221 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_b34fe/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_b34fe.dir/build.make CMakeFiles/cmTC_b34fe.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_b34fe.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_b34fe.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_b34fe.dir/build.make:78: CMakeFiles/cmTC_b34fe.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_b34fe/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:222 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_cd1ff/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_cd1ff.dir/build.make CMakeFiles/cmTC_cd1ff.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_cd1ff.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_cd1ff.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_cd1ff.dir/build.make:78: CMakeFiles/cmTC_cd1ff.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_cd1ff/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:223 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4e16f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4e16f.dir/build.make CMakeFiles/cmTC_4e16f.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_4e16f.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_4e16f.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_4e16f.dir/build.make:78: CMakeFiles/cmTC_4e16f.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_4e16f/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:224 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_68b4e/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_68b4e.dir/build.make CMakeFiles/cmTC_68b4e.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_68b4e.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_68b4e.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_68b4e.dir/build.make:78: CMakeFiles/cmTC_68b4e.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_68b4e/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:225 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_73324/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_73324.dir/build.make CMakeFiles/cmTC_73324.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_73324.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_73324.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_73324.dir/build.make:78: CMakeFiles/cmTC_73324.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_73324/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:226 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_e512d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_e512d.dir/build.make CMakeFiles/cmTC_e512d.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_e512d.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_e512d.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_e512d.dir/build.make:78: CMakeFiles/cmTC_e512d.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_e512d/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:227 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bdeda/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_bdeda.dir/build.make CMakeFiles/cmTC_bdeda.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_bdeda.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_bdeda.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_bdeda.dir/build.make:78: CMakeFiles/cmTC_bdeda.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_bdeda/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:169 (try_compile)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:474 (check_compile_link_option)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "COMMAND_SUCCESS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_4257b/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_4257b.dir/build.make CMakeFiles/cmTC_4257b.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_4257b.dir/test_x86_sse2.cpp.o
+        /usr/bin/c++   -std=gnu++17 -fPIE   -msse2 -o CMakeFiles/cmTC_4257b.dir/test_x86_sse2.cpp.o -c /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/TestPrograms/test_x86_sse2.cpp
+        Linking CXX executable cmTC_4257b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_4257b.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_4257b.dir/test_x86_sse2.cpp.o -o cmTC_4257b 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:169 (try_compile)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:483 (check_compile_link_option)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "COMMAND_SUCCESS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_6ddb5/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_6ddb5.dir/build.make CMakeFiles/cmTC_6ddb5.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_6ddb5.dir/test_x86_sse3.cpp.o
+        /usr/bin/c++   -std=gnu++17 -fPIE   -msse3 -o CMakeFiles/cmTC_6ddb5.dir/test_x86_sse3.cpp.o -c /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/TestPrograms/test_x86_sse3.cpp
+        Linking CXX executable cmTC_6ddb5
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6ddb5.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_6ddb5.dir/test_x86_sse3.cpp.o -o cmTC_6ddb5 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:169 (try_compile)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:490 (check_compile_link_option)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "COMMAND_SUCCESS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_69a06/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_69a06.dir/build.make CMakeFiles/cmTC_69a06.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_69a06.dir/test_x86_ssse3.cpp.o
+        /usr/bin/c++   -std=gnu++17 -fPIE   -mssse3 -o CMakeFiles/cmTC_69a06.dir/test_x86_ssse3.cpp.o -c /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/TestPrograms/test_x86_ssse3.cpp
+        Linking CXX executable cmTC_69a06
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_69a06.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_69a06.dir/test_x86_ssse3.cpp.o -o cmTC_69a06 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:169 (try_compile)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:509 (check_compile_link_option)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "COMMAND_SUCCESS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_bf91a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_bf91a.dir/build.make CMakeFiles/cmTC_bf91a.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_bf91a.dir/test_x86_sse41.cpp.o
+        /usr/bin/c++   -std=gnu++17 -fPIE   -msse4.1 -o CMakeFiles/cmTC_bf91a.dir/test_x86_sse41.cpp.o -c /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/TestPrograms/test_x86_sse41.cpp
+        Linking CXX executable cmTC_bf91a
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_bf91a.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_bf91a.dir/test_x86_sse41.cpp.o -o cmTC_bf91a 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:169 (try_compile)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:521 (check_compile_link_option)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "COMMAND_SUCCESS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_176d5/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_176d5.dir/build.make CMakeFiles/cmTC_176d5.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_176d5.dir/test_x86_sse42.cpp.o
+        /usr/bin/c++   -std=gnu++17 -fPIE   -msse4.2 -o CMakeFiles/cmTC_176d5.dir/test_x86_sse42.cpp.o -c /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/TestPrograms/test_x86_sse42.cpp
+        Linking CXX executable cmTC_176d5
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_176d5.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_176d5.dir/test_x86_sse42.cpp.o -o cmTC_176d5 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:169 (try_compile)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:532 (check_compile_link_option)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "COMMAND_SUCCESS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_44bb5/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_44bb5.dir/build.make CMakeFiles/cmTC_44bb5.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_44bb5.dir/test_x86_clmul.cpp.o
+        /usr/bin/c++   -std=gnu++17 -fPIE   -mpclmul -o CMakeFiles/cmTC_44bb5.dir/test_x86_clmul.cpp.o -c /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/TestPrograms/test_x86_clmul.cpp
+        Linking CXX executable cmTC_44bb5
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_44bb5.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_44bb5.dir/test_x86_clmul.cpp.o -o cmTC_44bb5 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:169 (try_compile)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:543 (check_compile_link_option)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "COMMAND_SUCCESS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_18f91/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_18f91.dir/build.make CMakeFiles/cmTC_18f91.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_18f91.dir/test_x86_aes.cpp.o
+        /usr/bin/c++   -std=gnu++17 -fPIE   -maes -o CMakeFiles/cmTC_18f91.dir/test_x86_aes.cpp.o -c /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/TestPrograms/test_x86_aes.cpp
+        Linking CXX executable cmTC_18f91
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_18f91.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_18f91.dir/test_x86_aes.cpp.o -o cmTC_18f91 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:169 (try_compile)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:554 (check_compile_link_option)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "COMMAND_SUCCESS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_fb0b8/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_fb0b8.dir/build.make CMakeFiles/cmTC_fb0b8.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_fb0b8.dir/test_x86_avx.cpp.o
+        /usr/bin/c++   -std=gnu++17 -fPIE   -mavx -o CMakeFiles/cmTC_fb0b8.dir/test_x86_avx.cpp.o -c /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/TestPrograms/test_x86_avx.cpp
+        Linking CXX executable cmTC_fb0b8
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb0b8.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_fb0b8.dir/test_x86_avx.cpp.o -o cmTC_fb0b8 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:169 (try_compile)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:563 (check_compile_link_option)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "COMMAND_SUCCESS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f23b1/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f23b1.dir/build.make CMakeFiles/cmTC_f23b1.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_f23b1.dir/test_x86_avx2.cpp.o
+        /usr/bin/c++   -std=gnu++17 -fPIE   -mavx2 -o CMakeFiles/cmTC_f23b1.dir/test_x86_avx2.cpp.o -c /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/TestPrograms/test_x86_avx2.cpp
+        Linking CXX executable cmTC_f23b1
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f23b1.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_f23b1.dir/test_x86_avx2.cpp.o -o cmTC_f23b1 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:169 (try_compile)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:575 (check_compile_link_option)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: ""
+      CMAKE_CXX_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "COMMAND_SUCCESS"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_b6c0f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_b6c0f.dir/build.make CMakeFiles/cmTC_b6c0f.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building CXX object CMakeFiles/cmTC_b6c0f.dir/test_x86_sha.cpp.o
+        /usr/bin/c++   -std=gnu++17 -fPIE   -msha -o CMakeFiles/cmTC_b6c0f.dir/test_x86_sha.cpp.o -c /home/monica/capstone-snake-game/build/cryptopp-cmake/cryptopp/TestPrograms/test_x86_sha.cpp
+        Linking CXX executable cmTC_b6c0f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b6c0f.dir/link.txt --verbose=1
+        /usr/bin/c++ CMakeFiles/cmTC_b6c0f.dir/test_x86_sha.cpp.o -o cmTC_b6c0f 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/Internal/CheckSourceCompiles.cmake:101 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake:52 (cmake_check_source_compiles)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:97 (CHECK_C_SOURCE_COMPILES)"
+      - "/usr/share/cmake-3.28/Modules/FindThreads.cmake:163 (_threads_check_libc)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:1419 (find_package)"
+    checks:
+      - "Performing Test CMAKE_HAVE_LIBC_PTHREAD"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeScratch/TryCompile-UwjpKC"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeScratch/TryCompile-UwjpKC"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake;/home/monica/capstone-snake-game/cryptopp-cmake/cryptopp"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "CMAKE_HAVE_LIBC_PTHREAD"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeScratch/TryCompile-UwjpKC'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_763aa/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_763aa.dir/build.make CMakeFiles/cmTC_763aa.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeScratch/TryCompile-UwjpKC'
+        Building C object CMakeFiles/cmTC_763aa.dir/src.c.o
+        /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD  -fPIE -o CMakeFiles/cmTC_763aa.dir/src.c.o -c /home/monica/capstone-snake-game/build/CMakeFiles/CMakeScratch/TryCompile-UwjpKC/src.c
+        Linking C executable cmTC_763aa
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_763aa.dir/link.txt --verbose=1
+        /usr/bin/cc CMakeFiles/cmTC_763aa.dir/src.c.o -o cmTC_763aa 
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeScratch/TryCompile-UwjpKC'
+        
+      exitCode: 0
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:219 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_36c04/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_36c04.dir/build.make CMakeFiles/cmTC_36c04.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_36c04.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_36c04.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_36c04.dir/build.make:78: CMakeFiles/cmTC_36c04.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_36c04/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:220 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_d58f4/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_d58f4.dir/build.make CMakeFiles/cmTC_d58f4.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_d58f4.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_d58f4.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_d58f4.dir/build.make:78: CMakeFiles/cmTC_d58f4.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_d58f4/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:221 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0b66a/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0b66a.dir/build.make CMakeFiles/cmTC_0b66a.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_0b66a.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_0b66a.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_0b66a.dir/build.make:78: CMakeFiles/cmTC_0b66a.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_0b66a/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:222 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2c53c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2c53c.dir/build.make CMakeFiles/cmTC_2c53c.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_2c53c.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_2c53c.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_2c53c.dir/build.make:78: CMakeFiles/cmTC_2c53c.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_2c53c/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:223 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_80dc9/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_80dc9.dir/build.make CMakeFiles/cmTC_80dc9.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_80dc9.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_80dc9.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_80dc9.dir/build.make:78: CMakeFiles/cmTC_80dc9.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_80dc9/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:224 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5d4db/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5d4db.dir/build.make CMakeFiles/cmTC_5d4db.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_5d4db.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_5d4db.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_5d4db.dir/build.make:78: CMakeFiles/cmTC_5d4db.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_5d4db/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:225 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5c436/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5c436.dir/build.make CMakeFiles/cmTC_5c436.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_5c436.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_5c436.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_5c436.dir/build.make:78: CMakeFiles/cmTC_5c436.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_5c436/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:226 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_180a9/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_180a9.dir/build.make CMakeFiles/cmTC_180a9.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_180a9.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_180a9.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_180a9.dir/build.make:78: CMakeFiles/cmTC_180a9.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_180a9/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:227 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_61721/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_61721.dir/build.make CMakeFiles/cmTC_61721.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_61721.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_61721.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_61721.dir/build.make:78: CMakeFiles/cmTC_61721.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_61721/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:219 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ff503/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ff503.dir/build.make CMakeFiles/cmTC_ff503.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_ff503.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_ff503.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_ff503.dir/build.make:78: CMakeFiles/cmTC_ff503.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_ff503/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:220 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_5c14e/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_5c14e.dir/build.make CMakeFiles/cmTC_5c14e.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_5c14e.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_5c14e.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_5c14e.dir/build.make:78: CMakeFiles/cmTC_5c14e.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_5c14e/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:221 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_dc761/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_dc761.dir/build.make CMakeFiles/cmTC_dc761.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_dc761.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_dc761.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_dc761.dir/build.make:78: CMakeFiles/cmTC_dc761.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_dc761/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:222 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f7d14/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f7d14.dir/build.make CMakeFiles/cmTC_f7d14.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_f7d14.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_f7d14.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_f7d14.dir/build.make:78: CMakeFiles/cmTC_f7d14.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_f7d14/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:223 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ca8f2/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ca8f2.dir/build.make CMakeFiles/cmTC_ca8f2.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_ca8f2.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_ca8f2.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_ca8f2.dir/build.make:78: CMakeFiles/cmTC_ca8f2.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_ca8f2/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:224 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_57793/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_57793.dir/build.make CMakeFiles/cmTC_57793.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_57793.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_57793.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_57793.dir/build.make:78: CMakeFiles/cmTC_57793.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_57793/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:225 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_86c6f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_86c6f.dir/build.make CMakeFiles/cmTC_86c6f.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_86c6f.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_86c6f.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_86c6f.dir/build.make:78: CMakeFiles/cmTC_86c6f.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_86c6f/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:226 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c96fa/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_c96fa.dir/build.make CMakeFiles/cmTC_c96fa.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_c96fa.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_c96fa.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_c96fa.dir/build.make:78: CMakeFiles/cmTC_c96fa.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_c96fa/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:227 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_a6aff/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_a6aff.dir/build.make CMakeFiles/cmTC_a6aff.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_a6aff.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_a6aff.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_a6aff.dir/build.make:78: CMakeFiles/cmTC_a6aff.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_a6aff/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:219 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_2932d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_2932d.dir/build.make CMakeFiles/cmTC_2932d.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_2932d.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_2932d.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_2932d.dir/build.make:78: CMakeFiles/cmTC_2932d.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_2932d/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:220 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_535a6/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_535a6.dir/build.make CMakeFiles/cmTC_535a6.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_535a6.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_535a6.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_535a6.dir/build.make:78: CMakeFiles/cmTC_535a6.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_535a6/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:221 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_358d5/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_358d5.dir/build.make CMakeFiles/cmTC_358d5.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_358d5.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_358d5.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_358d5.dir/build.make:78: CMakeFiles/cmTC_358d5.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_358d5/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:222 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_728e8/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_728e8.dir/build.make CMakeFiles/cmTC_728e8.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_728e8.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_728e8.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_728e8.dir/build.make:78: CMakeFiles/cmTC_728e8.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_728e8/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:223 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_7aa6d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_7aa6d.dir/build.make CMakeFiles/cmTC_7aa6d.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_7aa6d.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_7aa6d.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_7aa6d.dir/build.make:78: CMakeFiles/cmTC_7aa6d.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_7aa6d/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:224 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9ab42/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_9ab42.dir/build.make CMakeFiles/cmTC_9ab42.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_9ab42.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_9ab42.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_9ab42.dir/build.make:78: CMakeFiles/cmTC_9ab42.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_9ab42/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:225 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_af566/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_af566.dir/build.make CMakeFiles/cmTC_af566.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_af566.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_af566.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_af566.dir/build.make:78: CMakeFiles/cmTC_af566.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_af566/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:226 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_49297/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_49297.dir/build.make CMakeFiles/cmTC_49297.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_49297.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_49297.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_49297.dir/build.make:78: CMakeFiles/cmTC_49297.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_49297/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:227 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_9acb2/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_9acb2.dir/build.make CMakeFiles/cmTC_9acb2.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_9acb2.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_9acb2.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_9acb2.dir/build.make:78: CMakeFiles/cmTC_9acb2.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_9acb2/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...
+
+---
+events:
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:219 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_70497/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_70497.dir/build.make CMakeFiles/cmTC_70497.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_70497.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_70497.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_70497.dir/build.make:78: CMakeFiles/cmTC_70497.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_70497/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:220 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ab6a0/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ab6a0.dir/build.make CMakeFiles/cmTC_ab6a0.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_ab6a0.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_ab6a0.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_ab6a0.dir/build.make:78: CMakeFiles/cmTC_ab6a0.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_ab6a0/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:221 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_90d06/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_90d06.dir/build.make CMakeFiles/cmTC_90d06.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_90d06.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_90d06.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_90d06.dir/build.make:78: CMakeFiles/cmTC_90d06.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_90d06/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:222 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_daba7/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_daba7.dir/build.make CMakeFiles/cmTC_daba7.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_daba7.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_daba7.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_daba7.dir/build.make:78: CMakeFiles/cmTC_daba7.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_daba7/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:223 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_70c95/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_70c95.dir/build.make CMakeFiles/cmTC_70c95.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_70c95.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_70c95.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_70c95.dir/build.make:78: CMakeFiles/cmTC_70c95.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_70c95/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:224 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_31d93/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_31d93.dir/build.make CMakeFiles/cmTC_31d93.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_31d93.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_31d93.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_31d93.dir/build.make:78: CMakeFiles/cmTC_31d93.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_31d93/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:225 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_c08ae/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_c08ae.dir/build.make CMakeFiles/cmTC_c08ae.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_c08ae.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_c08ae.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_c08ae.dir/build.make:78: CMakeFiles/cmTC_c08ae.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_c08ae/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:226 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_ce92d/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_ce92d.dir/build.make CMakeFiles/cmTC_ce92d.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_ce92d.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_ce92d.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_ce92d.dir/build.make:78: CMakeFiles/cmTC_ce92d.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_ce92d/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+  -
+    kind: "try_run-v1"
+    backtrace:
+      - "cryptopp-cmake/cmake/TargetArch.cmake:115 (try_run)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:191 (target_architecture)"
+      - "cryptopp-cmake/cryptopp/CMakeLists.txt:227 (check_target_architecture)"
+    directories:
+      source: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+      binary: "/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_MODULE_PATH: "/home/monica/capstone-snake-game/cmake/;/home/monica/capstone-snake-game/cryptopp-cmake/cmake"
+      CMAKE_POSITION_INDEPENDENT_CODE: "1"
+      CMAKE_USER_MAKE_RULES_OVERRIDE: "/home/monica/capstone-snake-game/cryptopp-cmake/cmake/ResetInitialCompilerOptions.cmake"
+    buildResult:
+      variable: "compile_result_unused"
+      cached: true
+      stdout: |
+        Change Dir: '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_0bccf/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_0bccf.dir/build.make CMakeFiles/cmTC_0bccf.dir/build
+        gmake[1]: Entering directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        Building C object CMakeFiles/cmTC_0bccf.dir/arch.c.o
+        /usr/bin/cc   -fPIE -o CMakeFiles/cmTC_0bccf.dir/arch.c.o -c /home/monica/capstone-snake-game/build/arch.c
+        /home/monica/capstone-snake-game/build/arch.c:21:6: error: #error cmake_ARCH x86_64
+           21 |     #error cmake_ARCH x86_64
+              |      ^~~~~
+        /home/monica/capstone-snake-game/build/arch.c:33:2: error: #error cmake_ARCH unknown
+           33 | #error cmake_ARCH unknown
+              |  ^~~~~
+        gmake[1]: *** [CMakeFiles/cmTC_0bccf.dir/build.make:78: CMakeFiles/cmTC_0bccf.dir/arch.c.o] Error 1
+        gmake[1]: Leaving directory '/home/monica/capstone-snake-game/build/CMakeFiles/CMakeTmp'
+        gmake: *** [Makefile:127: cmTC_0bccf/fast] Error 2
+        
+      exitCode: 2
+    runResult:
+      variable: "run_result_unused"
+      cached: true
+...

@@ -64,29 +64,115 @@ CMAKE_BINARY_DIR = /home/monica/capstone-snake-game/build
 
 # The main recursive "all" target.
 all: CMakeFiles/SnakeGame.dir/all
+all: cryptopp-cmake/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
-preinstall:
+preinstall: cryptopp-cmake/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
 clean: CMakeFiles/SnakeGame.dir/clean
+clean: cryptopp-cmake/clean
 .PHONY : clean
+
+#=============================================================================
+# Directory level rules for directory cryptopp-cmake
+
+# Recursive "all" directory target.
+cryptopp-cmake/all: cryptopp-cmake/test/all
+cryptopp-cmake/all: cryptopp-cmake/cryptopp/all
+.PHONY : cryptopp-cmake/all
+
+# Recursive "preinstall" directory target.
+cryptopp-cmake/preinstall: cryptopp-cmake/test/preinstall
+cryptopp-cmake/preinstall: cryptopp-cmake/cryptopp/preinstall
+.PHONY : cryptopp-cmake/preinstall
+
+# Recursive "clean" directory target.
+cryptopp-cmake/clean: cryptopp-cmake/test/clean
+cryptopp-cmake/clean: cryptopp-cmake/cryptopp/clean
+.PHONY : cryptopp-cmake/clean
+
+#=============================================================================
+# Directory level rules for directory cryptopp-cmake/cryptopp
+
+# Recursive "all" directory target.
+cryptopp-cmake/cryptopp/all: cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/all
+cryptopp-cmake/cryptopp/all: cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/all
+.PHONY : cryptopp-cmake/cryptopp/all
+
+# Recursive "preinstall" directory target.
+cryptopp-cmake/cryptopp/preinstall:
+.PHONY : cryptopp-cmake/cryptopp/preinstall
+
+# Recursive "clean" directory target.
+cryptopp-cmake/cryptopp/clean: cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/clean
+cryptopp-cmake/cryptopp/clean: cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/clean
+.PHONY : cryptopp-cmake/cryptopp/clean
+
+#=============================================================================
+# Directory level rules for directory cryptopp-cmake/test
+
+# Recursive "all" directory target.
+cryptopp-cmake/test/all: cryptopp-cmake/test/unit/all
+cryptopp-cmake/test/all: cryptopp-cmake/test/integration/all
+.PHONY : cryptopp-cmake/test/all
+
+# Recursive "preinstall" directory target.
+cryptopp-cmake/test/preinstall: cryptopp-cmake/test/unit/preinstall
+cryptopp-cmake/test/preinstall: cryptopp-cmake/test/integration/preinstall
+.PHONY : cryptopp-cmake/test/preinstall
+
+# Recursive "clean" directory target.
+cryptopp-cmake/test/clean: cryptopp-cmake/test/CMakeFiles/test-verbose.dir/clean
+cryptopp-cmake/test/clean: cryptopp-cmake/test/unit/clean
+cryptopp-cmake/test/clean: cryptopp-cmake/test/integration/clean
+.PHONY : cryptopp-cmake/test/clean
+
+#=============================================================================
+# Directory level rules for directory cryptopp-cmake/test/integration
+
+# Recursive "all" directory target.
+cryptopp-cmake/test/integration/all:
+.PHONY : cryptopp-cmake/test/integration/all
+
+# Recursive "preinstall" directory target.
+cryptopp-cmake/test/integration/preinstall:
+.PHONY : cryptopp-cmake/test/integration/preinstall
+
+# Recursive "clean" directory target.
+cryptopp-cmake/test/integration/clean:
+.PHONY : cryptopp-cmake/test/integration/clean
+
+#=============================================================================
+# Directory level rules for directory cryptopp-cmake/test/unit
+
+# Recursive "all" directory target.
+cryptopp-cmake/test/unit/all:
+.PHONY : cryptopp-cmake/test/unit/all
+
+# Recursive "preinstall" directory target.
+cryptopp-cmake/test/unit/preinstall:
+.PHONY : cryptopp-cmake/test/unit/preinstall
+
+# Recursive "clean" directory target.
+cryptopp-cmake/test/unit/clean:
+.PHONY : cryptopp-cmake/test/unit/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/SnakeGame.dir
 
 # All Build rule for target.
-CMakeFiles/SnakeGame.dir/all:
+CMakeFiles/SnakeGame.dir/all: cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/monica/capstone-snake-game/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target SnakeGame"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/monica/capstone-snake-game/build/CMakeFiles --progress-num=1,2,3 "Built target SnakeGame"
 .PHONY : CMakeFiles/SnakeGame.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/SnakeGame.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/capstone-snake-game/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/capstone-snake-game/build/CMakeFiles 88
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SnakeGame.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/capstone-snake-game/build/CMakeFiles 0
 .PHONY : CMakeFiles/SnakeGame.dir/rule
@@ -99,6 +185,84 @@ SnakeGame: CMakeFiles/SnakeGame.dir/rule
 CMakeFiles/SnakeGame.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SnakeGame.dir/build.make CMakeFiles/SnakeGame.dir/clean
 .PHONY : CMakeFiles/SnakeGame.dir/clean
+
+#=============================================================================
+# Target rules for target cryptopp-cmake/test/CMakeFiles/test-verbose.dir
+
+# All Build rule for target.
+cryptopp-cmake/test/CMakeFiles/test-verbose.dir/all:
+	$(MAKE) $(MAKESILENT) -f cryptopp-cmake/test/CMakeFiles/test-verbose.dir/build.make cryptopp-cmake/test/CMakeFiles/test-verbose.dir/depend
+	$(MAKE) $(MAKESILENT) -f cryptopp-cmake/test/CMakeFiles/test-verbose.dir/build.make cryptopp-cmake/test/CMakeFiles/test-verbose.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/monica/capstone-snake-game/build/CMakeFiles --progress-num= "Built target test-verbose"
+.PHONY : cryptopp-cmake/test/CMakeFiles/test-verbose.dir/all
+
+# Build rule for subdir invocation for target.
+cryptopp-cmake/test/CMakeFiles/test-verbose.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/capstone-snake-game/build/CMakeFiles 0
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cryptopp-cmake/test/CMakeFiles/test-verbose.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/capstone-snake-game/build/CMakeFiles 0
+.PHONY : cryptopp-cmake/test/CMakeFiles/test-verbose.dir/rule
+
+# Convenience name for target.
+test-verbose: cryptopp-cmake/test/CMakeFiles/test-verbose.dir/rule
+.PHONY : test-verbose
+
+# clean rule for target.
+cryptopp-cmake/test/CMakeFiles/test-verbose.dir/clean:
+	$(MAKE) $(MAKESILENT) -f cryptopp-cmake/test/CMakeFiles/test-verbose.dir/build.make cryptopp-cmake/test/CMakeFiles/test-verbose.dir/clean
+.PHONY : cryptopp-cmake/test/CMakeFiles/test-verbose.dir/clean
+
+#=============================================================================
+# Target rules for target cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir
+
+# All Build rule for target.
+cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/all:
+	$(MAKE) $(MAKESILENT) -f cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/build.make cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/depend
+	$(MAKE) $(MAKESILENT) -f cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/build.make cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/monica/capstone-snake-game/build/CMakeFiles --progress-num=16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Built target cryptopp"
+.PHONY : cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/all
+
+# Build rule for subdir invocation for target.
+cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/capstone-snake-game/build/CMakeFiles 85
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/capstone-snake-game/build/CMakeFiles 0
+.PHONY : cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/rule
+
+# Convenience name for target.
+cryptopp: cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/rule
+.PHONY : cryptopp
+
+# clean rule for target.
+cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/clean:
+	$(MAKE) $(MAKESILENT) -f cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/build.make cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/clean
+.PHONY : cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/clean
+
+#=============================================================================
+# Target rules for target cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir
+
+# All Build rule for target.
+cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/all: cryptopp-cmake/cryptopp/CMakeFiles/cryptopp.dir/all
+	$(MAKE) $(MAKESILENT) -f cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/build.make cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/depend
+	$(MAKE) $(MAKESILENT) -f cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/build.make cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/monica/capstone-snake-game/build/CMakeFiles --progress-num=4,5,6,7,8,9,10,11,12,13,14,15 "Built target cryptest"
+.PHONY : cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/all
+
+# Build rule for subdir invocation for target.
+cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/capstone-snake-game/build/CMakeFiles 97
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/capstone-snake-game/build/CMakeFiles 0
+.PHONY : cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/rule
+
+# Convenience name for target.
+cryptest: cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/rule
+.PHONY : cryptest
+
+# clean rule for target.
+cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/clean:
+	$(MAKE) $(MAKESILENT) -f cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/build.make cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/clean
+.PHONY : cryptopp-cmake/cryptopp/CMakeFiles/cryptest.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

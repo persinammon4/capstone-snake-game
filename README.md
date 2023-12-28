@@ -30,8 +30,9 @@ Create own executable by cloning repo.
 ## Testing
 
 This is a freeform game project, so human input and observation is required for testing (not as simple as automatically running a test suite
-from command line). Recording scores and gameplay logic are both based on human input. Reading and writing files can be tested with unit tests,
-but it was faster to visually inspect (this being a personal project, not professional shared amongst a group).
+from command line). Recording scores and gameplay logic are both based on human input. LeaderBoard functions can be tested with unit tests,
+but it was faster to visually inspect (this being a personal project, not professional shared amongst a group). It is possible to write
+a driver going through all the game scenarios and waiting for a human to play the game once a scenario is triggered.
 
 1. In `main.cpp`, pass in the two game mode parameters that you want to test.
 2. To add a new environment (of obstacles and whether to have an AI controlled competitor snake), go to `scenario.h`, write a new `GameEnv[x]` where x is an unused positive integer, and change the order of the method names in the vector to guarantee your function will be used to populate the game. Include an invariant before adding items to Game environment to ensure the new case isn't triggered by a game with the wrong modes.
@@ -44,9 +45,9 @@ but it was faster to visually inspect (this being a personal project, not profes
 - Attempted to replace raw pointers with `weak_ptr`. Ran into an issue where cannot pass in a a weak_ptr of a vector of unique_ptr
 through the constructor of controller, leading to constant compilation failures. Ideally, weak_ptr is better than raw pointer 
 in that it allows for if statements checking for dealloc of original resource (dangling pointer) and makes the distinction
-that this should be an observer pointer more so than a const read-only pointer. During the attempt, it created some points of 
-nonsensical results for if `.lock()` returns false. The program is designed so that it should work even with raw pointers,
-this is useful for if a second person comes and works on it and the project is much larger.
+that this should be an observer pointer more so than a const read-only pointer. During the attempt to implement, it created some points of where
+it is possible for there to be nonsensical results (e.g. if `.lock()` returns false). The program is written so that 
+the raw pointers are not abused, but I guess weak pointers are good for a larger multi-developer, long-standing project.
 
 - One possible extension of this project is to add more computer controlled snakes. This is an idea of what must be done in order to do that.
     - Create a vector of `fake_snakes` owned by `Game`, and pass a pointer to that in to original snake for it to check against all fake snakes in the vector for its collision rules (in `Snake::UpdateBody`) and to all fake snakes so they can check for collisions amongst themselves.
@@ -59,26 +60,41 @@ this is useful for if a second person comes and works on it and the project is m
     - Potential bug with multiple fake snakes: If they reach the food at approximately the same time, they all may self combust when they run into each other (!!).
 
 - Other possible extensions of this project:
-    - Go through and double check if any other places to add `const` and `constexpr`, moves instead of copies based on existing information on [best practice](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines).
+    - Go through and double check if any other places to add `const` and `constexpr`, moves instead of copies based on existing information on [best practice](https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines). Is including `static` whenever possible a best practice?
+    - Look for memory leaks.
     - The locks, smart pointers, and Rule of 5 already create the basis for this, but ensure that there can be either multiple LeaderBoards sharing access to the single source of truth data files, or one static LeaderBoard where multiple instantiations of this game can share a pointer. Other aspects of gameplay do not need to share data between separate instantiations.
     - Create new scenarios or types of obstacles (e.g. vertically moving obstacles).
-    - Add changing colors of obstacles.
+    - Add changing colors of obstacles, idea of how to do it written in another bullet point.
+    - Have multiple `Game` instances with `LeaderBoards` that share the same encrypted files and copy `shared_ptr`
+    resources amongst each other instead of each having their own instance of the file resource. Perhaps implement 
+    the ability to write to the decrypted temp files and then encrypted files with every change of data, and to
+    re-read the encrypted files and then decrypted temp files. This can be done by letting `LeaderBoard` run in
+    a separate thread, using `unique_lock` to lock and unlock the shared data (the encrypted files)
+    every time functions are called (so ability to lock and unlock multiple times is necessary), and somehow avoiding
+    issues with keys and initialization vectors if one LeaderBoard instance has an issue with those two saved files.
+    The end result is that multiple instances of `Game` can be run on different machines with different users,
+    but they all share a global, live updated leaderboard with their standing.
+
 
 - Never ever (ever ever) roll your own encryption (like Geeks4Geeks and other articles/short courses were suggesting):
 https://medium.com/@jmayuresh25/create-a-simple-file-encryption-system-in-c-e3726e0f265b
 Although, with the character based encryption, if you encrypt the whitespaces by introducing a simple shift in characters by one number, surely that's a way to crack the cipher. How I could know that - I read that Caesar cipher was cracked because the letter "e" in English plaintext is very (statistically) frequent.
+
+- In `LeaderBoard.cpp`, file deletion and creation is driven by the constructor and destructor.
 
 - This project was amenable to being solved quickly, because of the separation of concerns already built in (e.g. Renderer only renders a snapshot of abstract objects, imports go in header files, leaderboard is a file writer independent of other parts of the game, snake collision logic is all in one area, abstract object movement is handled inside of the object itself through the Update method, controller just needs directions fed into it allowing for A* to only focus on returning directions instead of handling updating the points themselves, GUI and LeaderBoard can be the last to be implemented).
 
 - `Renderer` and `Controller` don't own any of the class representations e.g. Snake, Obstacle. They just take in references or 
 copies and either draw out a renderering from a `const` object or mutate values within the object. The food is 
 implemented as an `SDL_Point` and not a class, which is perfect, but for some reason it's being passed in as a reference to 
-the `Renderer` instead of another deep copy. I am not sure why the original project creators decided to introduce
+the `Renderer` instead of another copy. I am not sure why the original project creators decided to introduce
 that inconsistency. I may change it later.
 
 - Figured out how to make flashing colored items! Have two `SDL_SetRenderDrawColor`s next to each other and it will effectively be a strobe light!
 
 - Speed mode is 100% solved without deeply touching classes (handled completely in `main.cpp`).
+
+- "The ownership of an object can only be shared with another `shared_ptr` by copy constructing or copy assigning its value to another `shared_ptr`. Constructing a new `shared_ptr` using the raw underlying pointer owned by another `shared_ptr` leads to undefined behavior."
 
 
 ## Notes about A*
@@ -109,12 +125,20 @@ I developed on WSL2.
   * Windows: recommend using [MinGW](http://www.mingw.org/)
 
 * For the Crypto++ Library, installed using `sudo apt-get install libcrypto++-dev libcrypto++-doc libcrypto++-utils`. 
-This would have been much more painful if not on Linux by the way.
+This would have been much more painful if not on Linux by the way. Without a Linux machine or learning to install on
+another computer, only the executable is valuable.
 
+* [NanoGui for SDL](https://github.com/dalerank/nanogui-sdl) was constructed well so just needed to be cloned in and linked through header files.
 
 ## Links
 
 https://web.archive.org/web/20150315102342/http://www.cryptopp.com/fom-serve/cache/79.html
+https://www.cryptopp.com/wiki/Advanced_Encryption_Standard
+
+https://crypto.stackexchange.com/questions/1129/can-cbc-ciphertext-be-decrypted-if-the-key-is-known-but-the-iv-not
+https://stackoverflow.com/questions/75650231/cmake-cant-find-cryptopp-with-find-package
+
+https://www.udacity.com/blog/2021/05/how-to-read-from-a-file-in-cpp.html
 
 https://stackoverflow.com/questions/43114174/convert-a-string-to-std-filesystem-path
 
