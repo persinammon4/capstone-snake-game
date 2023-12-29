@@ -1,3 +1,6 @@
 [submodule "cryptopp-cmake"]
 	path = cryptopp-cmake
 	url = git@github.com:abdes/cryptopp-cmake.git
+[submodule "nanogui-sdl"]
+	path = nanogui-sdl
+	url = git@github.com:dalerank/nanogui-sdl.git

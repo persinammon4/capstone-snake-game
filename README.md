@@ -126,7 +126,7 @@ I developed on WSL2.
 
 * For the Crypto++ Library, installed using `sudo apt-get install libcrypto++-dev libcrypto++-doc libcrypto++-utils`. 
 This would have been much more painful if not on Linux by the way. Without a Linux machine or learning to install on
-another computer, only the executable is valuable.
+another computer, only the executable is valuable. During build, a new submodule/Git repo will be created `build/cryptopp-cmake/cryptopp`.
 
 * [NanoGui for SDL](https://github.com/dalerank/nanogui-sdl) was constructed well so just needed to be cloned in and linked through header files.
 
