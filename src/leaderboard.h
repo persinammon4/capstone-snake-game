@@ -13,16 +13,16 @@
 #include <mutex>
 
 #include <iostream>
-#include <cryptopp/cryptlib.h>
-#include <cryptopp/rijndael.h>
-#include <cryptopp/modes.h>
-#include <cryptopp/files.h>
-#include <cryptopp/osrng.h>
-#include <cryptopp/hex.h>
-#include <cryptopp/aes.h>
-#include <cryptopp/pch.h>
-#include <cryptopp/filters.h>
-#include <cryptopp/ccm.h>
+#include <../cryptopp/cryptlib.h>
+#include <../cryptopp/rijndael.h>
+#include <../cryptopp/modes.h>
+#include <../cryptopp/files.h>
+#include <../cryptopp/osrng.h>
+#include <../cryptopp/hex.h>
+#include <../cryptopp/aes.h>
+#include <../cryptopp/pch.h>
+#include <../cryptopp/filters.h>
+#include <../cryptopp/ccm.h>
 
 using namespace CryptoPP;
 

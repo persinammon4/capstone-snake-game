@@ -1,3 +1,0 @@
-/home/monica/capstone-snake-game/cmake/CMakeFiles/SnakeGame.dir
-/home/monica/capstone-snake-game/cmake/CMakeFiles/edit_cache.dir
-/home/monica/capstone-snake-game/cmake/CMakeFiles/rebuild_cache.dir

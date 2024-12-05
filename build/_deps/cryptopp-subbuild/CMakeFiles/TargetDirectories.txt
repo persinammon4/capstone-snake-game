@@ -1,3 +1,0 @@
-/home/monica/capstone-snake-game/build/_deps/cryptopp-subbuild/CMakeFiles/cryptopp-populate.dir
-/home/monica/capstone-snake-game/build/_deps/cryptopp-subbuild/CMakeFiles/edit_cache.dir
-/home/monica/capstone-snake-game/build/_deps/cryptopp-subbuild/CMakeFiles/rebuild_cache.dir

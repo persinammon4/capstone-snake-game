@@ -14,7 +14,7 @@ set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/")
 find_package(SDL2 REQUIRED)
 include_directories(${SDL2_INCLUDE_DIRS} src)
 
-add_subdirectory(cryptopp-cmake)
+# add_subdirectory(cryptopp-cmake)
 # Added to get the GUI going
 # Required libraries for linking against nngui (all targets)
 # set(NNGUI_EXTRA_LIBS "")

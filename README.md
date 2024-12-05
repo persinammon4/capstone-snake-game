@@ -26,6 +26,16 @@ Create own executable by cloning repo.
 3. Compile `cd build && cmake .. && make`.
 4. Run `./SnakeGame`
 
+Ran into issues when switching between computers.
+
+Change these in Makefile:
+```
+# The top-level source directory on which CMake was run.
+CMAKE_SOURCE_DIR = location of game top level directory
+
+# The top-level build directory on which CMake was run.
+CMAKE_BINARY_DIR = location of game top level directory/build
+```
 
 ## Testing
 
